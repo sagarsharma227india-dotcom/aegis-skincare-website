@@ -63,7 +63,7 @@ const STORAGE_KEYS = {
 export const FounderPortraitFrame: React.FC<FounderPortraitFrameProps> = ({
   initialPortraitId = 'architectural-lead',
   variant = 'large',
-  showControls = true,
+  showControls = false,
   onSelectPortrait
 }) => {
   // Read Initial Values from LocalStorage for 100% Persistent Memory
@@ -636,11 +636,11 @@ export const FounderPortraitFrame: React.FC<FounderPortraitFrameProps> = ({
 
       {/* Main High-End Editorial Portrait Frame */}
       <div
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
+        onDragOver={showControls ? handleDragOver : undefined}
+        onDragLeave={showControls ? handleDragLeave : undefined}
+        onDrop={showControls ? handleDrop : undefined}
         className={`relative group overflow-hidden bg-[#1D201D] border rounded-[4px] shadow-md transition-all ${
-          isDragging
+          isDragging && showControls
             ? 'border-[#E8E1D6] ring-2 ring-[#4B5848] scale-[1.01]'
             : 'border-[#3E453D]'
         }`}
@@ -670,38 +670,35 @@ export const FounderPortraitFrame: React.FC<FounderPortraitFrameProps> = ({
               {customImage ? 'ARIFA NAVED · FORMULATION LEAD' : activePortrait.tag}
             </span>
           </div>
+        </div>
 
-          <div className="hidden sm:flex items-center gap-1 px-2 py-0.5 bg-[#4B5848]/90 text-[#F8F5EF] text-[8px] font-mono-spec tracking-wider uppercase rounded-[2px] border border-[#5E6D5B]">
-            <Sparkles className="w-2.5 h-2.5 text-[#E8E1D6]" />
-            <span>{beautyGrade.replace('-', ' ').toUpperCase()}</span>
+        {/* Top Right Quick Actions (Only in Edit Mode) */}
+        {showControls && (
+          <div className="absolute top-3 right-3 z-20 flex items-center gap-1.5">
+            {/* Hold to compare button */}
+            <button
+              type="button"
+              onMouseDown={() => setShowBefore(true)}
+              onMouseUp={() => setShowBefore(false)}
+              onTouchStart={() => setShowBefore(true)}
+              onTouchEnd={() => setShowBefore(false)}
+              className="px-2.5 py-1 bg-[#20231F]/85 hover:bg-[#20231F] text-[#CFC8BC] hover:text-[#F8F5EF] backdrop-blur-xs border border-[#3E453D] rounded-[2px] text-[8px] font-mono-spec tracking-wider uppercase transition-colors select-none"
+              title="Press and hold to compare with unedited photo"
+            >
+              <Eye className="w-2.5 h-2.5 inline mr-1" />
+              <span>{showBefore ? 'RAW' : 'COMPARE'}</span>
+            </button>
+
+            {/* Quick File Select Button */}
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              className="px-2.5 py-1 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] backdrop-blur-xs border border-[#5E6D5B] rounded-[2px] text-[9px] font-mono-spec tracking-wider uppercase flex items-center gap-1 transition-colors shadow-xs"
+            >
+              <Camera className="w-3 h-3" />
+              <span>{customImage ? 'CHANGE' : 'UPLOAD'}</span>
+            </button>
           </div>
-        </div>
-
-        {/* Top Right Quick Actions */}
-        <div className="absolute top-3 right-3 z-20 flex items-center gap-1.5">
-          {/* Hold to compare button */}
-          <button
-            type="button"
-            onMouseDown={() => setShowBefore(true)}
-            onMouseUp={() => setShowBefore(false)}
-            onTouchStart={() => setShowBefore(true)}
-            onTouchEnd={() => setShowBefore(false)}
-            className="px-2.5 py-1 bg-[#20231F]/85 hover:bg-[#20231F] text-[#CFC8BC] hover:text-[#F8F5EF] backdrop-blur-xs border border-[#3E453D] rounded-[2px] text-[8px] font-mono-spec tracking-wider uppercase transition-colors select-none"
-            title="Press and hold to compare with unedited photo"
-          >
-            <Eye className="w-2.5 h-2.5 inline mr-1" />
-            <span>{showBefore ? 'RAW' : 'COMPARE'}</span>
-          </button>
-
-          {/* Quick File Select Button */}
-          <button
-            onClick={() => fileInputRef.current?.click()}
-            className="px-2.5 py-1 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] backdrop-blur-xs border border-[#5E6D5B] rounded-[2px] text-[9px] font-mono-spec tracking-wider uppercase flex items-center gap-1 transition-colors shadow-xs"
-          >
-            <Camera className="w-3 h-3" />
-            <span>{customImage ? 'CHANGE' : 'UPLOAD'}</span>
-          </button>
-        </div>
+        )}
 
         {/* Feedback Banner */}
         {feedbackMessage && (
@@ -714,7 +711,7 @@ export const FounderPortraitFrame: React.FC<FounderPortraitFrameProps> = ({
         )}
 
         {/* Drag Over Hint */}
-        {isDragging && (
+        {isDragging && showControls && (
           <div className="absolute inset-0 z-30 bg-[#20231F]/85 backdrop-blur-xs flex flex-col items-center justify-center p-6 text-center text-[#F8F5EF] space-y-2">
             <Upload className="w-8 h-8 text-[#E8E1D6] animate-bounce" />
             <p className="font-serif-editorial text-lg">Drop your photo here</p>
@@ -726,8 +723,10 @@ export const FounderPortraitFrame: React.FC<FounderPortraitFrameProps> = ({
 
         {/* Image Display Frame with Maintained Aspect Ratio and Retouch Layer */}
         <div
-          onClick={() => setShowEditorTools(!showEditorTools)}
-          className={`w-full overflow-hidden flex items-center justify-center bg-[#151715] cursor-pointer relative ${getAspectClass()}`}
+          onClick={showControls ? () => setShowEditorTools(!showEditorTools) : undefined}
+          className={`w-full overflow-hidden flex items-center justify-center bg-[#151715] relative ${getAspectClass()} ${
+            showControls ? 'cursor-pointer' : 'cursor-default'
+          }`}
         >
           {/* Main Retouched Image */}
           <img
@@ -799,109 +798,113 @@ export const FounderPortraitFrame: React.FC<FounderPortraitFrameProps> = ({
         </div>
       </div>
 
-      {/* QUICK BEAUTY & CLARITY ACTION STRIP */}
-      <div className="p-3.5 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[4px] flex flex-wrap items-center justify-between gap-3 text-left">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-[#4B5848] text-[#F8F5EF] flex items-center justify-center shrink-0">
-            <Sparkles className="w-4 h-4 text-[#E8E1D6]" />
-          </div>
-          <div className="text-[11px] leading-tight">
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-[#20231F] font-serif-editorial text-sm">
-                Luminous Beauty & Clarity Engine
-              </span>
-              <span className="text-[9px] font-mono-spec text-[#4B5848] bg-[#E8E1D6] px-1.5 py-0.5 rounded-[2px] font-bold">
-                PERMANENT STORAGE ON
+      {/* QUICK BEAUTY & CLARITY ACTION STRIP (Edit Mode Only) */}
+      {showControls && (
+        <div className="p-3.5 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[4px] flex flex-wrap items-center justify-between gap-3 text-left">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-full bg-[#4B5848] text-[#F8F5EF] flex items-center justify-center shrink-0">
+              <Sparkles className="w-4 h-4 text-[#E8E1D6]" />
+            </div>
+            <div className="text-[11px] leading-tight">
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-[#20231F] font-serif-editorial text-sm">
+                  Luminous Beauty & Clarity Engine
+                </span>
+                <span className="text-[9px] font-mono-spec text-[#4B5848] bg-[#E8E1D6] px-1.5 py-0.5 rounded-[2px] font-bold">
+                  PERMANENT STORAGE ON
+                </span>
+              </div>
+              <span className="text-[#5C625B] text-[10px] font-mono-spec">
+                Radiant Skin Tone · Eye & Hair Clarity · Auto-Persisted to Browser
               </span>
             </div>
-            <span className="text-[#5C625B] text-[10px] font-mono-spec">
-              Radiant Skin Tone · Eye & Hair Clarity · Auto-Persisted to Browser
-            </span>
+          </div>
+
+          {/* 1-Click Beauty Quick Actions */}
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={applyMasterBeautyGlow}
+              className="px-3 py-1.5 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] text-[10px] font-mono-spec uppercase rounded-[2px] font-bold flex items-center gap-1.5 transition-colors shadow-xs"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-[#E8E1D6]" />
+              <span>Master Glow</span>
+            </button>
+
+            <button
+              onClick={applyUltraClarity}
+              className="px-2.5 py-1.5 bg-[#F8F5EF] hover:bg-[#E8E1D6] border border-[#CFC8BC] text-[#20231F] text-[10px] font-mono-spec uppercase rounded-[2px] font-semibold flex items-center gap-1 transition-colors"
+            >
+              <Aperture className="w-3 h-3 text-[#4B5848]" />
+              <span>Ultra Clarity</span>
+            </button>
+
+            <button
+              onClick={applySunlitChic}
+              className="px-2.5 py-1.5 bg-[#F8F5EF] hover:bg-[#E8E1D6] border border-[#CFC8BC] text-[#20231F] text-[10px] font-mono-spec uppercase rounded-[2px] font-semibold flex items-center gap-1 transition-colors"
+            >
+              <Sun className="w-3 h-3 text-[#4B5848]" />
+              <span>Sunlit Chic</span>
+            </button>
           </div>
         </div>
+      )}
 
-        {/* 1-Click Beauty Quick Actions */}
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            onClick={applyMasterBeautyGlow}
-            className="px-3 py-1.5 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] text-[10px] font-mono-spec uppercase rounded-[2px] font-bold flex items-center gap-1.5 transition-colors shadow-xs"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#E8E1D6]" />
-            <span>Master Glow</span>
-          </button>
-
-          <button
-            onClick={applyUltraClarity}
-            className="px-2.5 py-1.5 bg-[#F8F5EF] hover:bg-[#E8E1D6] border border-[#CFC8BC] text-[#20231F] text-[10px] font-mono-spec uppercase rounded-[2px] font-semibold flex items-center gap-1 transition-colors"
-          >
-            <Aperture className="w-3 h-3 text-[#4B5848]" />
-            <span>Ultra Clarity</span>
-          </button>
-
-          <button
-            onClick={applySunlitChic}
-            className="px-2.5 py-1.5 bg-[#F8F5EF] hover:bg-[#E8E1D6] border border-[#CFC8BC] text-[#20231F] text-[10px] font-mono-spec uppercase rounded-[2px] font-semibold flex items-center gap-1 transition-colors"
-          >
-            <Sun className="w-3 h-3 text-[#4B5848]" />
-            <span>Sunlit Chic</span>
-          </button>
-        </div>
-      </div>
-
-      {/* DEDICATED FILE INPUT FIELD */}
-      <div className="p-4 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-3 text-left shadow-xs">
-        <div className="flex items-center justify-between border-b border-[#CFC8BC] pb-2">
-          <div className="flex items-center gap-2">
-            <FileImage className="w-4 h-4 text-[#4B5848]" />
-            <span className="text-xs font-mono-spec font-bold text-[#20231F] uppercase tracking-wider">
-              REPLACE PROFILE IMAGE (LOCAL FILE)
-            </span>
+      {/* DEDICATED FILE INPUT FIELD (Edit Mode Only) */}
+      {showControls && (
+        <div className="p-4 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-3 text-left shadow-xs">
+          <div className="flex items-center justify-between border-b border-[#CFC8BC] pb-2">
+            <div className="flex items-center gap-2">
+              <FileImage className="w-4 h-4 text-[#4B5848]" />
+              <span className="text-xs font-mono-spec font-bold text-[#20231F] uppercase tracking-wider">
+                REPLACE PROFILE IMAGE (LOCAL FILE)
+              </span>
+            </div>
+            {customImage && (
+              <span className="text-[9px] font-mono-spec text-[#4B5848] font-semibold flex items-center gap-1">
+                <CheckCircle2 className="w-3 h-3" /> ACTIVE LOCAL PHOTO (SAVED)
+              </span>
+            )}
           </div>
-          {customImage && (
-            <span className="text-[9px] font-mono-spec text-[#4B5848] font-semibold flex items-center gap-1">
-              <CheckCircle2 className="w-3 h-3" /> ACTIVE LOCAL PHOTO (SAVED)
-            </span>
+
+          <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+            <div className="relative flex-1">
+              <input
+                ref={visibleFileInputRef}
+                id="arifa-local-file-input"
+                type="file"
+                accept="image/png, image/jpeg, image/webp, image/avif, image/*"
+                onChange={handleImageUpload}
+                className="w-full text-xs font-mono-spec text-[#20231F] file:mr-3 file:py-2 file:px-3 file:rounded-[2px] file:border-0 file:text-[11px] file:font-mono-spec file:font-semibold file:bg-[#4B5848] file:text-[#F8F5EF] hover:file:bg-[#394536] file:cursor-pointer cursor-pointer bg-[#F2EEE7] p-1.5 border border-[#CFC8BC] rounded-[3px]"
+              />
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={() => setShowEditorTools(!showEditorTools)}
+                className="px-3.5 py-2 bg-[#F2EEE7] hover:bg-[#E8E1D6] border border-[#CFC8BC] text-[#20231F] text-[10px] font-mono-spec uppercase rounded-[2px] font-semibold flex items-center gap-1.5 transition-colors"
+              >
+                <SlidersHorizontal className="w-3.5 h-3.5 text-[#4B5848]" />
+                <span>{showEditorTools ? 'Hide Sliders' : 'Fine-Tune Sliders'}</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Selected File Details */}
+          {fileName && (
+            <div className="text-[10px] font-mono-spec text-[#5C625B] flex flex-wrap items-center justify-between gap-2 pt-1">
+              <span>
+                File: <strong className="text-[#20231F]">{fileName}</strong> ({fileSize})
+              </span>
+              <button
+                onClick={handleResetCustomImage}
+                className="text-[#4B5848] hover:underline flex items-center gap-1"
+              >
+                <RefreshCw className="w-2.5 h-2.5" /> Reset to Stock Default
+              </button>
+            </div>
           )}
         </div>
-
-        <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
-          <div className="relative flex-1">
-            <input
-              ref={visibleFileInputRef}
-              id="arifa-local-file-input"
-              type="file"
-              accept="image/png, image/jpeg, image/webp, image/avif, image/*"
-              onChange={handleImageUpload}
-              className="w-full text-xs font-mono-spec text-[#20231F] file:mr-3 file:py-2 file:px-3 file:rounded-[2px] file:border-0 file:text-[11px] file:font-mono-spec file:font-semibold file:bg-[#4B5848] file:text-[#F8F5EF] hover:file:bg-[#394536] file:cursor-pointer cursor-pointer bg-[#F2EEE7] p-1.5 border border-[#CFC8BC] rounded-[3px]"
-            />
-          </div>
-
-          <div className="flex items-center gap-2 shrink-0">
-            <button
-              onClick={() => setShowEditorTools(!showEditorTools)}
-              className="px-3.5 py-2 bg-[#F2EEE7] hover:bg-[#E8E1D6] border border-[#CFC8BC] text-[#20231F] text-[10px] font-mono-spec uppercase rounded-[2px] font-semibold flex items-center gap-1.5 transition-colors"
-            >
-              <SlidersHorizontal className="w-3.5 h-3.5 text-[#4B5848]" />
-              <span>{showEditorTools ? 'Hide Sliders' : 'Fine-Tune Sliders'}</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Selected File Details */}
-        {fileName && (
-          <div className="text-[10px] font-mono-spec text-[#5C625B] flex flex-wrap items-center justify-between gap-2 pt-1">
-            <span>
-              File: <strong className="text-[#20231F]">{fileName}</strong> ({fileSize})
-            </span>
-            <button
-              onClick={handleResetCustomImage}
-              className="text-[#4B5848] hover:underline flex items-center gap-1"
-            >
-              <RefreshCw className="w-2.5 h-2.5" /> Reset to Stock Default
-            </button>
-          </div>
-        )}
-      </div>
+      )}
 
       {/* COMPREHENSIVE BEAUTY & CLARITY RETOUCH SUITE */}
       {showControls && showEditorTools && (

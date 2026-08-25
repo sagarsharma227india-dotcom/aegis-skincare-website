@@ -55,7 +55,7 @@ export const ArifaNavedView: React.FC<ArifaNavedViewProps> = ({ setCurrentView }
                   <FounderPortraitFrame
                     initialPortraitId="architectural-lead"
                     variant="hero"
-                    showControls={true}
+                    showControls={false}
                     onSelectPortrait={(portrait) => setActivePortrait(portrait)}
                   />
                 </div>
