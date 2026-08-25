@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Warm Mineral Palette */
+    --color-bg-primary: #E8E1D6;       /* Warm Mineral */
+    --color-bg-secondary: #F2EEE7;     /* Soft Limestone */
+    --color-surface: #F8F5EF;          /* Warm Ivory Card */
+    --color-text-primary: #20231F;     /* Deep Charcoal */
+    --color-text-muted: #5C625B;       /* Muted Charcoal */
+    --color-accent-olive: #4B5848;     /* Deep Olive */
+    --color-accent-clay: #9A806C;      /* Muted Clay */
+    --color-accent-mineral: #A9B7B7;   /* Mineral Blue Grey */
+    --color-border: #CFC8BC;           /* Soft Stone Border */
+    --color-dark-section: #20231F;     /* Contrast Charcoal */
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-serif-editorial {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+}
+
+.font-mono-spec {
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+/* Subtle Mineral Surface Styles */
+.bg-mineral {
+  background-color: #E8E1D6;
+}
+
+.bg-limestone {
+  background-color: #F2EEE7;
+}
+
+.bg-ivory {
+  background-color: #F8F5EF;
+}
+
+.bg-charcoal {
+  background-color: #20231F;
+}
+
+.bg-olive {
+  background-color: #4B5848;
+}
+
+.text-charcoal {
+  color: #20231F;
+}
+
+.text-olive {
+  color: #4B5848;
+}
+
+.text-clay {
+  color: #9A806C;
+}
+
+.border-stone-custom {
+  border-color: #CFC8BC;
+}
+
+/* Luxury button styling */
+.btn-primary-olive {
+  background-color: #4B5848;
+  color: #F8F5EF;
+  transition: all 0.2s ease-in-out;
+}
+.btn-primary-olive:hover {
+  background-color: #394536;
+}
+
+.btn-secondary-stone {
+  background-color: transparent;
+  border: 1px solid #CFC8BC;
+  color: #20231F;
+  transition: all 0.2s ease-in-out;
+}
+.btn-secondary-stone:hover {
+  background-color: rgba(207, 200, 188, 0.25);
+  border-color: #20231F;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #E8E1D6;
+}
+::-webkit-scrollbar-thumb {
+  background: #CFC8BC;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9A806C;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "AEGIS MEN Skincare",
+  "description": "High-performance clinical men's skincare platform featuring formulation catalog, product detail, interactive routine diagnostic quiz, lab science manifesto, and seamless bag checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
