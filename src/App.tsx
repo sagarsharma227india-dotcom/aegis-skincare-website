@@ -15,7 +15,6 @@ import { IngredientsView } from './components/IngredientsView';
 import { ScienceView } from './components/ScienceView';
 import { JournalView } from './components/JournalView';
 import { AboutView } from './components/AboutView';
-import { ArifaNavedView } from './components/ArifaNavedView';
 import { ProductDetailModal } from './components/ProductDetailModal';
 import { CartDrawer } from './components/CartDrawer';
 import { WishlistDrawer } from './components/WishlistDrawer';
@@ -23,6 +22,7 @@ import { SearchModal } from './components/SearchModal';
 import { CheckoutModal } from './components/CheckoutModal';
 import { Footer } from './components/Footer';
 import { Toast } from './components/Toast';
+import { AegisAIChatbot } from './components/AegisAIChatbot';
 import { Sparkles, ArrowRight, Sun, Moon, Clock } from 'lucide-react';
 
 export function App() {
@@ -113,6 +113,11 @@ export function App() {
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
+      if (hash === 'arifa-naved') {
+        setCurrentView('about');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
       const validViews: NavView[] = [
         'home',
         'shop',
@@ -121,8 +126,7 @@ export function App() {
         'ingredients',
         'science',
         'journal',
-        'about',
-        'arifa-naved'
+        'about'
       ];
       if (validViews.includes(hash as NavView)) {
         setCurrentView(hash as NavView);
@@ -439,10 +443,6 @@ export function App() {
         {currentView === 'about' && (
           <AboutView setCurrentView={changeView} />
         )}
-
-        {currentView === 'arifa-naved' && (
-          <ArifaNavedView setCurrentView={changeView} />
-        )}
       </main>
 
       {/* Luxury Editorial Footer */}
@@ -505,6 +505,13 @@ export function App() {
 
       {/* Global Toast Notification */}
       <Toast message={toastMessage} onClose={() => setToastMessage(null)} />
+
+      {/* AEGIS AI Skincare Guide Chatbot */}
+      <AegisAIChatbot
+        onSelectProduct={handleSelectProduct}
+        onAddToCart={handleAddToCart}
+        onOpenQuiz={() => changeView('quiz')}
+      />
     </div>
   );
 }

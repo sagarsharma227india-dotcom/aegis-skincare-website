@@ -159,17 +159,6 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentView }) => {
                   About AEGIS
                 </button>
               </li>
-              <li>
-                <button
-                  onClick={() => {
-                    setCurrentView('arifa-naved');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="hover:text-[#F8F5EF] transition-colors"
-                >
-                  Arifa Naved (Lead)
-                </button>
-              </li>
             </ul>
           </div>
 

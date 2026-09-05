@@ -168,6 +168,31 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         tag: 'Direct Actives'
       }
     ]
+  },
+  {
+    id: 7,
+    title: 'What is your preferred daily routine structure?',
+    subtitle: 'We calibrate our recommendations to fit your daily schedule and personal discipline.',
+    options: [
+      {
+        id: 'pref-essential',
+        label: 'The Essential 3-Step Protocol (Cleanse, Treat/Repair, Defend)',
+        description: 'Under 3 minutes total daily commitment. The ideal balance of clinical efficacy and speed.',
+        tag: 'Recommended (3-Min)'
+      },
+      {
+        id: 'pref-minimal',
+        label: 'Ultra-Minimal 2-Step Baseline (Cleanse + Defend / Repair)',
+        description: 'Fastest possible protocol for men on tight morning schedules.',
+        tag: 'Ultra-Fast (90s)'
+      },
+      {
+        id: 'pref-complete',
+        label: 'The Comprehensive 4-Piece System (Cleanse, Treat, Restore, Defend)',
+        description: 'Full active protocol targeting both deep congestion and post-shave barrier recovery.',
+        tag: 'Complete System'
+      }
+    ]
   }
 ];
 

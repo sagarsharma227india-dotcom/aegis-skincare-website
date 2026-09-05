@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavView } from '../types';
-import { ArrowRight, Shield, Dna, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { AegisMonogram } from './AegisMonogram';
-import { FounderPortraitFrame } from './FounderPortraitFrame';
 
 interface AboutViewProps {
   setCurrentView: (view: NavView) => void;
@@ -71,51 +70,30 @@ export const AboutView: React.FC<AboutViewProps> = ({ setCurrentView }) => {
           </div>
         </div>
 
-        {/* The People Behind The Formula: Arifa Naved Banner */}
-        <div className="bg-[#20231F] text-[#F8F5EF] border border-[#343A33] rounded-[4px] p-8 sm:p-12 space-y-8">
-          <div className="space-y-2">
-            <span className="text-[10px] font-mono-spec text-[#A9B7B7] font-bold uppercase tracking-widest block">
-              THE PEOPLE BEHIND THE FORMULA
+        {/* Formulation Architecture Callout */}
+        <div className="p-8 sm:p-10 bg-[#20231F] text-[#F8F5EF] border border-[#343A33] rounded-[4px] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
+          <div className="space-y-1.5 text-left">
+            <span className="text-[10px] font-mono-spec text-[#A9B7B7] uppercase tracking-widest block">
+              EVIDENCE-INFORMED DAILY PROTOCOLS
             </span>
-            <h2 className="text-2xl sm:text-4xl font-serif-editorial text-[#F8F5EF]">
-              ARIFA NAVED
+            <h2 className="text-xl sm:text-2xl font-serif-editorial text-[#F8F5EF]">
+              Engineered for Men's Epidermal Barrier
             </h2>
-            <p className="text-xs font-mono-spec text-[#A9B7B7]">
-              Senior Formulation & Design Lead · Delhi, India
+            <p className="text-xs text-[#CFC8BC]">
+              100% INCI transparency, physiological pH 5.5 balance, and zero synthetic fragrance.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-4">
-              <FounderPortraitFrame
-                initialPortraitId="architectural-lead"
-                variant="compact"
-                showControls={false}
-              />
-            </div>
-
-            <div className="lg:col-span-8 space-y-4">
-              <blockquote className="font-serif-editorial text-xl sm:text-2xl italic text-[#F8F5EF] leading-snug">
-                "Every formula should have a reason to exist. If an ingredient does not actively defend the barrier or correct a specific pathway, it doesn't enter the bottle."
-              </blockquote>
-
-              <p className="text-xs sm:text-sm text-[#CFC8BC] leading-relaxed">
-                With over a decade of cosmetic formulation experience specializing in lipid bilayer chemistry and active ingredient stability, Arifa directs the scientific architecture behind all AEGIS protocols.
-              </p>
-
-              <button
-                id="meet-arifa-btn"
-                onClick={() => {
-                  setCurrentView('arifa-naved');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="px-6 py-3 bg-[#F8F5EF] text-[#20231F] hover:bg-[#E8E1D6] font-mono-spec text-xs uppercase tracking-wider font-semibold rounded-[3px] inline-flex items-center gap-2 transition-colors"
-              >
-                <span>MEET ARIFA & EXPLORE HER LAB ARCHIVE</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
+          <button
+            id="about-explore-shop-btn"
+            onClick={() => {
+              setCurrentView('shop');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="w-full sm:w-auto px-6 py-3.5 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] text-xs font-mono-spec uppercase tracking-widest font-semibold rounded-[3px] flex items-center justify-center gap-2 transition-colors shrink-0"
+          >
+            <span>Explore All Formulations</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </div>

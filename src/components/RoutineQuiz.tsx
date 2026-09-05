@@ -19,13 +19,30 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
   onShowToast
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [answers, setAnswers] = useState<Record<number, string>>(() => {
+    try {
+      const saved = localStorage.getItem('aegis_quiz_answers');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
   const [isCalculating, setIsCalculating] = useState(false);
-  const [diagnosis, setDiagnosis] = useState<QuizDiagnosis | null>(null);
+  const [diagnosis, setDiagnosis] = useState<QuizDiagnosis | null>(() => {
+    try {
+      const saved = localStorage.getItem('aegis_quiz_diagnosis');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
 
   const handleSelectOption = (questionId: number, optionId: string) => {
     const updatedAnswers = { ...answers, [questionId]: optionId };
     setAnswers(updatedAnswers);
+    try {
+      localStorage.setItem('aegis_quiz_answers', JSON.stringify(updatedAnswers));
+    } catch {}
 
     if (currentStep < QUIZ_QUESTIONS.length - 1) {
       setCurrentStep(currentStep + 1);
@@ -35,8 +52,11 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
       setTimeout(() => {
         const result = calculateQuizResults(updatedAnswers);
         setDiagnosis(result);
+        try {
+          localStorage.setItem('aegis_quiz_diagnosis', JSON.stringify(result));
+        } catch {}
         setIsCalculating(false);
-      }, 900);
+      }, 800);
     }
   };
 
@@ -44,6 +64,10 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
     setDiagnosis(null);
     setCurrentStep(0);
     setAnswers({});
+    try {
+      localStorage.removeItem('aegis_quiz_diagnosis');
+      localStorage.removeItem('aegis_quiz_answers');
+    } catch {}
   };
 
   const recommendedProducts = diagnosis
@@ -97,7 +121,7 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-[#CFC8BC] gap-3">
                 <div className="space-y-1">
                   <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase tracking-widest block">
-                    YOUR DIAGNOSIS SUMMARY
+                    BASED ON YOUR ANSWERS · CUSTOM RECOMMENDATION
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-serif-editorial font-medium text-[#20231F]">
                     {diagnosis.skinType}
@@ -203,7 +227,7 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
             <div className="space-y-4 text-left">
               <div className="flex items-center justify-between">
                 <h3 className="font-serif-editorial text-xl font-medium text-[#20231F]">
-                  Your Prescribed Regimen ({recommendedProducts.length} Steps)
+                  Your Recommended Regimen ({recommendedProducts.length} Formulations)
                 </h3>
                 <button
                   id="quiz-retake-btn"
@@ -232,6 +256,9 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
                         {prod.stepNumber}
                       </span>
                       <h4 className="text-xs font-bold text-[#20231F] leading-snug">{prod.name}</h4>
+                      <p className="text-[10px] text-[#5C625B] leading-relaxed">
+                        {prod.whyItExists ? prod.whyItExists.slice(0, 95) + '...' : prod.shortDescription}
+                      </p>
                       <span className="font-mono-spec font-semibold text-xs text-[#20231F] block">₹{prod.price}</span>
                     </div>
 
@@ -249,10 +276,10 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
               <div className="p-6 bg-[#20231F] text-[#F8F5EF] border border-[#3E453D] rounded-[4px] flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="space-y-0.5 text-left">
                   <span className="text-[9px] font-mono-spec text-[#A9B7B7] uppercase tracking-widest block">
-                    PRESCRIPTION SYSTEM
+                    COMPLETE RECOMMENDED SYSTEM
                   </span>
                   <div className="text-lg font-serif-editorial text-[#F8F5EF]">
-                    Get Your Complete Custom System · ₹{finalPrice}{' '}
+                    Complete Routine Protocol · ₹{finalPrice}{' '}
                     {discountAmount > 0 && (
                       <span className="text-xs text-[#A9B7B7] line-through font-mono-spec font-normal">₹{totalPrice}</span>
                     )}
@@ -262,18 +289,18 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
                   id="quiz-add-all-btn"
                   onClick={() => {
                     onAddMultipleToCart(recommendedProducts);
-                    onShowToast('Prescribed routine added to bag with routine savings.');
+                    onShowToast('Recommended routine added to bag with routine savings.');
                   }}
                   className="w-full sm:w-auto px-6 py-3 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] text-xs font-mono-spec uppercase tracking-widest font-semibold rounded-[3px] flex items-center justify-center gap-2 transition-colors"
                 >
                   <ShoppingBag className="w-4 h-4" />
-                  <span>Add Prescribed Routine to Bag</span>
+                  <span>Add Complete Routine to Bag</span>
                 </button>
               </div>
 
               {/* Disclaimer */}
               <p className="text-[11px] font-mono-spec text-[#5C625B] text-center pt-2">
-                * Note: This quiz provides general skincare guidance and is not a medical diagnosis. Formulations are 100% fragrance-free and pH balanced.
+                * Note: Based on your answers. This assessment provides general cosmetic skincare guidance and is not a medical diagnosis. Formulations are 100% fragrance-free and physiological pH balanced.
               </p>
             </div>
           </div>
@@ -282,13 +309,13 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
         {/* Active Quiz Step */}
         {!isCalculating && !diagnosis && (
           <div className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 sm:p-10 space-y-8 text-left shadow-xs">
-            {/* Progress Bar */}
+            {/* Progress Bar with 01 / 07 formatting */}
             <div className="space-y-2">
               <div className="flex justify-between text-[11px] font-mono-spec text-[#5C625B]">
-                <span className="font-bold text-[#4B5848] uppercase">
-                  QUESTION {currentStep + 1} OF {QUIZ_QUESTIONS.length}
+                <span className="font-bold text-[#4B5848] uppercase tracking-wider">
+                  {String(currentStep + 1).padStart(2, '0')} / {String(QUIZ_QUESTIONS.length).padStart(2, '0')}
                 </span>
-                <span>{progressPercent}% Complete</span>
+                <span>{progressPercent}% Completed</span>
               </div>
               <div className="w-full h-1 bg-[#E8E1D6] rounded-full overflow-hidden">
                 <div

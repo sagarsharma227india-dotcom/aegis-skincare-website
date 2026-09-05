@@ -7,8 +7,7 @@ export type NavView =
   | 'ingredients'
   | 'science'
   | 'journal'
-  | 'about'
-  | 'arifa-naved';
+  | 'about';
 
 export type ProductCategory = 'all' | 'cleansers' | 'serums' | 'moisturizers' | 'spf' | 'bundles';
 
