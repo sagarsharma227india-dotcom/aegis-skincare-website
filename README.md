@@ -42,7 +42,3 @@ The interface follows a **Laboratory-to-Editorial** aesthetic with:
 ## ⚠️ Disclaimer
 
 AEGIS MEN is an **independent website concept** created for development, design, and portfolio purposes. It does not represent an officially operating commercial skincare company.
-
-## 👨‍💻 Author
-
-**Sagar Sharma**
