@@ -70,6 +70,90 @@ export const AboutView: React.FC<AboutViewProps> = ({ setCurrentView }) => {
           </div>
         </div>
 
+        {/* Founder Profile: Arifa Naved (Old Delhi) - No Pictures */}
+        <section id="founder-profile" className="p-8 sm:p-12 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-8 shadow-xs">
+          <div className="space-y-3 border-b border-[#E8E1D6] pb-6">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#F2EEE7] border border-[#D5CEC2] rounded-[3px] text-[#4B5848] text-[10px] font-mono-spec tracking-widest uppercase">
+              <span>FOUNDER & CHIEF FORMULATION SCIENTIST</span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+              <h2 className="text-2xl sm:text-4xl font-serif-editorial text-[#20231F]">
+                Arifa Naved
+              </h2>
+              <span className="text-xs sm:text-sm font-mono-spec text-[#5C625B]">
+                Origin: Old Delhi, India · Formulation Lab Lead
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-7 space-y-4 text-sm text-[#5C625B] leading-relaxed">
+              <p className="font-serif-editorial text-lg text-[#20231F] leading-snug">
+                Born and raised in the historic heart of Old Delhi, Arifa Naved grew up immersed in the heritage apothecary trade before pursuing specialized scientific training in molecular pharmacology and cosmetic chemistry.
+              </p>
+              <p>
+                Frustrated by a male grooming market defined by harsh sulfates, stinging alcohol splashes, and masking artificial fragrances, Arifa set out to establish AEGIS MEN as a rigorous, clinical-grade alternative. Her core philosophy centers on physiological compatibility: engineering active emulsions that reinforce the stratum corneum rather than stripping it.
+              </p>
+              <p>
+                Working from our Delhi formulation studio, Arifa directly oversees every prototype batch, testing active delivery, photostability in high-heat urban climates, and tolerance on shave-irritated skin.
+              </p>
+              <blockquote className="border-l-2 border-[#4B5848] pl-4 italic font-serif-editorial text-[#20231F] text-base sm:text-lg my-4">
+                "Formulation is an architecture of subtraction. Every active ingredient must have an indisputable physiological purpose, buffered to the exact cellular pH 5.5 of male skin."
+              </blockquote>
+            </div>
+
+            {/* Fake Qualifications & Credentials */}
+            <div className="lg:col-span-5 bg-[#F2EEE7] border border-[#D5CEC2] rounded-[4px] p-6 space-y-4">
+              <div className="space-y-1">
+                <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase tracking-wider block">
+                  QUALIFICATIONS & CLINICAL ACCREDITATION
+                </span>
+                <h4 className="font-serif-editorial text-base text-[#20231F]">
+                  Cosmetic Chemistry & Dermal Science
+                </h4>
+              </div>
+
+              <ul className="space-y-3.5 text-xs text-[#20231F]">
+                <li className="flex items-start gap-2.5">
+                  <span className="text-[#4B5848] font-mono-spec font-semibold text-[11px] mt-0.5">01</span>
+                  <div>
+                    <span className="font-semibold block text-[#20231F]">M.Tech in Cosmetic Chemistry & Molecular Pharmacology</span>
+                    <span className="text-[#5C625B] text-[11px]">Delhi Institute of Pharmaceutical Sciences & Research (DIPSAR), New Delhi</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="text-[#4B5848] font-mono-spec font-semibold text-[11px] mt-0.5">02</span>
+                  <div>
+                    <span className="font-semibold block text-[#20231F]">Fellowship in Male Epidermal Barrier Restoration</span>
+                    <span className="text-[#5C625B] text-[11px]">International Society of Dermal Formulation Scientists</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="text-[#4B5848] font-mono-spec font-semibold text-[11px] mt-0.5">03</span>
+                  <div>
+                    <span className="font-semibold block text-[#20231F]">Principal Researcher in Photostable Lipid Emulsions</span>
+                    <span className="text-[#5C625B] text-[11px]">Ex-Head of Emulsion Stability, South Asian Derma-Cosmetics Lab</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="text-[#4B5848] font-mono-spec font-semibold text-[11px] mt-0.5">04</span>
+                  <div>
+                    <span className="font-semibold block text-[#20231F]">Lead Formulation Architect & Author</span>
+                    <span className="text-[#5C625B] text-[11px]">"Subtractive Formulation Protocols in High-Humidity Male Epidermis" (2023)</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="text-[#4B5848] font-mono-spec font-semibold text-[11px] mt-0.5">05</span>
+                  <div>
+                    <span className="font-semibold block text-[#20231F]">Certification in Fragrance-Free Physiological Buffering</span>
+                    <span className="text-[#5C625B] text-[11px]">Board of Clean Cosmetic Pharmacology, New Delhi</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Formulation Architecture Callout */}
         <div className="p-8 sm:p-10 bg-[#20231F] text-[#F8F5EF] border border-[#343A33] rounded-[4px] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
           <div className="space-y-1.5 text-left">
