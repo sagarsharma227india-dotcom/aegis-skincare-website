@@ -2,6 +2,7 @@ import React from 'react';
 import { NavView } from '../types';
 import { ArrowRight } from 'lucide-react';
 import { AegisMonogram } from './AegisMonogram';
+import { motion } from 'motion/react';
 
 interface AboutViewProps {
   setCurrentView: (view: NavView) => void;
@@ -12,7 +13,12 @@ export const AboutView: React.FC<AboutViewProps> = ({ setCurrentView }) => {
     <div className="bg-[#E8E1D6] min-h-screen py-12 lg:py-20 text-left">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Top Manifesto */}
-        <div className="space-y-6 max-w-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="space-y-6 max-w-3xl"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[3px] text-[#4B5848] text-[10px] font-mono-spec tracking-[0.2em] uppercase">
             <AegisMonogram size={14} color="#4B5848" />
             <span>EST. 2024 · DELHI, INDIA</span>
@@ -41,34 +47,64 @@ export const AboutView: React.FC<AboutViewProps> = ({ setCurrentView }) => {
               We formulated AEGIS around the everyday biological realities of male skin—higher sebum production, regular shaving friction, and environmental sun exposure—using evidence-informed active molecules at physiological pH 5.5.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* 3 Core Architectural Standards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-          <div className="p-6 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-2 shadow-xs">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.2 }
+            }
+          }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4"
+        >
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            className="p-6 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-2 shadow-xs"
+          >
             <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase">STANDARD 01</span>
             <h3 className="font-serif-editorial text-lg text-[#20231F]">100% Disclosed INCI</h3>
             <p className="text-xs text-[#5C625B] leading-relaxed">
               Every active percentage is clearly stated on the front of the bottle. No proprietary mystery blends.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-2 shadow-xs">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            className="p-6 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-2 shadow-xs"
+          >
             <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase">STANDARD 02</span>
             <h3 className="font-serif-editorial text-lg text-[#20231F]">0% Synthetic Perfume</h3>
             <p className="text-xs text-[#5C625B] leading-relaxed">
               Formulated completely fragrance-free to prevent stinging and allergic contact dermatitis on post-shave skin.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-2 shadow-xs">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            className="p-6 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-2 shadow-xs"
+          >
             <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase">STANDARD 03</span>
             <h3 className="font-serif-editorial text-lg text-[#20231F]">3-Minute Protocol</h3>
             <p className="text-xs text-[#5C625B] leading-relaxed">
               Designed to take no more than 90 seconds in the morning and 60 seconds at night.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Founder Profile: Arifa Naved (Old Delhi) - No Pictures */}
         <section id="founder-profile" className="p-8 sm:p-12 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-8 shadow-xs">

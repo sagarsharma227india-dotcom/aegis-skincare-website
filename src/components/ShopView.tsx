@@ -4,8 +4,9 @@ import { PRODUCTS } from '../data/products';
 import { ProductCard } from './ProductCard';
 import { RecentlyViewed } from './RecentlyViewed';
 import { ProductComparisonModal } from './ProductComparisonModal';
-import { Filter, SlidersHorizontal, ArrowUpDown, Layers, Check, X } from 'lucide-react';
+import { Filter, SlidersHorizontal, ArrowUpDown, Layers, Check, X, Search, RotateCcw } from 'lucide-react';
 import { AegisMonogram } from './AegisMonogram';
+import { motion } from 'motion/react';
 
 interface ShopViewProps {
   onSelectProduct: (productId: string) => void;
@@ -24,26 +25,44 @@ export const ShopView: React.FC<ShopViewProps> = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory>('all');
   const [selectedConcern, setSelectedConcern] = useState<SkinConcern>('all');
-  const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'rating'>('featured');
+  const [selectedSkinType, setSelectedSkinType] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState<'featured' | 'bestsellers' | 'price-low' | 'price-high' | 'rating'>('featured');
   const [compareIds, setCompareIds] = useState<string[]>([]);
   const [isCompareOpen, setIsCompareOpen] = useState(false);
 
   const categories: { id: ProductCategory; label: string }[] = [
-    { id: 'all', label: 'All Formulations' },
-    { id: 'bundles', label: 'Systems & Bundles' },
-    { id: 'cleansers', label: 'Cleansers' },
-    { id: 'serums', label: 'Corrective Serums' },
-    { id: 'moisturizers', label: 'Barrier Fluids' },
-    { id: 'spf', label: 'Daily Sunscreen' }
+    { id: 'all', label: 'ALL SKINCARE' },
+    { id: 'cleansers', label: 'CLEANSERS' },
+    { id: 'serums', label: 'SERUMS' },
+    { id: 'moisturizers', label: 'MOISTURIZERS' },
+    { id: 'spf', label: 'SUNSCREEN' },
+    { id: 'treatments', label: 'TARGETED CARE' },
+    { id: 'exfoliation', label: 'EXFOLIATION' },
+    { id: 'masks', label: 'MASKS' },
+    { id: 'body', label: 'BODY SKINCARE' },
+    { id: 'bundles', label: 'BUNDLES' }
+  ];
+
+  const skinTypes = [
+    { id: 'all', label: 'All Skin Types' },
+    { id: 'Oily', label: 'Oily' },
+    { id: 'Dry', label: 'Dry' },
+    { id: 'Combination', label: 'Combination' },
+    { id: 'Sensitive', label: 'Sensitive' },
+    { id: 'Normal', label: 'Normal' }
   ];
 
   const concerns: { id: SkinConcern; label: string }[] = [
     { id: 'all', label: 'All Concerns' },
-    { id: 'acne', label: 'Breakouts & Clogged Pores' },
-    { id: 'oil', label: 'Excess Shine & Sebum' },
-    { id: 'redness', label: 'Razor Burn & Friction' },
-    { id: 'dehydration', label: 'Dryness & Barrier Support' },
-    { id: 'aging', label: 'Daily UV Exposure' }
+    { id: 'acne', label: 'Acne / Blemishes' },
+    { id: 'oil', label: 'Oil Control / Shine' },
+    { id: 'dark-spots', label: 'Dark Spots / Uneven Tone' },
+    { id: 'barrier', label: 'Barrier Repair / Redness' },
+    { id: 'dehydration', label: 'Dryness / Dehydration' },
+    { id: 'aging', label: 'Aging / Fine Lines' },
+    { id: 'sun', label: 'Sun Protection' },
+    { id: 'shaving', label: 'Razor Burn / Post-Shave' }
   ];
 
   const toggleCompare = (productId: string) => {
@@ -65,8 +84,23 @@ export const ShopView: React.FC<ShopViewProps> = ({
   const filteredProducts = useMemo(() => {
     let result = PRODUCTS.filter((p) => {
       const matchCat = selectedCategory === 'all' || p.category === selectedCategory;
-      const matchCon = selectedConcern === 'all' || p.concerns.includes(selectedConcern);
-      return matchCat && matchCon;
+      const matchCon =
+        selectedConcern === 'all' ||
+        p.concerns.includes(selectedConcern) ||
+        (selectedConcern === 'shaving' && (p.concerns.includes('barrier') || p.id.includes('after') || p.id.includes('shaving')));
+      
+      const matchSkin =
+        selectedSkinType === 'all' ||
+        (p.skinTypes && p.skinTypes.some((t) => t.toLowerCase().includes(selectedSkinType.toLowerCase())));
+
+      const matchSearch =
+        !searchQuery.trim() ||
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.formulaSpec.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.shortDescription.toLowerCase().includes(searchQuery.toLowerCase());
+
+      return matchCat && matchCon && matchSkin && matchSearch;
     });
 
     if (sortBy === 'price-low') {
@@ -75,10 +109,19 @@ export const ShopView: React.FC<ShopViewProps> = ({
       result.sort((a, b) => b.price - a.price);
     } else if (sortBy === 'rating') {
       result.sort((a, b) => b.rating - a.rating);
+    } else if (sortBy === 'bestsellers') {
+      result.sort((a, b) => b.reviewCount - a.reviewCount);
+    } else if (sortBy === 'featured') {
+      // Sort bundles first, then by step sequence based on original array index or category
+      result.sort((a, b) => {
+        if (a.isBundle && !b.isBundle) return -1;
+        if (!a.isBundle && b.isBundle) return 1;
+        return 0; // maintain original relative order otherwise
+      });
     }
 
     return result;
-  }, [selectedCategory, selectedConcern, sortBy]);
+  }, [selectedCategory, selectedConcern, selectedSkinType, searchQuery, sortBy]);
 
   return (
     <div className="bg-[#E8E1D6] min-h-screen py-12 lg:py-20 text-left">
@@ -99,8 +142,54 @@ export const ShopView: React.FC<ShopViewProps> = ({
 
         {/* Filter Toolbar */}
         <div className="bg-[#F2EEE7] border border-[#CFC8BC] rounded-[4px] p-5 space-y-4">
+          {/* Search and Category Row */}
+          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 pb-2 border-b border-[#CFC8BC]/60">
+            {/* Search Bar */}
+            <div className="relative w-full md:w-72">
+              <Search className="w-4 h-4 text-[#5C625B] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                id="shop-search-input"
+                type="text"
+                placeholder="Search formula, active, concern..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-[#F8F5EF] border border-[#CFC8BC] rounded-[3px] pl-9 pr-8 py-1.5 text-xs text-[#20231F] placeholder-[#5C625B]/70 focus:outline-hidden focus:border-[#4B5848] font-mono-spec"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#5C625B] hover:text-[#20231F]"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+
+            {/* Results Count & Clear */}
+            <div className="flex items-center justify-between md:justify-end gap-3 text-xs font-mono-spec text-[#5C625B]">
+              <span className="font-semibold text-[#20231F]">
+                Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'Formulation' : 'Formulations'}
+              </span>
+              {(selectedCategory !== 'all' || selectedConcern !== 'all' || selectedSkinType !== 'all' || searchQuery) && (
+                <button
+                  id="reset-filters-btn"
+                  onClick={() => {
+                    setSelectedCategory('all');
+                    setSelectedConcern('all');
+                    setSelectedSkinType('all');
+                    setSearchQuery('');
+                  }}
+                  className="inline-flex items-center gap-1 text-[#4B5848] hover:text-[#20231F] underline uppercase tracking-wider text-[11px]"
+                >
+                  <RotateCcw className="w-3 h-3" />
+                  <span>Reset All</span>
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* Categories */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             <span className="text-[11px] font-mono-spec text-[#5C625B] uppercase pr-2 font-medium shrink-0">
               CATEGORY:
             </span>
@@ -109,7 +198,7 @@ export const ShopView: React.FC<ShopViewProps> = ({
                 key={cat.id}
                 id={`shop-category-${cat.id}`}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-[3px] text-xs font-mono-spec tracking-wider uppercase transition-all whitespace-nowrap ${
+                className={`px-3 py-1.5 rounded-[3px] text-xs font-mono-spec tracking-wider uppercase transition-all whitespace-nowrap ${
                   selectedCategory === cat.id
                     ? 'bg-[#4B5848] text-[#F8F5EF] font-semibold shadow-xs'
                     : 'bg-[#F8F5EF] text-[#20231F] border border-[#CFC8BC] hover:border-[#20231F]'
@@ -120,9 +209,30 @@ export const ShopView: React.FC<ShopViewProps> = ({
             ))}
           </div>
 
+          {/* Skin Type Filter */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none pt-1">
+            <span className="text-[11px] font-mono-spec text-[#5C625B] uppercase pr-2 font-medium shrink-0">
+              SKIN TYPE:
+            </span>
+            {skinTypes.map((type) => (
+              <button
+                key={type.id}
+                id={`shop-skintype-${type.id}`}
+                onClick={() => setSelectedSkinType(type.id)}
+                className={`px-2.5 py-1 rounded-[3px] text-[11px] font-mono-spec tracking-wide uppercase transition-all whitespace-nowrap ${
+                  selectedSkinType === type.id
+                    ? 'bg-[#20231F] text-[#F8F5EF] font-semibold'
+                    : 'bg-[#F8F5EF]/70 text-[#5C625B] border border-[#CFC8BC]/70 hover:border-[#20231F] hover:text-[#20231F]'
+                }`}
+              >
+                {type.label}
+              </button>
+            ))}
+          </div>
+
           {/* Concerns & Sorting */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-[#CFC8BC]/60">
-            <div className="flex items-center gap-2 overflow-x-auto pb-1">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-3 border-t border-[#CFC8BC]/60">
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
               <span className="text-[11px] font-mono-spec text-[#5C625B] uppercase pr-2 font-medium shrink-0">
                 SHOP BY CONCERN:
               </span>
@@ -131,9 +241,9 @@ export const ShopView: React.FC<ShopViewProps> = ({
                   key={con.id}
                   id={`shop-concern-${con.id}`}
                   onClick={() => setSelectedConcern(con.id)}
-                  className={`px-3 py-1 rounded-[3px] text-[11px] font-mono-spec tracking-wide uppercase transition-all whitespace-nowrap ${
+                  className={`px-2.5 py-1 rounded-[3px] text-[11px] font-mono-spec tracking-wide uppercase transition-all whitespace-nowrap ${
                     selectedConcern === con.id
-                      ? 'bg-[#20231F] text-[#F8F5EF] font-semibold'
+                      ? 'bg-[#4B5848] text-[#F8F5EF] font-semibold'
                       : 'bg-transparent text-[#5C625B] hover:text-[#20231F]'
                   }`}
                 >
@@ -150,12 +260,13 @@ export const ShopView: React.FC<ShopViewProps> = ({
                 id="shop-sort-select"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[3px] px-2.5 py-1 text-xs text-[#20231F] focus:outline-hidden"
+                className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[3px] px-2.5 py-1 text-xs text-[#20231F] focus:outline-hidden font-mono-spec"
               >
                 <option value="featured">Featured Protocol</option>
+                <option value="bestsellers">Best Sellers</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
-                <option value="rating">Top Customer Rating</option>
+                <option value="rating">Top Rated</option>
               </select>
             </div>
           </div>
@@ -178,9 +289,27 @@ export const ShopView: React.FC<ShopViewProps> = ({
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.1 }
+              }
+            }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          >
             {filteredProducts.map((product) => (
-              <div key={product.id} className="relative flex flex-col">
+              <motion.div
+                key={product.id}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                className="relative flex flex-col"
+              >
                 <ProductCard
                   product={product}
                   onSelectProduct={onSelectProduct}
@@ -201,9 +330,9 @@ export const ShopView: React.FC<ShopViewProps> = ({
                     <span>{compareIds.includes(product.id) ? 'Comparing' : '+ Compare'}</span>
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {/* Floating Compare Bar */}

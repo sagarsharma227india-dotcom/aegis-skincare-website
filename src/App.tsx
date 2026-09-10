@@ -36,7 +36,11 @@ export function App() {
   const [recentlyViewedIds, setRecentlyViewedIds] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('aegis_recently_viewed');
-      return saved ? JSON.parse(saved) : ['aegis-wash', 'aegis-clear'];
+      if (saved) {
+        const parsed = JSON.parse(saved) as string[];
+        return parsed.filter(id => PRODUCTS.some(p => p.id === id));
+      }
+      return ['aegis-wash', 'aegis-clear'];
     } catch {
       return ['aegis-wash', 'aegis-clear'];
     }
@@ -46,7 +50,12 @@ export function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     try {
       const saved = localStorage.getItem('aegis_cart');
-      return saved ? JSON.parse(saved) : [];
+      if (saved) {
+        const parsed = JSON.parse(saved) as CartItem[];
+        // Auto-remove any cart items that no longer exist in the active catalog
+        return parsed.filter(item => PRODUCTS.some(p => p.id === item.product.id));
+      }
+      return [];
     } catch {
       return [];
     }
@@ -55,7 +64,12 @@ export function App() {
   const [wishlistIds, setWishlistIds] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('aegis_wishlist');
-      return saved ? JSON.parse(saved) : [];
+      if (saved) {
+        const parsed = JSON.parse(saved) as string[];
+        // Auto-remove any wishlist IDs that no longer exist in the active catalog
+        return parsed.filter(id => PRODUCTS.some(p => p.id === id));
+      }
+      return [];
     } catch {
       return [];
     }

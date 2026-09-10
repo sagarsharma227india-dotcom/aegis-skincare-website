@@ -21,6 +21,7 @@ import {
   AlertTriangle
 } from 'lucide-react';
 import { AegisMonogram } from './AegisMonogram';
+import { ProductPackagingView } from './ProductPackagingView';
 
 interface ProductDetailModalProps {
   product: Product;
@@ -45,6 +46,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 }) => {
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState<'why' | 'ingredients' | 'how' | 'compatibility' | 'inci' | 'faq'>('why');
+  const [galleryView, setGalleryView] = useState<'packaging' | 'texture'>('packaging');
   const [pincode, setPincode] = useState('');
   const [deliveryStatus, setDeliveryStatus] = useState<string | null>(null);
   const [reviewFilterRating, setReviewFilterRating] = useState<number | null>(null);
@@ -102,32 +104,107 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           {/* Left Gallery & Quick Spec */}
           <div className="lg:col-span-5 bg-[#F2EEE7] p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-[#CFC8BC] flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <div className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase tracking-widest">
-                {product.stepNumber}
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase tracking-widest">
+                  {product.stepNumber}
+                </span>
+                <span className="text-[9px] font-mono-spec text-[#5C625B] uppercase">
+                  {product.category.toUpperCase()}
+                </span>
               </div>
 
-              <div className="aspect-square bg-[#E8E1D6] rounded-[3px] p-6 flex items-center justify-center border border-[#CFC8BC]">
-                <img
-                  src={product.images.main}
-                  alt={product.name}
-                  className="w-full h-full object-cover rounded-[2px]"
-                />
+              {/* Interactive Visual Switcher */}
+              <div className="flex items-center gap-1 p-1 bg-[#E8E1D6] rounded-[3px] border border-[#CFC8BC]/60">
+                <button
+                  type="button"
+                  onClick={() => setGalleryView('packaging')}
+                  className={`flex-1 py-1.5 text-[9px] font-mono-spec font-semibold uppercase tracking-wider rounded-[2px] transition-all ${
+                    galleryView === 'packaging'
+                      ? 'bg-[#20231F] text-[#F8F5EF] shadow-sm'
+                      : 'text-[#5C625B] hover:text-[#20231F]'
+                  }`}
+                >
+                  Official Packaging
+                </button>
+                {product.images.texture && (
+                  <button
+                    type="button"
+                    onClick={() => setGalleryView('texture')}
+                    className={`flex-1 py-1.5 text-[9px] font-mono-spec font-semibold uppercase tracking-wider rounded-[2px] transition-all ${
+                      galleryView === 'texture'
+                        ? 'bg-[#20231F] text-[#F8F5EF] shadow-sm'
+                        : 'text-[#5C625B] hover:text-[#20231F]'
+                    }`}
+                  >
+                    Formula Texture
+                  </button>
+                )}
               </div>
 
-              {product.images.texture && (
-                <div className="space-y-1.5 text-left">
-                  <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase tracking-wider block">
-                    Formulation Texture
-                  </span>
-                  <div className="h-24 bg-[#E8E1D6] rounded-[2px] overflow-hidden border border-[#CFC8BC]">
+              {/* Main Visual Display Area */}
+              <div className="aspect-square bg-[#151714] rounded-[3px] p-2 flex items-center justify-center border border-[#CFC8BC] relative overflow-hidden">
+                {galleryView === 'packaging' && (
+                  <div className="w-full h-full">
+                    <ProductPackagingView product={product} size="lg" className="h-full border-none shadow-none" />
+                  </div>
+                )}
+
+                {galleryView === 'texture' && product.images.texture && (
+                  <div className="w-full h-full relative rounded-[2px] overflow-hidden">
+                    <div className="absolute top-2.5 left-2.5 z-10 bg-[#20231F]/90 backdrop-blur-sm px-2 py-0.5 rounded-[2px] border border-white/10 flex items-center gap-1.5 shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#829177]"></span>
+                      <span className="text-[8px] font-mono-spec tracking-widest text-[#F8F5EF] font-bold uppercase">
+                        FORMULA TEXTURE // MACRO
+                      </span>
+                    </div>
                     <img
                       src={product.images.texture}
-                      alt="Texture close up"
-                      className="w-full h-full object-cover"
+                      alt={`${product.name} texture closeup`}
+                      className="w-full h-full object-cover rounded-[2px]"
                     />
+                    <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#20231F]/80 backdrop-blur-sm p-2 rounded-[2px] text-left border border-white/10">
+                      <span className="text-[8px] font-mono-spec text-[#A69E8F] uppercase block">TEXTURE PROFILE</span>
+                      <span className="text-[10px] font-mono-spec text-[#F8F5EF] font-semibold">{product.texture}</span>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
+
+              {/* Thumbnails Row for Easy Switching */}
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setGalleryView('packaging')}
+                  className={`h-14 bg-[#1C1F1B] rounded-[2px] overflow-hidden border transition-all flex items-center justify-center p-1.5 ${
+                    galleryView === 'packaging' ? 'border-[#4B5848] ring-2 ring-[#4B5848]' : 'border-[#CFC8BC] opacity-70 hover:opacity-100'
+                  }`}
+                >
+                  <div className="flex items-center gap-1.5 text-left">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#829177]" />
+                    <span className="text-[8px] font-mono-spec text-[#F8F5EF] font-bold tracking-wider uppercase">
+                      OFFICIAL PACKAGING
+                    </span>
+                  </div>
+                </button>
+                {product.images.texture ? (
+                  <button
+                    type="button"
+                    onClick={() => setGalleryView('texture')}
+                    className={`h-14 bg-[#E8E1D6] rounded-[2px] overflow-hidden border transition-all relative ${
+                      galleryView === 'texture' ? 'border-[#4B5848] ring-2 ring-[#4B5848]' : 'border-[#CFC8BC] opacity-70 hover:opacity-100'
+                    }`}
+                  >
+                    <img src={product.images.texture} alt="Texture thumbnail" className="w-full h-full object-cover" />
+                    <span className="absolute bottom-1 left-1 bg-[#20231F]/80 text-[#F8F5EF] text-[7px] font-mono-spec px-1 rounded-[1px]">
+                      TEXTURE
+                    </span>
+                  </button>
+                ) : (
+                  <div className="h-14 bg-[#E8E1D6]/40 rounded-[2px] border border-[#CFC8BC]/40 flex items-center justify-center">
+                    <span className="text-[7px] font-mono-spec text-[#5C625B]/40">CLINICAL SPEC</span>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Quick Specs */}
@@ -570,7 +647,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       onClick={() => onSelectProduct(pair.id)}
                       className="cursor-pointer flex items-center gap-2 p-2 bg-[#F2EEE7] hover:bg-[#E8E1D6] rounded-[3px] border border-[#CFC8BC] transition-colors"
                     >
-                      <img src={pair.images.main} alt={pair.name} className="w-8 h-8 object-cover rounded-[2px]" />
+                      <div className="w-8 h-8 rounded-[2px] overflow-hidden shrink-0">
+                        <ProductPackagingView product={pair} size="xs" />
+                      </div>
                       <div className="text-[11px] font-mono-spec">
                         <span className="block text-[#20231F] font-semibold">{pair.name}</span>
                         <span className="text-[#5C625B]">₹{pair.price}</span>

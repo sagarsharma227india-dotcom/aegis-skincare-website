@@ -80,7 +80,7 @@ export const ScienceView: React.FC<ScienceViewProps> = ({ setCurrentView }) => {
               Post-Shave Recovery & Epidermal Friction
             </h2>
             <p className="text-xs sm:text-sm text-[#5C625B] leading-relaxed max-w-3xl">
-              Daily or frequent shaving mechanically removes up to two layers of stratum corneum cells. This micro-trauma causes razor burn, ingrown hair loops, and localized irritation. AEGIS uses buffered Centella Asiatica and Phytosphingosine to rapidly calm post-shave skin.
+              Daily or frequent shaving mechanically removes up to two layers of stratum corneum cells. This micro-trauma causes razor burn, bumpy follicular friction, and localized irritation. AEGIS uses buffered Centella Asiatica and Phytosphingosine to rapidly calm post-shave skin.
             </p>
           </div>
 

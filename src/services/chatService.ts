@@ -27,10 +27,10 @@ export interface ChatResponse {
  * Always fails gracefully to Mode 1 without exposing secret API keys.
  */
 class ChatService {
-  private apiEndpoint: string | null = null;
+  private apiEndpoint: string = '/api/chat';
 
   constructor() {
-    // Check for optional configured AI endpoint (never store raw API keys on client)
+    // Check for optional custom AI endpoint (never store raw API keys on client)
     const metaEnv = (import.meta as unknown as { env?: Record<string, string> }).env;
     if (metaEnv?.VITE_AI_CHAT_API_URL) {
       this.apiEndpoint = metaEnv.VITE_AI_CHAT_API_URL;
@@ -43,7 +43,7 @@ class ChatService {
   public async sendMessage(query: string, history: ChatMessage[] = []): Promise<ChatResponse> {
     const cleanQuery = query.trim().toLowerCase();
 
-    // If external AI API endpoint is configured, attempt it first with graceful fallback
+    // Attempt server-side AI chat API with graceful fallback to local derma engine
     if (this.apiEndpoint) {
       try {
         const response = await fetch(this.apiEndpoint, {
@@ -53,14 +53,20 @@ class ChatService {
         });
         if (response.ok) {
           const data = await response.json();
-          return {
-            message: data.message,
-            recommendedProducts: this.resolveProducts(data.productIds || []),
-            suggestedPrompts: data.suggestedPrompts
-          };
+          if (!data.fallback && data.message) {
+            return {
+              message: data.message,
+              recommendedProducts: this.resolveProducts(data.productIds || []),
+              suggestedPrompts: data.suggestedPrompts || [
+                'What is the 3-step routine?',
+                'Explain 3:1:1 Ceramides',
+                'Is AEGIS fragrance-free?'
+              ]
+            };
+          }
         }
       } catch (err) {
-        console.warn('AI API endpoint unavailable, falling back to local assistant engine.', err);
+        console.warn('Server AI API endpoint unavailable, falling back to local derma engine.', err);
       }
     }
 
@@ -116,7 +122,7 @@ class ChatService {
           "The core AEGIS MEN philosophy is 'Protection, made simple' — a disciplined 3-minute framework based on biological necessity:\n\n" +
           "• Morning (AM) ~ 90s:\n" +
           "  1. Cleanse: AEGIS WASH (removes overnight sweat at pH 5.5)\n" +
-          "  2. Treat: AEGIS CLEAR (2% BHA + 5% Niacinamide to balance oil)\n" +
+          "  2. Treat: AEGIS CLEAR (2% BHA + 10% Niacinamide to balance oil)\n" +
           "  3. Protect: AEGIS SHIELD SPF 50 (invisible defense in stubble & beards)\n\n" +
           "• Evening (PM) ~ 60s:\n" +
           "  1. Cleanse: AEGIS WASH (lifts city grime & daytime sunscreen)\n" +
@@ -150,7 +156,7 @@ class ChatService {
         message:
           "For breakouts and congested pores, scrubbing aggressively with physical beads damages your moisture mantle. We recommend targeted chemical clarification:\n\n" +
           "1. AEGIS WASH: Uses 15% Apple Amino Acids with 0.5% micro-dosed Salicylic Acid to cleanse without stripping.\n" +
-          "2. AEGIS CLEAR: Delivers 2.0% oil-soluble BHA to dissolve pore-lining sebum, paired with 5.0% Niacinamide and 1.0% Zinc PCA to calm redness and regulate surface oil appearance.",
+          "2. AEGIS CLEAR: Delivers 2.0% oil-soluble BHA to dissolve pore-lining sebum, paired with 10.0% Niacinamide and 1.0% Zinc PCA to calm redness and regulate surface oil appearance.",
         recommendedProducts: [clear, wash],
         suggestedPrompts: [
           'Will this dry my skin out?',
@@ -173,7 +179,7 @@ class ChatService {
         message:
           "Male skin naturally produces up to 2x more sebum due to higher androgen levels. Stripping it with harsh sulfates causes 'rebound oiliness'.\n\n" +
           "The solution is regulating oil without drying:\n" +
-          "• AEGIS CLEAR balances surface sebum with 5% Niacinamide and 1% Zinc PCA.\n" +
+          "• AEGIS CLEAR balances surface sebum with 10% Niacinamide and 1% Zinc PCA.\n" +
           "• AEGIS SHIELD SPF 50 contains porous silica microspheres for an all-day natural matte finish with zero shine.",
         recommendedProducts: [
           PRODUCTS.find((p) => p.id === 'aegis-clear')!,

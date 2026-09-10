@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CartItem, NavView } from '../types';
 import { X, Plus, Minus, Trash2, ShoppingBag, ArrowRight, ShieldCheck, Tag } from 'lucide-react';
+import { ProductPackagingView } from './ProductPackagingView';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -128,11 +129,9 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 key={item.product.id}
                 className="p-4 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[4px] flex gap-4 items-center justify-between"
               >
-                <img
-                  src={item.product.images.main}
-                  alt={item.product.name}
-                  className="w-16 h-16 object-cover rounded-[2px] bg-[#E8E1D6] border border-[#CFC8BC]"
-                />
+                <div className="w-16 h-16 shrink-0 rounded-[2px] overflow-hidden border border-[#CFC8BC]">
+                  <ProductPackagingView product={item.product} size="xs" />
+                </div>
 
                 <div className="flex-1 min-w-0 space-y-1">
                   <span className="text-[9px] font-mono-spec text-[#4B5848] uppercase font-bold block">

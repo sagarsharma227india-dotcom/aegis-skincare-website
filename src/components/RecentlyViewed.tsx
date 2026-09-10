@@ -2,6 +2,7 @@ import React from 'react';
 import { Product } from '../types';
 import { PRODUCTS } from '../data/products';
 import { Star, Plus, ArrowRight } from 'lucide-react';
+import { ProductPackagingView } from './ProductPackagingView';
 
 interface RecentlyViewedProps {
   viewedIds: string[];
@@ -41,11 +42,11 @@ export const RecentlyViewed: React.FC<RecentlyViewedProps> = ({
             className="group cursor-pointer bg-[#F8F5EF] border border-[#CFC8BC] rounded-[3px] p-4 flex flex-col justify-between hover:border-[#4B5848] transition-all"
           >
             <div className="space-y-3">
-              <div className="aspect-square bg-[#F2EEE7] rounded-[2px] p-3 border border-[#CFC8BC]/30 overflow-hidden flex items-center justify-center">
-                <img
-                  src={product.images.main}
-                  alt={product.name}
-                  className="w-full h-full object-cover transition-transform group-hover:scale-105"
+              <div className="aspect-square bg-[#151714] rounded-[2px] border border-[#CFC8BC]/30 overflow-hidden flex items-center justify-center">
+                <ProductPackagingView
+                  product={product}
+                  size="sm"
+                  className="w-full h-full border-none shadow-none transition-transform group-hover:scale-105"
                 />
               </div>
 

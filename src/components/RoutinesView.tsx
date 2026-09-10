@@ -4,6 +4,7 @@ import { PRODUCTS } from '../data/products';
 import { RoutineBuilder } from './RoutineBuilder';
 import { Clock, Sun, Moon, ArrowRight, CheckCircle2, Sparkles, Layers } from 'lucide-react';
 import { AegisMonogram } from './AegisMonogram';
+import { motion } from 'motion/react';
 
 interface RoutinesViewProps {
   setCurrentView: (view: NavView) => void;
@@ -19,12 +20,18 @@ export const RoutinesView: React.FC<RoutinesViewProps> = ({
   onAddMultipleToCart
 }) => {
   const [profileType, setProfileType] = useState<'oily' | 'sensitive' | 'balanced'>('oily');
+  const starterKit = PRODUCTS.find((p) => p.id === 'aegis-starter-bundle') || PRODUCTS[0];
 
   return (
     <div className="bg-[#E8E1D6] min-h-screen py-12 lg:py-20 text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header Title */}
-        <div className="max-w-3xl space-y-4 text-left">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl space-y-4 text-left"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[3px] text-[#4B5848] text-[10px] font-mono-spec tracking-[0.2em] uppercase font-semibold">
             <AegisMonogram size={14} color="#4B5848" />
             <span>THE 3-MINUTE COMMITMENT</span>
@@ -36,7 +43,7 @@ export const RoutinesView: React.FC<RoutinesViewProps> = ({
           <p className="text-sm sm:text-base text-[#5C625B] leading-relaxed">
             Effective skincare should not require a 10-step chore. By targeting the exact biological steps—Cleanse, Correct, and Defend—AEGIS fits into any morning and evening schedule in under three minutes.
           </p>
-        </div>
+        </motion.div>
 
         {/* Skin Profile Toggle */}
         <div className="bg-[#F2EEE7] border border-[#CFC8BC] rounded-[4px] p-4 sm:p-6 space-y-4">
@@ -179,14 +186,14 @@ export const RoutinesView: React.FC<RoutinesViewProps> = ({
             {/* Quick Kit Link */}
             <div className="p-5 bg-[#E8E1D6] rounded-[3px] border border-[#CFC8BC] space-y-3 mt-4">
               <div className="flex justify-between items-center text-xs font-mono-spec">
-                <span className="font-bold text-[#20231F]">THE COMPLETE 3-PIECE SYSTEM</span>
-                <span className="text-[#4B5848] font-bold">₹1,999</span>
+                <span className="font-bold text-[#20231F]">{starterKit.name}</span>
+                <span className="text-[#4B5848] font-bold">₹{starterKit.price}</span>
               </div>
               <p className="text-[11px] text-[#5C625B]">
-                Everything you need to execute both morning and evening protocols for 60+ days.
+                {starterKit.shortDescription}
               </p>
               <button
-                onClick={() => onAddToCart(PRODUCTS[4])}
+                onClick={() => onAddToCart(starterKit)}
                 className="w-full py-2.5 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] text-xs font-mono-spec uppercase tracking-wider font-semibold rounded-[3px] transition-colors"
               >
                 Add Starter System to Bag

@@ -2,6 +2,9 @@ import React from 'react';
 import { NavView } from '../types';
 import { HeroCanvas } from './HeroCanvas';
 import { ArrowRight, Sparkles, ShieldCheck } from 'lucide-react';
+import { PRODUCTS } from '../data/products';
+import { ProductPackagingView } from './ProductPackagingView';
+import { motion } from 'motion/react';
 
 interface HeroProps {
   setCurrentView: (view: NavView) => void;
@@ -9,6 +12,7 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct }) => {
+  const starterBundle = PRODUCTS.find((p) => p.id === 'aegis-starter-bundle') || PRODUCTS[0];
   return (
     <section className="relative bg-[#E8E1D6] border-b border-[#CFC8BC] overflow-hidden min-h-[85vh] flex items-center">
       <HeroCanvas />
@@ -16,12 +20,22 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct }) =
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Editorial Copy */}
-          <div className="lg:col-span-7 space-y-8 text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-7 space-y-8 text-left"
+          >
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[3px] text-[#4B5848] text-[10px] font-mono-spec tracking-[0.2em] uppercase">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                className="inline-flex items-center gap-2 px-3 py-1 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[3px] text-[#4B5848] text-[10px] font-mono-spec tracking-[0.2em] uppercase"
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4B5848]" />
                 <span>AEGIS MEN · SCIENCE × SIMPLICITY</span>
-              </div>
+              </motion.div>
 
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal font-serif-editorial text-[#20231F] leading-[1.08] tracking-tight">
                 Protection, <br />
@@ -29,12 +43,22 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct }) =
               </h1>
             </div>
 
-            <p className="text-base sm:text-lg text-[#5C625B] max-w-xl leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-base sm:text-lg text-[#5C625B] max-w-xl leading-relaxed"
+            >
               Purposeful skincare designed around the everyday realities of men’s skin — oil, shaving, dehydration and daily sun exposure.
-            </p>
+            </motion.p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-wrap items-center gap-4 pt-2"
+            >
               <button
                 id="hero-quiz-cta"
                 onClick={() => {
@@ -58,27 +82,37 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct }) =
                 <span>SHOP ESSENTIALS</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-            </div>
+            </motion.div>
 
             {/* Supporting Micro-Specs */}
-            <div className="pt-6 border-t border-[#CFC8BC]/70 grid grid-cols-3 gap-4 max-w-lg text-[11px] font-mono-spec text-[#5C625B]">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
+              className="pt-6 border-t border-[#CFC8BC]/70 grid grid-cols-3 gap-4 max-w-lg text-[11px] font-mono-spec text-[#5C625B]"
+            >
               <div>
                 <span className="block text-[#20231F] font-semibold uppercase">01 / CLEANSE</span>
                 <span>pH 5.5 Mantle</span>
               </div>
               <div>
                 <span className="block text-[#20231F] font-semibold uppercase">02 / CORRECT</span>
-                <span>2% BHA + 5% B3</span>
+                <span>2% BHA + 10% B3</span>
               </div>
               <div>
                 <span className="block text-[#20231F] font-semibold uppercase">03 / DEFEND</span>
                 <span>Invisible SPF 50</span>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Campaign Imagery */}
-          <div className="lg:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="lg:col-span-5"
+          >
             <div className="relative group">
               {/* Architectural Surface Frame */}
               <div className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 sm:p-8 space-y-6 shadow-sm">
@@ -92,12 +126,12 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct }) =
                 <div
                   id="hero-featured-product"
                   onClick={() => onSelectProduct('aegis-starter-bundle')}
-                  className="cursor-pointer aspect-4/3 bg-[#F2EEE7] rounded-[2px] overflow-hidden flex items-center justify-center p-4 border border-[#CFC8BC]/40 transition-transform duration-300 group-hover:scale-[1.01]"
+                  className="cursor-pointer aspect-4/3 bg-[#151714] rounded-[2px] overflow-hidden flex items-center justify-center border border-[#CFC8BC]/40 transition-transform duration-300 group-hover:scale-[1.01]"
                 >
-                  <img
-                    src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80"
-                    alt="AEGIS Starter System on Architectural Mineral Surface"
-                    className="w-full h-full object-cover rounded-[2px]"
+                  <ProductPackagingView
+                    product={starterBundle}
+                    size="hero"
+                    className="w-full h-full border-none shadow-none"
                   />
                 </div>
 
@@ -125,12 +159,17 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct }) =
               </div>
 
               {/* Decorative architectural tag */}
-              <div className="absolute -bottom-3 -right-3 hidden sm:flex items-center gap-2 bg-[#20231F] text-[#F8F5EF] px-3.5 py-1.5 rounded-[2px] text-[10px] font-mono-spec shadow-md">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="absolute -bottom-3 -right-3 hidden sm:flex items-center gap-2 bg-[#20231F] text-[#F8F5EF] px-3.5 py-1.5 rounded-[2px] text-[10px] font-mono-spec shadow-md"
+              >
                 <ShieldCheck className="w-3.5 h-3.5 text-[#A9B7B7]" />
-                <span>3:1:1 BIOMIMETIC RATIO</span>
-              </div>
+                <span>CLINICAL PROTOCOL</span>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

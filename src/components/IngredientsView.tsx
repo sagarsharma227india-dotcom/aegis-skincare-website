@@ -3,6 +3,7 @@ import { INGREDIENTS_DATA } from '../data/ingredients';
 import { PRODUCTS } from '../data/products';
 import { NavView } from '../types';
 import { Sparkles, ArrowRight, Dna, CheckCircle2 } from 'lucide-react';
+import { ProductPackagingView } from './ProductPackagingView';
 
 interface IngredientsViewProps {
   setCurrentView: (view: NavView) => void;
@@ -122,7 +123,9 @@ export const IngredientsView: React.FC<IngredientsViewProps> = ({
                     className="cursor-pointer p-4 bg-[#F2EEE7] hover:bg-[#E8E1D6] rounded-[3px] border border-[#CFC8BC] flex items-center justify-between transition-colors group"
                   >
                     <div className="flex items-center gap-3">
-                      <img src={prod?.images.main} alt={prod?.name} className="w-10 h-10 object-cover rounded-[2px]" />
+                      <div className="w-10 h-10 shrink-0 rounded-[2px] overflow-hidden">
+                        {prod && <ProductPackagingView product={prod} size="xs" />}
+                      </div>
                       <div className="text-left">
                         <span className="text-[9px] font-mono-spec text-[#4B5848] block font-bold">
                           {prod?.stepNumber}

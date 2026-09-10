@@ -207,9 +207,9 @@ export function calculateQuizResults(answers: Record<number, string>): QuizDiagn
   let sensitivityScore = 35;
   let mainIssue = 'Occasional T-zone shine & everyday urban exposure';
   let priorityTitle = 'BALANCE & PROTECT';
-  let priorityDescription = 'Maintain steady hydration while keeping T-zone oil balanced and shielding skin from daily daytime UV rays.';
-  let targetActives = ['2% Salicylic Acid', '5% Niacinamide', 'SPF 50 PA++++'];
-  let recommendedProductIds = ['aegis-starter-bundle', 'aegis-wash', 'aegis-clear', 'aegis-shield'];
+  let priorityDescription = 'Maintain steady hydration while fortifying the acid mantle and shielding skin from daily daytime UV rays.';
+  let targetActives = ['3:1:1 Ceramides', 'pH 5.5 Amino Acids', 'Broad-Spectrum SPF 50+ PA++++'];
+  let recommendedProductIds = ['aegis-starter-bundle', 'aegis-wash', 'aegis-barrier', 'aegis-shield'];
 
   if (q1 === 'oily-all' || q2 === 'breakouts' || q2 === 'oil-control') {
     skinType = 'Oily + Congestion-Prone';
@@ -218,9 +218,9 @@ export function calculateQuizResults(answers: Record<number, string>): QuizDiagn
     sensitivityScore = 42;
     mainIssue = 'Excess surface oil and clogged pores';
     priorityTitle = 'CONTROL CONGESTION';
-    priorityDescription = 'Dissolve trapped sebum with lipophilic BHA and regulate surface oil appearance with 5% Niacinamide without stripping your moisture barrier.';
-    targetActives = ['2.0% Salicylic Acid (BHA)', '5.0% Niacinamide', '1.0% Zinc PCA', 'Apple Amino Acids'];
-    recommendedProductIds = ['aegis-starter-bundle', 'aegis-clear', 'aegis-wash', 'aegis-shield'];
+    priorityDescription = 'Dissolve trapped sebum with lipophilic BHA and regulate surface oil appearance with 10% Niacinamide without stripping your moisture barrier.';
+    targetActives = ['2.0% Salicylic Acid (BHA)', '10.0% Niacinamide', '1.0% Zinc PCA', 'Apple Amino Acids'];
+    recommendedProductIds = ['aegis-clear-routine', 'aegis-clear', 'aegis-purify', 'aegis-matte'];
   } else if (q1 === 'tight-dry' || q2 === 'razor-burn' || q3 === 'shave-daily') {
     skinType = 'Dry + Barrier-Stressed';
     barrierScore = 58;
@@ -230,7 +230,7 @@ export function calculateQuizResults(answers: Record<number, string>): QuizDiagn
     priorityTitle = 'RESTORE THE BARRIER';
     priorityDescription = 'Replenish lost intercellular lipids with biomimetic 3:1:1 Ceramides and soothe shaving friction with Centella and Ectoin.';
     targetActives = ['3:1:1 Biomimetic Ceramides', 'Polyglutamic Acid', 'Apple Amino Acids', '1.0% Ectoin'];
-    recommendedProductIds = ['aegis-barrier-trio', 'aegis-barrier', 'aegis-wash', 'aegis-shield'];
+    recommendedProductIds = ['aegis-barrier-reset', 'aegis-barrier', 'aegis-wash', 'aegis-shield'];
   } else if (q2 === 'daily-armor') {
     skinType = 'Everyday Urban + Photo-Defense';
     barrierScore = 84;
@@ -239,7 +239,7 @@ export function calculateQuizResults(answers: Record<number, string>): QuizDiagn
     mainIssue = 'Daily sun exposure, blue light, and environmental protection';
     priorityTitle = 'DAILY DEFENSE';
     priorityDescription = 'Keep skin resilient with broad-spectrum photoprotection, antioxidant green tea, and barrier-conscious cleansing.';
-    targetActives = ['Broad-Spectrum SPF 50 PA++++', '1.0% Ectoin', 'Green Tea Polyphenols', '5.0% Niacinamide'];
+    targetActives = ['Broad-Spectrum SPF 50+ PA++++', '1.0% Ectoin', 'Green Tea Extract', 'Matte Silica'];
     recommendedProductIds = ['aegis-starter-bundle', 'aegis-shield', 'aegis-clear', 'aegis-wash'];
   }
 

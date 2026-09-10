@@ -9,9 +9,30 @@ export type NavView =
   | 'journal'
   | 'about';
 
-export type ProductCategory = 'all' | 'cleansers' | 'serums' | 'moisturizers' | 'spf' | 'bundles';
+export type ProductCategory =
+  | 'all'
+  | 'cleansers'
+  | 'serums'
+  | 'moisturizers'
+  | 'spf'
+  | 'treatments'
+  | 'exfoliation'
+  | 'masks'
+  | 'body'
+  | 'bundles';
 
-export type SkinConcern = 'all' | 'acne' | 'oil' | 'redness' | 'dehydration' | 'dark-spots' | 'aging';
+export type SkinConcern =
+  | 'all'
+  | 'acne'
+  | 'oil'
+  | 'redness'
+  | 'dehydration'
+  | 'dark-spots'
+  | 'aging'
+  | 'barrier'
+  | 'sun'
+  | 'texture'
+  | 'shaving';
 
 export interface ActiveIngredient {
   name: string;
@@ -109,6 +130,8 @@ export interface Product {
   pairsWith?: string[];
   isBundle?: boolean;
   bundleItemIds?: string[];
+  skinTypes?: string[];
+  subcategory?: string;
 }
 
 export interface CartItem {

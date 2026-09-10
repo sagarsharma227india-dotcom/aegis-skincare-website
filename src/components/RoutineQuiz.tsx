@@ -4,6 +4,8 @@ import { QUIZ_QUESTIONS, calculateQuizResults } from '../data/quizQuestions';
 import { PRODUCTS } from '../data/products';
 import { Sparkles, ArrowRight, ArrowLeft, RotateCcw, Check, ShoppingBag, ShieldCheck, Sun, Moon, AlertCircle } from 'lucide-react';
 import { AegisMonogram } from './AegisMonogram';
+import { ProductPackagingView } from './ProductPackagingView';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface RoutineQuizProps {
   onAddToCart: (product: Product, quantity?: number) => void;
@@ -115,7 +117,12 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
 
         {/* Quiz Results Screen */}
         {!isCalculating && diagnosis && (
-          <div className="space-y-8 animate-in fade-in">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-8"
+          >
             {/* Top Profile Card */}
             <div className="p-6 sm:p-8 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-6 text-left shadow-xs">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-[#CFC8BC] gap-3">
@@ -249,8 +256,8 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
                       onClick={() => onSelectProduct(prod.id)}
                       className="cursor-pointer space-y-2"
                     >
-                      <div className="aspect-square bg-[#F2EEE7] rounded-[2px] overflow-hidden p-2 flex items-center justify-center">
-                        <img src={prod.images.main} alt={prod.name} className="w-full h-full object-cover rounded-[2px]" />
+                      <div className="aspect-square bg-[#151714] rounded-[2px] overflow-hidden flex items-center justify-center">
+                        <ProductPackagingView product={prod} size="sm" className="h-full border-none shadow-none" />
                       </div>
                       <span className="text-[9px] font-mono-spec text-[#4B5848] font-bold uppercase block">
                         {prod.stepNumber}
@@ -303,40 +310,48 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
                 * Note: Based on your answers. This assessment provides general cosmetic skincare guidance and is not a medical diagnosis. Formulations are 100% fragrance-free and physiological pH balanced.
               </p>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* Active Quiz Step */}
         {!isCalculating && !diagnosis && (
-          <div className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 sm:p-10 space-y-8 text-left shadow-xs">
-            {/* Progress Bar with 01 / 07 formatting */}
-            <div className="space-y-2">
-              <div className="flex justify-between text-[11px] font-mono-spec text-[#5C625B]">
-                <span className="font-bold text-[#4B5848] uppercase tracking-wider">
-                  {String(currentStep + 1).padStart(2, '0')} / {String(QUIZ_QUESTIONS.length).padStart(2, '0')}
-                </span>
-                <span>{progressPercent}% Completed</span>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentStep}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 sm:p-10 space-y-8 text-left shadow-xs"
+            >
+              {/* Progress Bar with 01 / 07 formatting */}
+              <div className="space-y-2">
+                <div className="flex justify-between text-[11px] font-mono-spec text-[#5C625B]">
+                  <span className="font-bold text-[#4B5848] uppercase tracking-wider">
+                    {String(currentStep + 1).padStart(2, '0')} / {String(QUIZ_QUESTIONS.length).padStart(2, '0')}
+                  </span>
+                  <span>{progressPercent}% Completed</span>
+                </div>
+                <div className="w-full h-1 bg-[#E8E1D6] rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-[#4B5848] transition-all duration-300"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
               </div>
-              <div className="w-full h-1 bg-[#E8E1D6] rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-[#4B5848] transition-all duration-300"
-                  style={{ width: `${progressPercent}%` }}
-                />
+
+              {/* Question Details */}
+              <div className="space-y-2">
+                <h2 className="text-2xl sm:text-3xl font-serif-editorial font-normal text-[#20231F] leading-snug">
+                  {question.title}
+                </h2>
+                <p className="text-xs sm:text-sm text-[#5C625B]">
+                  {question.subtitle}
+                </p>
               </div>
-            </div>
 
-            {/* Question Details */}
-            <div className="space-y-2">
-              <h2 className="text-2xl sm:text-3xl font-serif-editorial font-normal text-[#20231F] leading-snug">
-                {question.title}
-              </h2>
-              <p className="text-xs sm:text-sm text-[#5C625B]">
-                {question.subtitle}
-              </p>
-            </div>
-
-            {/* Options */}
-            <div className="space-y-3">
+              {/* Options */}
+              <div className="space-y-3">
               {question.options.map((opt) => {
                 const isSelected = answers[question.id] === opt.id;
                 return (
@@ -382,7 +397,8 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
                 </button>
               </div>
             )}
-          </div>
+            </motion.div>
+          </AnimatePresence>
         )}
       </div>
     </div>

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Product } from '../types';
 import { chatService, ChatMessage } from '../services/chatService';
 import { AegisMonogram } from './AegisMonogram';
+import { ProductPackagingView } from './ProductPackagingView';
 import {
   Sparkles,
   X,
@@ -263,11 +264,9 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
                             key={product.id}
                             className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-2.5 flex items-center gap-3 text-left"
                           >
-                            <img
-                              src={product.images.main}
-                              alt={product.name}
-                              className="w-12 h-12 object-cover rounded-[2px] bg-[#E8E1D6] shrink-0"
-                            />
+                            <div className="w-12 h-12 shrink-0 rounded-[2px] overflow-hidden">
+                              <ProductPackagingView product={product} size="xs" />
+                            </div>
                             <div className="flex-1 min-w-0">
                               <span className="text-[9px] font-mono-spec text-[#5C625B] block">
                                 {product.stepNumber}

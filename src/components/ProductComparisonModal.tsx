@@ -1,6 +1,7 @@
 import React from 'react';
 import { Product } from '../types';
 import { X, Check, Minus, Plus, ShoppingBag } from 'lucide-react';
+import { ProductPackagingView } from './ProductPackagingView';
 
 interface ProductComparisonModalProps {
   products: Product[];
@@ -68,12 +69,12 @@ export const ProductComparisonModal: React.FC<ProductComparisonModalProps> = ({
 
                       <div
                         onClick={() => onSelectProduct(p.id)}
-                        className="cursor-pointer aspect-square w-20 h-20 bg-[#F2EEE7] rounded-[2px] p-2 border border-[#CFC8BC]"
+                        className="cursor-pointer aspect-square w-20 h-20 bg-[#151714] rounded-[2px] overflow-hidden border border-[#CFC8BC]"
                       >
-                        <img
-                          src={p.images.main}
-                          alt={p.name}
-                          className="w-full h-full object-cover rounded-[2px]"
+                        <ProductPackagingView
+                          product={p}
+                          size="xs"
+                          className="w-full h-full border-none shadow-none"
                         />
                       </div>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Product, NavView } from '../types';
 import { PRODUCTS } from '../data/products';
 import { X, Heart, ShoppingBag, Trash2, ArrowRight } from 'lucide-react';
+import { ProductPackagingView } from './ProductPackagingView';
 
 interface WishlistDrawerProps {
   isOpen: boolean;
@@ -87,11 +88,9 @@ export const WishlistDrawer: React.FC<WishlistDrawerProps> = ({
                   }}
                   className="cursor-pointer"
                 >
-                  <img
-                    src={product.images.main}
-                    alt={product.name}
-                    className="w-16 h-16 object-cover rounded-[2px] bg-[#E8E1D6] border border-[#CFC8BC]"
-                  />
+                  <div className="w-16 h-16 rounded-[2px] overflow-hidden border border-[#CFC8BC]">
+                    <ProductPackagingView product={product} size="xs" />
+                  </div>
                 </div>
 
                 <div className="flex-1 min-w-0 space-y-1">
