@@ -100,10 +100,13 @@ export const TREATMENTS: Product[] = [
         answer: 'No. Unlike traditional sulfur pastes, this dries completely transparent and invisible.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1629198725699-317fb57375a0?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1629198725699-317fb57375a0?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-clear', 'aegis-wash']
   },
   {
@@ -205,10 +208,13 @@ export const TREATMENTS: Product[] = [
         answer: 'No. Formulated free of migrating oils and volatile scents to prevent eye irritation.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1609175402361-9c6f2c69470c?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-shield', 'aegis-recover']
   },
   {
@@ -304,10 +310,13 @@ export const TREATMENTS: Product[] = [
         answer: 'Pores don’t have muscles, but clearing out oxidized oil plugs and boosting skin elasticity significantly reduces their visible diameter.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1629198725699-317fb57375a0?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1629198725699-317fb57375a0?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-wash', 'aegis-hydra', 'aegis-shield-matte']
   },
   {
@@ -411,10 +420,13 @@ export const TREATMENTS: Product[] = [
         answer: 'No! It is 100% alcohol-free and specifically engineered to deliver zero sting.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1599733594230-6b823276abce?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-wash', 'aegis-barrier']
   }
 ];

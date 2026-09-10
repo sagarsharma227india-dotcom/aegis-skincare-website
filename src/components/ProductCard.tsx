@@ -45,17 +45,27 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         </div>
 
-        {/* Product Imagery - Authentic AEGIS Packaging */}
+        {/* Product Imagery - Authentic Real Photography */}
         <div
           id={`product-card-img-${product.id}`}
           onClick={() => onSelectProduct(product.id)}
           className="cursor-pointer relative aspect-square bg-[#151714] rounded-[2px] overflow-hidden flex items-center justify-center border border-[#CFC8BC]/40 group/img"
         >
-          <ProductPackagingView
-            product={product}
-            size="md"
-            className="h-full border-none shadow-none transition-transform duration-500 group-hover:scale-[1.02]"
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-[1.02]"
+            referrerPolicy="no-referrer"
           />
+
+          {/* Overlay actual product label in HTML to maintain brand consistency over real photography */}
+          <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none">
+            <div className="flex justify-between items-end opacity-90">
+              <span className="text-[10px] font-mono-spec font-bold tracking-[0.1em] text-white/90">
+                AEGIS // {specCode}
+              </span>
+            </div>
+          </div>
 
           {/* Quick View Hover Overlay Button */}
           <div className="absolute inset-0 bg-[#20231F]/30 opacity-0 group-hover/img:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none group-hover/img:pointer-events-auto">

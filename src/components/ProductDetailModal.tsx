@@ -142,10 +142,15 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
 
               {/* Main Visual Display Area */}
-              <div className="aspect-square bg-[#151714] rounded-[3px] p-2 flex items-center justify-center border border-[#CFC8BC] relative overflow-hidden">
+              <div className="aspect-square bg-[#151714] rounded-[3px] p-0 flex items-center justify-center border border-[#CFC8BC] relative overflow-hidden">
                 {galleryView === 'packaging' && (
                   <div className="w-full h-full">
-                    <ProductPackagingView product={product} size="lg" className="h-full border-none shadow-none" />
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="w-full h-full object-cover" 
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
                 )}
 
@@ -648,7 +653,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       className="cursor-pointer flex items-center gap-2 p-2 bg-[#F2EEE7] hover:bg-[#E8E1D6] rounded-[3px] border border-[#CFC8BC] transition-colors"
                     >
                       <div className="w-8 h-8 rounded-[2px] overflow-hidden shrink-0">
-                        <ProductPackagingView product={pair} size="xs" />
+                        <img src={pair.image} alt={pair.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                       </div>
                       <div className="text-[11px] font-mono-spec">
                         <span className="block text-[#20231F] font-semibold">{pair.name}</span>

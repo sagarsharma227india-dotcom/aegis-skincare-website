@@ -1,4 +1,7 @@
-import { JournalArticle } from '../types';
+const fs = require('fs');
+const path = require('path');
+
+const journalsContent = `import { JournalArticle } from '../types';
 
 export const JOURNAL_ARTICLES: JournalArticle[] = [
   {
@@ -168,3 +171,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     relatedProducts: ['aegis-starter-bundle']
   }
 ];
+`;
+
+fs.writeFileSync(path.join(__dirname, 'src/data/journal.ts'), journalsContent, 'utf8');
+console.log('Fixed journals');

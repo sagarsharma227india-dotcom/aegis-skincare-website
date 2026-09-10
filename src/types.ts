@@ -122,11 +122,10 @@ export interface Product {
   whoItsFor: string;
   fullIngredients: string;
   faqList: { question: string; answer: string }[];
-  images: {
-    main: string;
-    texture?: string;
-    lifestyle?: string;
-  };
+  image: string;
+  galleryImages: string[];
+  textureImage?: string;
+  badge?: string;
   pairsWith?: string[];
   isBundle?: boolean;
   bundleItemIds?: string[];

@@ -106,10 +106,13 @@ export const EXFOLIATION: Product[] = [
         answer: 'No. The combination of Lactic and Mandelic acid creates microscopic, invisible exfoliation, not sheets of peeling skin.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-wash', 'aegis-barrier', 'aegis-shield']
   }
 ];

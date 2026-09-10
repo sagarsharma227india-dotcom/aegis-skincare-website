@@ -100,10 +100,13 @@ export const BODY: Product[] = [
         answer: 'We recommend AEGIS WASH or PURIFY for the face, as the body wash includes invigorating menthol designed for body skin.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-body-lotion']
   },
   {
@@ -205,10 +208,13 @@ export const BODY: Product[] = [
         answer: 'No. The light emulsion is engineered to sink into the skin within 20 seconds.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1582650448629-3c854f356544?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-body-wash']
   },
   {
@@ -310,10 +316,13 @@ export const BODY: Product[] = [
         answer: 'No. It was engineered specifically with candelilla wax to deliver a 100% natural, undetectable matte finish.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-shield', 'aegis-barrier']
   }
 ];

@@ -106,11 +106,13 @@ export const CLEANSERS: Product[] = [
         answer: 'No. Formulated at physiological pH 5.5 with Pro-Vitamin B5 to protect the acid mantle.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80',
-      lifestyle: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-clear', 'aegis-shield', 'aegis-barrier']
   },
   {
@@ -214,10 +216,13 @@ export const CLEANSERS: Product[] = [
         answer: 'Mild initial purging can occur during the first 1-2 weeks as trapped pore debris clears.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-clear', 'aegis-shield-matte', 'aegis-hydra']
   },
   {
@@ -321,10 +326,13 @@ export const CLEANSERS: Product[] = [
         answer: 'No. It is a non-foaming lotion cleanser designed specifically to avoid barrier disruption.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1582650448629-3c854f356544?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-repair', 'aegis-barrier', 'aegis-shield']
   }
 ];

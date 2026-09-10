@@ -102,10 +102,13 @@ export const MOISTURIZERS: Product[] = [
         answer: 'No. It is formulated as a light fluid emulsion that absorbs cleanly in seconds without any greasy residue.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1582650448629-3c854f356544?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1611078449492-5743b35be9bd?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-wash', 'aegis-clear', 'aegis-shield']
   },
   {
@@ -209,10 +212,13 @@ export const MOISTURIZERS: Product[] = [
         answer: 'No. It is 100% oil-free and dries to an invisible matte finish that actually helps control shine.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1556228720-1c2be2414d8c?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1556228720-1c2be2414d8c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-purify', 'aegis-clear', 'aegis-shield-matte']
   },
   {
@@ -316,10 +322,13 @@ export const MOISTURIZERS: Product[] = [
         answer: 'No. It is non-greasy and absorbs into a velvety cushion within 5 minutes.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1611078449492-5743b35be9bd?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1611078449492-5743b35be9bd?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556228720-1c2be2414d8c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-wash', 'aegis-hydrate', 'aegis-eye']
   },
   {
@@ -423,10 +432,13 @@ export const MOISTURIZERS: Product[] = [
         answer: 'No. Unlike alcohol-heavy astringents, AEGIS MATTE hydrates skin with hyaluronic acid while porous silica controls only surface grease.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1629198725699-317fb57375a0?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1611078449492-5743b35be9bd?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-purify', 'aegis-clear', 'aegis-shield-matte']
   }
 ];

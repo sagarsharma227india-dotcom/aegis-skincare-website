@@ -102,10 +102,13 @@ export const MASKS: Product[] = [
         answer: 'No! AEGIS CLAY contains botanical glycerin and soothing allantoin to prevent the crusty drying and tightness of cheap clay masks.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-purify', 'aegis-clear', 'aegis-hydra']
   },
   {
@@ -209,10 +212,13 @@ export const MASKS: Product[] = [
         answer: 'No. The cushion formula absorbs within 10–15 minutes into a breathable, dry-touch protective veil.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1607500516104-5853245452d9?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1607500516104-5853245452d9?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1607500516104-5853245452d9?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-calm', 'aegis-repair', 'aegis-barrier']
   }
 ];

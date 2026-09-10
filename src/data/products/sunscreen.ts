@@ -106,10 +106,13 @@ export const SUNSCREEN: Product[] = [
         answer: 'It is formulated without volatile fragrances and uses water-resistant structuring agents to resist running.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'undefined',
+      'undefined',
+      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-wash', 'aegis-clear', 'aegis-barrier']
   },
   {
@@ -213,10 +216,13 @@ export const SUNSCREEN: Product[] = [
         answer: 'It is specifically formulated for oily skin. If you have dry skin, choose regular AEGIS SHIELD instead.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'undefined',
+      'undefined',
+      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-purify', 'aegis-clear', 'aegis-hydra']
   },
   {
@@ -324,10 +330,13 @@ export const SUNSCREEN: Product[] = [
         answer: 'No. It absorbs cleanly into a natural hydrated satin finish, not an oily reflective shine.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1583142305729-5cb119ce5d3e?auto=format&fit=crop&w=800&q=80',
-      texture: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1571781564947-f089600e12d4?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'undefined',
+      'undefined',
+      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-calm', 'aegis-hydrate', 'aegis-barrier']
   }
 ];

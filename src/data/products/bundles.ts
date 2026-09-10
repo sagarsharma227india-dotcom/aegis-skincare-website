@@ -100,9 +100,13 @@ export const BUNDLES: Product[] = [
         answer: 'Approximately 60 to 75 days of twice-daily recommended usage.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1696497327672-2bdce2e033dd?auto=format&fit=crop&w=800&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80',
     isBundle: true,
     bundleItemIds: ['aegis-wash', 'aegis-barrier', 'aegis-shield']
   },
@@ -205,9 +209,13 @@ export const BUNDLES: Product[] = [
         answer: 'No. AEGIS CLEAR is balanced with 10% niacinamide and hyaluronic acid to preserve moisture while controlling shine.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1580870058863-7c9b0e27f12e?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80',
     isBundle: true,
     bundleItemIds: ['aegis-wash', 'aegis-clear', 'aegis-shield']
   },
@@ -310,9 +318,13 @@ export const BUNDLES: Product[] = [
         answer: 'Visible lightening typically begins in 4 to 6 weeks of daily twice-a-day application paired with consistent SPF 50.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1614859324967-bdf8ce0bdc45?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80',
     isBundle: true,
     bundleItemIds: ['aegis-wash', 'aegis-bright', 'aegis-shield']
   },
@@ -415,9 +427,13 @@ export const BUNDLES: Product[] = [
         answer: 'No. Every formula in this kit is formulated strictly free of fragrance, essential oils, and drying alcohols to eliminate stinging.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1585232004423-244e0e6904e3?auto=format&fit=crop&w=800&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1576426863848-c21f53c60b19?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80',
     isBundle: true,
     bundleItemIds: ['aegis-calm', 'aegis-repair', 'aegis-barrier']
   },
@@ -520,9 +536,13 @@ export const BUNDLES: Product[] = [
         answer: 'Yes. Softening stubble before the cut and calming the follicle with bisabolol dramatically reduces the incidence of red post-shave bumps.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80',
     isBundle: true,
     bundleItemIds: ['aegis-wash', 'aegis-after', 'aegis-barrier']
   },
@@ -637,9 +657,13 @@ export const BUNDLES: Product[] = [
         answer: 'No. Every formula contains humectant hydration like glycerin and hyaluronic acid so your skin stays hydrated while porous silica controls only unwanted surface sebum.'
       }
     ],
-    images: {
-      main: 'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=800&q=80'
-    },
+    image: 'https://images.unsplash.com/photo-1608226065549-b54c8651a141?auto=format&fit=crop&w=800&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80'
+    ],
+    textureImage: 'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80',
     isBundle: true,
     bundleItemIds: ['aegis-purify', 'aegis-clear', 'aegis-matte', 'aegis-shield-matte']
   }
