@@ -95,8 +95,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#20231F]/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-in fade-in">
-      <div className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] w-full max-w-3xl overflow-hidden shadow-2xl relative my-6 text-left">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#20231F]/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-in fade-in" onClick={onClose}>
+      <div className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] w-full max-w-3xl overflow-hidden shadow-2xl relative my-6 text-left" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div className="p-6 bg-[#F2EEE7] border-b border-[#CFC8BC] flex items-center justify-between">
           <div className="flex items-center gap-3">

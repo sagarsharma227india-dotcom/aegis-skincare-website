@@ -2,116 +2,6 @@ import { Product } from '../../types';
 
 export const MOISTURIZERS: Product[] = [
   {
-    id: 'aegis-barrier',
-    slug: 'barrier-repair-moisturizer',
-    stepNumber: '03 / REPAIR',
-    stepCategory: 'REPAIR',
-    name: 'AEGIS BARRIER',
-    subtitle: 'Barrier Repair Moisturizer',
-    formulaSpec: '3:1:1 CERAMIDES NP/AP/EOP + 3% SQUALANE + 2% PANTHENOL',
-    category: 'moisturizers',
-    concerns: ['dehydration', 'redness', 'barrier'],
-    skinTypes: ['Normal', 'Dry', 'Sensitive', 'Post-Shave'],
-    subcategory: 'Barrier Comfort Lotion',
-    price: 749,
-    originalPrice: 899,
-    rating: 4.9,
-    reviewCount: 284,
-    volume: '50 ml / 1.7 fl. oz.',
-    phLevel: 'pH 5.6',
-    badges: ['BESTSELLER', 'POST-SHAVE ESSENTIAL'],
-    shortDescription: 'Weightless lipid emulsion that restores the skin barrier after shaving and daily environmental stress.',
-    whyItExists: 'Shaving physically scrapes away superficial stratum corneum cells, leaving the skin vulnerable. AEGIS BARRIER delivers biomimetic ceramides, squalane, and panthenol to accelerate recovery without greasy shine.',
-    whatItDoes: 'Reinforces the protective moisture barrier, calms razor friction, and delivers long-lasting lightweight comfort.',
-    benefits: [
-      'Rapidly soothes post-shave razor friction and tight dryness',
-      'Non-greasy fluid lotion absorbs in seconds without leaving a heavy film',
-      'Biomimetic 3:1:1 ceramides interlock into the lipid matrix'
-    ],
-    keyActives: [
-      {
-        name: 'Ceramide Complex (NP, AP, EOP)',
-        concentration: '2.5%',
-        role: 'Barrier Lipids',
-        mechanism: 'Replenishes essential stratum corneum intercellular lipids.'
-      },
-      {
-        name: 'Plant Squalane',
-        concentration: '3.0%',
-        role: 'Biomimetic Sebum Sealant',
-        mechanism: 'Prevents transepidermal water loss while remaining non-comedogenic.'
-      },
-      {
-        name: 'Panthenol (Pro-Vitamin B5)',
-        concentration: '2.0%',
-        role: 'Deep Hydration & Soothing',
-        mechanism: 'Soothes razor burn and supports epidermal regeneration.'
-      }
-    ],
-    beforeYouBuy: {
-      texture: 'Weightless silky comfort lotion',
-      finish: 'Natural satin, non-greasy',
-      fragrance: 'Fragrance-free',
-      skinType: 'Normal, dry, sensitive, post-shave skin',
-      routine: 'AM & PM (Step 03)',
-      size: '50 ML',
-      expectedUse: 'Approximately 60 days'
-    },
-    howToUseTimeline: [
-      {
-        stepNumber: '01',
-        action: 'DISPENSE',
-        amountOrTime: '1–2 pumps',
-        instruction: 'Dispense 1 to 2 pumps into fingertips.'
-      },
-      {
-        stepNumber: '02',
-        action: 'SMOOTH',
-        amountOrTime: 'Face & neck',
-        instruction: 'Smooth gently over face and shaved areas of neck and jawline.'
-      },
-      {
-        stepNumber: '03',
-        action: 'PRESS',
-        amountOrTime: '15 seconds',
-        instruction: 'Press palms against skin to encourage lipid penetration.'
-      }
-    ],
-    compatibility: {
-      worksWellWith: ['Salicylic Acid', 'Niacinamide', 'Retinoids', 'SPF 50'],
-      useCarefullyWith: ['None — universally compatible barrier base'],
-      explanation: 'Biomimetic ceramides and squalane support barrier recovery without blocking pores.'
-    },
-    comparison: {
-      bestFor: 'Razor burn, flakiness, tightness, dehydrated barrier',
-      texture: 'Ultra-light fluid lotion',
-      keyActive: '3:1:1 Ceramides + Squalane + Panthenol',
-      amUse: true,
-      pmUse: true,
-      targetSkin: 'Normal to dry, sensitive, razor-irritated'
-    },
-    completeRoutineItemIds: ['aegis-wash', 'aegis-barrier', 'aegis-shield'],
-    completeRoutineDiscount: 348,
-    protocolAM: 'Apply 1 pump to face and neck if extra moisture is needed, followed by sunscreen.',
-    protocolPM: 'Apply 2 pumps evenly as your evening restorative step after serum or shaving.',
-    whoItsFor: 'Men dealing with dry flaking, razor irritation, tightness, or compromised skin barriers.',
-    fullIngredients: 'Aqua, Caprylic/Capric Triglyceride, Vegetable Squalane (3.0%), Panthenol (2.0%), Ceramide NP, Ceramide AP, Ceramide EOP, Phytosphingosine, Cholesterol, Polyglutamic Acid, Glycerin, Sodium Lauroyl Lactylate, Carbomer, Xanthan Gum, Phenoxyethanol.',
-    faqList: [
-      {
-        question: 'Is this heavy or greasy in humid weather?',
-        answer: 'No. It is formulated as a light fluid emulsion that absorbs cleanly in seconds without any greasy residue.'
-      }
-    ],
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1611078449492-5743b35be9bd?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
-    ],
-    textureImage: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80',
-    pairsWith: ['aegis-wash', 'aegis-clear', 'aegis-shield']
-  },
-  {
     id: 'aegis-hydra',
     slug: 'hydra-lightweight-gel-moisturizer',
     stepNumber: '03 / REPAIR',
@@ -159,7 +49,6 @@ export const MOISTURIZERS: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Translucent watery jelly',
       finish: 'Weightless clean matte, zero residue',
       fragrance: 'Fragrance-free',
       skinType: 'Oily, very oily, combination, humid weather',
@@ -194,7 +83,6 @@ export const MOISTURIZERS: Product[] = [
     },
     comparison: {
       bestFor: 'Oily skin, humidity, post-workout cooling, zero shine',
-      texture: 'Cooling translucent water-gel',
       keyActive: 'Hyaluronic Acid + 3% Niacinamide',
       amUse: true,
       pmUse: true,
@@ -218,7 +106,6 @@ export const MOISTURIZERS: Product[] = [
       'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-purify', 'aegis-clear', 'aegis-shield-matte']
   },
   {
@@ -269,7 +156,6 @@ export const MOISTURIZERS: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Rich comforting velvety balm-cream',
       finish: 'Nourished, restorative cushion',
       fragrance: 'Fragrance-free',
       skinType: 'Normal, dry, fatigued, aging skin',
@@ -298,19 +184,18 @@ export const MOISTURIZERS: Product[] = [
       }
     ],
     compatibility: {
-      worksWellWith: ['AEGIS CLEAR', 'AEGIS HYDRATE', 'AEGIS EYE'],
+      worksWellWith: ['AEGIS CLEAR', 'AEGIS REPAIR', 'AEGIS EYE'],
       useCarefullyWith: ['None — night repair booster'],
       explanation: 'Use as your final evening step to seal in all prior active serums.'
     },
     comparison: {
       bestFor: 'Fatigued skin, sleep deprivation, aging signs, night restoration',
-      texture: 'Rich non-greasy night cream',
       keyActive: 'Peptides + Ceramides + Ashwagandha',
       amUse: false,
       pmUse: true,
       targetSkin: 'Normal to dry, fatigued, 30+'
     },
-    completeRoutineItemIds: ['aegis-wash', 'aegis-hydrate', 'aegis-recover'],
+    completeRoutineItemIds: ['aegis-wash', 'aegis-repair', 'aegis-recover'],
     completeRoutineDiscount: 350,
     protocolAM: 'Not intended for daytime use due to its rich restorative lipid profile.',
     protocolPM: 'Massage 1-2 pumps as the final step of your nighttime protocol before sleeping.',
@@ -322,14 +207,13 @@ export const MOISTURIZERS: Product[] = [
         answer: 'No. It is non-greasy and absorbs into a velvety cushion within 5 minutes.'
       }
     ],
-    image: 'https://images.unsplash.com/photo-1611078449492-5743b35be9bd?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1611078449492-5743b35be9bd?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1556228720-1c2be2414d8c?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80',
-    pairsWith: ['aegis-wash', 'aegis-hydrate', 'aegis-eye']
+    pairsWith: ['aegis-wash', 'aegis-repair', 'aegis-eye']
   },
   {
     id: 'aegis-matte',
@@ -379,7 +263,6 @@ export const MOISTURIZERS: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Feather-light whipped cream-gel',
       finish: 'Zero-shine powdery matte',
       fragrance: 'Fragrance-free',
       skinType: 'Oily, very oily, combination, humid city weather',
@@ -414,7 +297,6 @@ export const MOISTURIZERS: Product[] = [
     },
     comparison: {
       bestFor: 'Excess shine, oily forehead, afternoon greasiness, hot weather',
-      texture: 'Whipped matte cream-gel',
       keyActive: '3% Silica Aerogel + 4% Niacinamide + Zinc PCA',
       amUse: true,
       pmUse: true,
@@ -438,7 +320,6 @@ export const MOISTURIZERS: Product[] = [
       'https://images.unsplash.com/photo-1611078449492-5743b35be9bd?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-purify', 'aegis-clear', 'aegis-shield-matte']
   }
 ];

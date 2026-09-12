@@ -49,7 +49,6 @@ export const CLEANSERS: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Silky low-foaming gel',
       finish: 'Clean & supple, non-stripped',
       fragrance: 'Fragrance-free (subtle natural botanical note)',
       skinType: 'All skin types, especially oily & combination',
@@ -84,7 +83,6 @@ export const CLEANSERS: Product[] = [
     },
     comparison: {
       bestFor: 'Daily dirt, oil, and sweat removal without barrier stripping',
-      texture: 'Low-foaming silky gel',
       keyActive: '15% Apple Amino Acids + Panthenol',
       amUse: true,
       pmUse: true,
@@ -112,8 +110,7 @@ export const CLEANSERS: Product[] = [
       'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80',
-    pairsWith: ['aegis-clear', 'aegis-shield', 'aegis-barrier']
+    pairsWith: ['aegis-clear', 'aegis-shield', 'aegis-hydra']
   },
   {
     id: 'aegis-purify',
@@ -163,7 +160,6 @@ export const CLEANSERS: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Clear clarifying gel',
       finish: 'Clean matte, deeply refreshed',
       fragrance: 'Fragrance-free',
       skinType: 'Oily, congested, acne-prone skin',
@@ -198,7 +194,6 @@ export const CLEANSERS: Product[] = [
     },
     comparison: {
       bestFor: 'Stubborn blackheads, congested pores, and active breakouts',
-      texture: 'Clear clarifying gel',
       keyActive: '1.5% BHA + 1% Zinc PCA',
       amUse: true,
       pmUse: true,
@@ -216,13 +211,12 @@ export const CLEANSERS: Product[] = [
         answer: 'Mild initial purging can occur during the first 1-2 weeks as trapped pore debris clears.'
       }
     ],
-    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1608226065549-b54c8651a141?auto=format&fit=crop&w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-clear', 'aegis-shield-matte', 'aegis-hydra']
   },
   {
@@ -273,7 +267,6 @@ export const CLEANSERS: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Silky comforting cleansing cream',
       finish: 'Supple, hydrated, velvet cushion',
       fragrance: 'Fragrance-free',
       skinType: 'Dry, sensitive, razor-irritated',
@@ -302,19 +295,18 @@ export const CLEANSERS: Product[] = [
       }
     ],
     compatibility: {
-      worksWellWith: ['All serums', 'AEGIS REPAIR', 'AEGIS BARRIER'],
+      worksWellWith: ['All serums', 'AEGIS REPAIR', 'AEGIS RECOVER'],
       useCarefullyWith: ['None — hypoallergenic non-stripping base'],
       explanation: 'Universally tolerated on sensitive and compromised skin.'
     },
     comparison: {
       bestFor: 'Shaving burn, peeling dryness, sensitivity, and winter tightness',
-      texture: 'Creamy non-foaming lotion',
       keyActive: 'Ceramides + Colloidal Oat + 2% Panthenol',
       amUse: true,
       pmUse: true,
       targetSkin: 'Dry, sensitive, razor-damaged'
     },
-    completeRoutineItemIds: ['aegis-calm', 'aegis-repair', 'aegis-barrier'],
+    completeRoutineItemIds: ['aegis-calm', 'aegis-repair', 'aegis-recover'],
     completeRoutineDiscount: 350,
     protocolAM: 'Gentle wash on damp skin. Leaves protective barrier intact.',
     protocolPM: 'Use directly following a shave or evening routine to comfort stressed skin.',
@@ -332,7 +324,6 @@ export const CLEANSERS: Product[] = [
       'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80',
-    pairsWith: ['aegis-repair', 'aegis-barrier', 'aegis-shield']
+    pairsWith: ['aegis-repair', 'aegis-recover', 'aegis-shield']
   }
 ];

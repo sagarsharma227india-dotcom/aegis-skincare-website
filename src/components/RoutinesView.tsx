@@ -120,12 +120,12 @@ export const RoutinesView: React.FC<RoutinesViewProps> = ({
                 <div className="flex justify-between text-[11px] font-mono-spec">
                   <span className="font-bold text-[#4B5848] uppercase">02 / CORRECT (30s)</span>
                   <span className="text-[#20231F] font-semibold">
-                    {profileType === 'sensitive' ? 'AEGIS BARRIER' : 'AEGIS CLEAR SERUM'}
+                    {profileType === 'sensitive' ? 'AEGIS REPAIR' : 'AEGIS CLEAR SERUM'}
                   </span>
                 </div>
                 <p className="text-xs text-[#5C625B]">
                   {profileType === 'sensitive'
-                    ? 'Apply 1 pump of 3:1:1 Ceramide Fluid to calm shaving irritation and rebuild lost lipids.'
+                    ? 'Apply 1 pump of AEGIS REPAIR barrier serum to calm shaving irritation and rebuild lost lipids.'
                     : 'Apply 2-3 drops of 2% BHA + 5% Niacinamide across forehead and nose to control shine and keep pores clear.'}
                 </p>
               </div>
@@ -172,13 +172,13 @@ export const RoutinesView: React.FC<RoutinesViewProps> = ({
                 <div className="flex justify-between text-[11px] font-mono-spec">
                   <span className="font-bold text-[#4B5848] uppercase">02 / TREAT & REBUILD (30s)</span>
                   <span className="text-[#20231F] font-semibold">
-                    {profileType === 'sensitive' ? 'AEGIS BARRIER FLUID' : 'AEGIS CLEAR + BARRIER'}
+                    {profileType === 'sensitive' ? 'AEGIS RECOVER CREAM' : 'AEGIS CLEAR + HYDRA'}
                   </span>
                 </div>
                 <p className="text-xs text-[#5C625B]">
                   {profileType === 'sensitive'
-                    ? '2 pumps of Ceramide fluid to accelerate overnight recovery from daily razor passes.'
-                    : 'Apply 3 drops of BHA serum to clear pore canals, followed by 1 pump of Barrier fluid if skin feels dry.'}
+                    ? 'Dime-sized amount of overnight recovery cream to accelerate barrier recovery from daily razor passes.'
+                    : 'Apply 3 drops of BHA serum to clear pore canals, followed by 1 pump of AEGIS HYDRA to replenish hydration.'}
                 </p>
               </div>
             </div>

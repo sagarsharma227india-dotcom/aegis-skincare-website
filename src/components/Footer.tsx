@@ -33,15 +33,15 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentView }) => {
               }}
               className="cursor-pointer flex items-center gap-3"
             >
-              <div className="w-8 h-8 rounded bg-[#4B5848] text-[#F8F5EF] flex items-center justify-center">
-                <AegisMonogram size={18} color="#F8F5EF" />
+              <div className="w-9 h-9 rounded-[4px] bg-[#343A33] border border-[#4B5848]/60 text-[#F8F5EF] flex items-center justify-center">
+                <AegisMonogram size={20} color="#F8F5EF" accentColor="#D3C9B8" />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold tracking-[0.2em] text-lg text-[#F8F5EF] leading-tight font-serif-editorial">
+                <span className="font-bold tracking-[0.24em] text-xl text-[#F8F5EF] leading-tight font-serif-editorial">
                   AEGIS
                 </span>
-                <span className="text-[9px] font-mono-spec tracking-[0.25em] text-[#A9B7B7] uppercase">
-                  MEN'S SKINCARE
+                <span className="text-[8.5px] font-mono-spec tracking-[0.3em] text-[#A9B7B7] uppercase font-semibold">
+                  CLINICAL MEN'S FORMULAS
                 </span>
               </div>
             </div>
@@ -104,6 +104,20 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentView }) => {
                   className="hover:text-[#F8F5EF] transition-colors"
                 >
                   The 3-Minute Protocol
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    setCurrentView('home');
+                    setTimeout(() => {
+                      const el = document.getElementById('aegis-home-faq');
+                      el?.scrollIntoView({ behavior: 'smooth' });
+                    }, 60);
+                  }}
+                  className="hover:text-[#F8F5EF] transition-colors"
+                >
+                  Frequently Asked Questions (FAQ)
                 </button>
               </li>
             </ul>
@@ -208,11 +222,10 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentView }) => {
           <div>
             © {new Date().getFullYear()} AEGIS MEN'S SKINCARE. All rights reserved.
           </div>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap items-center gap-6">
             <span>Privacy Policy</span>
             <span>Terms of Service</span>
             <span>INCI Transparency</span>
-            <span>Shipping Policy</span>
           </div>
         </div>
       </div>

@@ -209,7 +209,7 @@ export function calculateQuizResults(answers: Record<number, string>): QuizDiagn
   let priorityTitle = 'BALANCE & PROTECT';
   let priorityDescription = 'Maintain steady hydration while fortifying the acid mantle and shielding skin from daily daytime UV rays.';
   let targetActives = ['3:1:1 Ceramides', 'pH 5.5 Amino Acids', 'Broad-Spectrum SPF 50+ PA++++'];
-  let recommendedProductIds = ['aegis-starter-bundle', 'aegis-wash', 'aegis-barrier', 'aegis-shield'];
+  let recommendedProductIds = ['aegis-starter-bundle', 'aegis-wash', 'aegis-hydra', 'aegis-shield'];
 
   if (q1 === 'oily-all' || q2 === 'breakouts' || q2 === 'oil-control') {
     skinType = 'Oily + Congestion-Prone';
@@ -230,7 +230,7 @@ export function calculateQuizResults(answers: Record<number, string>): QuizDiagn
     priorityTitle = 'RESTORE THE BARRIER';
     priorityDescription = 'Replenish lost intercellular lipids with biomimetic 3:1:1 Ceramides and soothe shaving friction with Centella and Ectoin.';
     targetActives = ['3:1:1 Biomimetic Ceramides', 'Polyglutamic Acid', 'Apple Amino Acids', '1.0% Ectoin'];
-    recommendedProductIds = ['aegis-barrier-reset', 'aegis-barrier', 'aegis-wash', 'aegis-shield'];
+    recommendedProductIds = ['aegis-repair', 'aegis-recover', 'aegis-wash', 'aegis-shield'];
   } else if (q2 === 'daily-armor') {
     skinType = 'Everyday Urban + Photo-Defense';
     barrierScore = 84;

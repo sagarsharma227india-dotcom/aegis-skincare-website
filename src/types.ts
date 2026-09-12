@@ -42,7 +42,6 @@ export interface ActiveIngredient {
 }
 
 export interface BeforeYouBuySpec {
-  texture: string;
   finish: string;
   fragrance: string;
   skinType: string;
@@ -66,7 +65,6 @@ export interface IngredientCompatibility {
 
 export interface ComparisonData {
   bestFor: string;
-  texture: string;
   keyActive: string;
   amUse: boolean;
   pmUse: boolean;
@@ -124,7 +122,6 @@ export interface Product {
   faqList: { question: string; answer: string }[];
   image: string;
   galleryImages: string[];
-  textureImage?: string;
   badge?: string;
   pairsWith?: string[];
   isBundle?: boolean;
@@ -155,13 +152,17 @@ export interface JournalArticle {
   id: string;
   slug: string;
   title: string;
+  subtitle?: string;
   category: 'FOUNDATIONS' | 'INGREDIENTS' | 'ROUTINES' | "MEN'S SKIN" | 'SCIENCE';
   readTime: string;
   date: string;
   author: string;
+  authorRole?: string;
   summary: string;
   content: string[];
+  clinicalKeypoints?: string[];
   tableOfContents?: { id: string; title: string }[];
+  references?: string[];
   image: string;
   relatedProducts?: string[];
   relatedIngredients?: string[];

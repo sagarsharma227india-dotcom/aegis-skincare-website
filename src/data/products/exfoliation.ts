@@ -49,7 +49,6 @@ export const EXFOLIATION: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Water-light fluid splash',
       finish: 'Clean bare skin, instant smoothness',
       fragrance: 'Fragrance-free',
       skinType: 'Dull, textured, uneven, ingrown-prone skin',
@@ -74,23 +73,22 @@ export const EXFOLIATION: Product[] = [
         stepNumber: '03',
         action: 'LEAVE ON',
         amountOrTime: 'Do not rinse',
-        instruction: 'Do not rinse. Follow with AEGIS BARRIER after 2 minutes.'
+        instruction: 'Do not rinse. Follow with AEGIS RECOVER after 2 minutes.'
       }
     ],
     compatibility: {
-      worksWellWith: ['AEGIS BARRIER', 'AEGIS CALM', 'AEGIS HYDRATE'],
-      useCarefullyWith: ['Do not use on the same evening as AEGIS SPOT or right after a close razor shave'],
+      worksWellWith: ['AEGIS RECOVER', 'AEGIS CALM', 'AEGIS REPAIR'],
+      useCarefullyWith: ['Do not use on the same evening as other strong peeling treatments or right after a close razor shave'],
       explanation: 'Use 2 to 3 evenings per week. Always use SPF 50 the following morning.'
     },
     comparison: {
       bestFor: 'Rough forehead texture, flaky dry patches, dull complexion, clogged follicular bumps',
-      texture: 'Weightless water-splash',
       keyActive: '7% Lactic + 3% Mandelic + 2% PHA',
       amUse: false,
       pmUse: true,
       targetSkin: 'All skin types, especially rough or dull'
     },
-    completeRoutineItemIds: ['aegis-wash', 'aegis-renew', 'aegis-barrier'],
+    completeRoutineItemIds: ['aegis-wash', 'aegis-renew', 'aegis-recover'],
     completeRoutineDiscount: 350,
     protocolAM: 'Never use in the morning. Always apply AEGIS SHIELD SPF 50 the morning after use.',
     protocolPM: 'Apply 2-3 nights per week to clean dry skin before your moisturizer.',
@@ -112,7 +110,6 @@ export const EXFOLIATION: Product[] = [
       'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80',
-    pairsWith: ['aegis-wash', 'aegis-barrier', 'aegis-shield']
+    pairsWith: ['aegis-wash', 'aegis-recover', 'aegis-shield']
   }
 ];

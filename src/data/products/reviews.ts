@@ -11,9 +11,9 @@ export const REVIEWS: ProductReview[] = [
     verified: true,
     verifiedBuyer: true,
     skinType: 'Oily / T-Zone Congestion',
-    productName: 'The AEGIS Starter Kit',
+    productName: 'THE STARTER SYSTEM',
     title: 'Takes two minutes and noticeably less shine by the end of the day',
-    comment: 'I work long hours in tech and my forehead used to get greasy by 3 PM. The Starter Kit takes maybe two minutes in the morning and keeps my skin balanced without feeling dry.',
+    comment: 'I work long hours in tech and my forehead used to get greasy by 3 PM. The Starter System takes maybe two minutes in the morning and keeps my skin balanced without feeling dry.',
     helpfulCount: 38
   },
   {
@@ -28,7 +28,7 @@ export const REVIEWS: ProductReview[] = [
     skinType: 'Shaving Sensitivity',
     productName: 'The Shaving + Recovery Routine',
     title: 'Post-shave neck redness calmed down significantly within 48 hours',
-    comment: 'The combination of AEGIS WASH, AFTER serum, and BARRIER fluid completely fixed my neck razor burn. Zero stinging when applying, and no heavy fragrance. Really happy with the straightforward approach.',
+    comment: 'The combination of AEGIS WASH, AFTER serum, and RECOVER cream completely fixed my neck razor burn. Zero stinging when applying, and no heavy fragrance. Really happy with the straightforward approach.',
     helpfulCount: 42
   },
   {
@@ -71,9 +71,9 @@ export const REVIEWS: ProductReview[] = [
     verified: true,
     verifiedBuyer: true,
     skinType: 'Combination / Acne Marks',
-    productName: 'AEGIS BRIGHT',
+    productName: 'AEGIS EVEN',
     title: 'Faded stubborn dark marks from old acne without irritating',
-    comment: 'Melanin-rich skin tends to hold onto brown spots for months after pimples go away. Tranexamic acid and alpha arbutin in this formula visibly faded marks around my jawline in 4 weeks.',
+    comment: 'Melanin-rich skin tends to hold onto brown spots for months after pimples go away. The azelaic active and niacinamide in this formula visibly faded marks around my jawline in 4 weeks.',
     helpfulCount: 34
   },
   {
@@ -86,9 +86,9 @@ export const REVIEWS: ProductReview[] = [
     verified: true,
     verifiedBuyer: true,
     skinType: 'Dry / Post-Shave',
-    productName: 'AEGIS BARRIER',
-    title: 'Ultra-light lotion feel, handles humidity well',
-    comment: 'Extremely light lotion feel. Does not feel greasy even in warm weather. Shaving bumps on my lower neck improved after about 10 days of consistent evening use.',
+    productName: 'AEGIS RECOVER',
+    title: 'Ultra-light restorative feel, handles humidity well',
+    comment: 'Extremely restorative feel. Does not feel greasy even in warm weather. Shaving bumps on my lower neck improved after about 10 days of consistent evening use.',
     helpfulCount: 21
   },
   {

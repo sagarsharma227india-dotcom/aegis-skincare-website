@@ -9,7 +9,7 @@ export const INGREDIENTS_DATA: IngredientInfo[] = [
     bestFor: 'Oily T-zones, enlarged pores, dark marks, and barrier maintenance.',
     howToUse: 'Suitable for daily morning and evening application. Pairs seamlessly with salicylic acid, hyaluronic acid, and zinc PCA.',
     scientificInsight: 'Niacinamide acts as an essential precursor to cellular co-enzymes (NAD/NADP), aiding natural ceramide biosynthesis and down-regulating transfer of melanosomes to keratinocytes.',
-    matchedProducts: ['aegis-clear', 'aegis-bright', 'aegis-hydra', 'aegis-shield', 'aegis-pore']
+    matchedProducts: ['aegis-clear', 'aegis-even', 'aegis-hydra', 'aegis-shield']
   },
   {
     id: 'zinc-pca',
@@ -19,7 +19,7 @@ export const INGREDIENTS_DATA: IngredientInfo[] = [
     bestFor: 'Excess shine, breakout-prone skin, enlarged pores, and post-shave bumps.',
     howToUse: 'Combined with niacinamide and BHA in lightweight water-based serums for daily morning or evening use.',
     scientificInsight: 'PCA (Pyrrolidone Carboxylic Acid) is an endogenous component of natural moisturizing factors (NMF), enhancing the dermal bioavailability of elemental zinc while maintaining skin hydration.',
-    matchedProducts: ['aegis-clear', 'aegis-purify', 'aegis-pore', 'aegis-spot']
+    matchedProducts: ['aegis-clear', 'aegis-purify']
   },
   {
     id: 'salicylic-acid',
@@ -29,7 +29,7 @@ export const INGREDIENTS_DATA: IngredientInfo[] = [
     bestFor: 'Blackheads, congested pores, breakouts, body acne, and clogged follicular bumps.',
     howToUse: 'Apply 2-3 drops after cleansing. Can be used daily or 3-4 times a week depending on skin tolerance and formulation strength.',
     scientificInsight: 'Because salicylic acid is lipophilic (oil-soluble), it dissolves the intercellular lipid glue holding keratin plugs together inside sebaceous follicles without abrasive physical scrubbing.',
-    matchedProducts: ['aegis-wash', 'aegis-purify', 'aegis-clear', 'aegis-spot', 'aegis-body-wash']
+    matchedProducts: ['aegis-wash', 'aegis-purify', 'aegis-clear', 'aegis-body-wash']
   },
   {
     id: 'hyaluronic-acid',
@@ -39,7 +39,7 @@ export const INGREDIENTS_DATA: IngredientInfo[] = [
     bestFor: 'Dehydration, dullness, tight skin after showers, and under-eye fatigue.',
     howToUse: 'Apply to freshly cleansed, slightly damp skin before moisturizers or sunscreen.',
     scientificInsight: 'Combines high-molecular-weight sodium hyaluronate (which forms an elastic surface moisture seal) with low-molecular-weight hyaluronic acid (which penetrates the stratum corneum to replenish dermal water pools).',
-    matchedProducts: ['aegis-hydrate', 'aegis-hydra', 'aegis-eye', 'aegis-barrier']
+    matchedProducts: ['aegis-hydra', 'aegis-eye', 'aegis-repair']
   },
   {
     id: 'ceramides',
@@ -49,7 +49,7 @@ export const INGREDIENTS_DATA: IngredientInfo[] = [
     bestFor: 'Dryness, post-shave sensitivity, tightness, flaking, and compromised skin barriers.',
     howToUse: 'Apply as a fluid moisturizer after serums or directly post-shave to soothe and rebuild.',
     scientificInsight: 'The human stratum corneum is composed of ceramides, cholesterol, and free fatty acids in an approximate 3:1:1 physiological ratio for optimal lipid lamellar stacking and barrier integrity.',
-    matchedProducts: ['aegis-barrier', 'aegis-calm', 'aegis-repair', 'aegis-recover', 'aegis-lip', 'aegis-body-lotion']
+    matchedProducts: ['aegis-calm', 'aegis-repair', 'aegis-recover', 'aegis-body-lotion']
   },
   {
     id: 'panthenol',
@@ -59,7 +59,7 @@ export const INGREDIENTS_DATA: IngredientInfo[] = [
     bestFor: 'Razor burn, stinging, post-sun redness, chapped lips, and compromised barrier recovery.',
     howToUse: 'Formulated in cleansers, recovery serums, and daily moisturizers for continuous all-day calming.',
     scientificInsight: 'Pro-Vitamin B5 stimulates cellular proliferation and tissue re-epithelialization while reinforcing stratum corneum lipid organization and reducing erythema.',
-    matchedProducts: ['aegis-wash', 'aegis-calm', 'aegis-after', 'aegis-barrier', 'aegis-hydrate', 'aegis-repair']
+    matchedProducts: ['aegis-wash', 'aegis-calm', 'aegis-after', 'aegis-repair']
   },
   {
     id: 'alpha-arbutin',
@@ -69,7 +69,7 @@ export const INGREDIENTS_DATA: IngredientInfo[] = [
     bestFor: 'Post-blemish dark marks (PIH), sun discoloration, and uneven skin tone.',
     howToUse: 'Apply 2-3 drops morning and evening before moisturizer, followed by SPF 50 during daytime.',
     scientificInsight: 'Alpha Arbutin is a glycosylated hydroquinone derivative that competitively inhibits tyrosinase activity without cytotoxic effects on melanocytes, offering a safe, stable depigmenting action.',
-    matchedProducts: ['aegis-bright']
+    matchedProducts: ['aegis-even']
   },
   {
     id: 'tranexamic-acid',
@@ -79,7 +79,7 @@ export const INGREDIENTS_DATA: IngredientInfo[] = [
     bestFor: 'Stubborn dark patches, persistent post-acne discoloration, and post-inflammatory pigmentation.',
     howToUse: 'Pairs synergistically with Niacinamide and Alpha Arbutin for comprehensive tone correction.',
     scientificInsight: 'Tranexamic acid inhibits the plasminogen/plasmin pathway, preventing the release of intracellular inflammatory arachidonic acid and prostaglandins that over-stimulate melanin synthesis.',
-    matchedProducts: ['aegis-bright']
+    matchedProducts: ['aegis-even']
   },
   {
     id: 'squalane',
@@ -89,7 +89,7 @@ export const INGREDIENTS_DATA: IngredientInfo[] = [
     bestFor: 'Dehydrated, barrier-compromised skin, rough patches, and dry lips.',
     howToUse: 'Formulated directly into fluid moisturizers and lip balms for weightless sealing.',
     scientificInsight: 'Squalane is the fully hydrogenated, non-comedogenic, oxidation-stable form of squalene—a lipid that makes up approximately 13% of healthy human sebum.',
-    matchedProducts: ['aegis-barrier', 'aegis-recover', 'aegis-lip']
+    matchedProducts: ['aegis-recover', 'aegis-hydra']
   },
   {
     id: 'peptides',
@@ -109,7 +109,7 @@ export const INGREDIENTS_DATA: IngredientInfo[] = [
     bestFor: 'Reactive skin, razor irritation, extreme dryness, and environmental wind-burn.',
     howToUse: 'Applied in barrier recovery serums and gentle morning/evening lotions.',
     scientificInsight: 'Extracted from colloidal oats, beta-glucan is a high-molecular polysaccharide that penetrates the intercellular lipid pathways to stimulate macrophage activity and accelerate epidermal wound healing.',
-    matchedProducts: ['aegis-hydrate', 'aegis-calm', 'aegis-repair']
+    matchedProducts: ['aegis-calm', 'aegis-repair']
   },
   {
     id: 'apple-amino-acids',

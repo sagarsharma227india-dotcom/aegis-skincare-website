@@ -49,7 +49,6 @@ export const MASKS: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Rich velvety smooth clay cream',
       finish: 'Rinses completely clean, soft matte skin',
       fragrance: 'Fragrance-free',
       skinType: 'Oily, congested, blackhead-prone skin',
@@ -84,7 +83,6 @@ export const MASKS: Product[] = [
     },
     comparison: {
       bestFor: 'Blackheads, nose oiliness, congested pores, pollution buildup',
-      texture: 'Smooth non-drying clay paste',
       keyActive: 'French Green Clay + Kaolin + Zinc PCA + Sulfur',
       amUse: false,
       pmUse: true,
@@ -102,13 +100,12 @@ export const MASKS: Product[] = [
         answer: 'No! AEGIS CLAY contains botanical glycerin and soothing allantoin to prevent the crusty drying and tightness of cheap clay masks.'
       }
     ],
-    image: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1574316071802-0d684efa7ab5?auto=format&fit=crop&w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-purify', 'aegis-clear', 'aegis-hydra']
   },
   {
@@ -159,7 +156,6 @@ export const MASKS: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Rich bouncy cushion cream-gel',
       finish: 'Dewy nourishing veil, absorbs pillow-safe',
       fragrance: 'Fragrance-free',
       skinType: 'Dry, dehydrated, windburned, post-shave irritated skin',
@@ -194,7 +190,6 @@ export const MASKS: Product[] = [
     },
     comparison: {
       bestFor: 'Flaky dry skin, post-shave neck tightness, travel dehydration, winter dryness',
-      texture: 'Bouncy cushion sleep balm',
       keyActive: '3% Beta Glucan + Ceramides + 3% Panthenol',
       amUse: false,
       pmUse: true,
@@ -218,7 +213,6 @@ export const MASKS: Product[] = [
       'https://images.unsplash.com/photo-1607500516104-5853245452d9?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1608248593883-7d727b4074ee?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80',
-    pairsWith: ['aegis-calm', 'aegis-repair', 'aegis-barrier']
+    pairsWith: ['aegis-calm', 'aegis-repair', 'aegis-recover']
   }
 ];

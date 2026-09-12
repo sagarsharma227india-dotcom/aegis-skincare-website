@@ -92,9 +92,9 @@ class ChatService {
     ) {
       return {
         message:
-          "AEGIS MEN formulations are developed around physiological barrier support and everyday skin maintenance. For severe cystic acne, eczema, psoriasis, or prescription guidance, we strongly recommend consulting a board-certified dermatologist. For everyday barrier defense, our gentle pH 5.5 AEGIS WASH and 3:1:1 Ceramide Fluid can support comfortable skin recovery alongside professional medical advice.",
+          "AEGIS MEN formulations are developed around physiological barrier support and everyday skin maintenance. For severe cystic acne, eczema, psoriasis, or prescription guidance, we strongly recommend consulting a board-certified dermatologist. For everyday barrier defense, our gentle pH 5.5 AEGIS WASH and 3:1:1 Ceramide formulations can support comfortable skin recovery alongside professional medical advice.",
         recommendedProducts: [
-          PRODUCTS.find((p) => p.id === 'aegis-barrier')!,
+          PRODUCTS.find((p) => p.id === 'aegis-repair') || PRODUCTS.find((p) => p.id === 'aegis-hydra')!,
           PRODUCTS.find((p) => p.id === 'aegis-wash')!
         ].filter(Boolean),
         suggestedPrompts: [
@@ -126,7 +126,7 @@ class ChatService {
           "  3. Protect: AEGIS SHIELD SPF 50 (invisible defense in stubble & beards)\n\n" +
           "• Evening (PM) ~ 60s:\n" +
           "  1. Cleanse: AEGIS WASH (lifts city grime & daytime sunscreen)\n" +
-          "  2. Repair: AEGIS BARRIER (3:1:1 Ceramides to rebuild post-shave skin)",
+          "  2. Repair: AEGIS HYDRA or AEGIS RECOVER (hydrates and rebuilds skin)",
         recommendedProducts: [
           PRODUCTS.find((p) => p.id === 'aegis-starter-bundle') || PRODUCTS[0],
           PRODUCTS.find((p) => p.id === 'aegis-wash')!,
@@ -202,14 +202,14 @@ class ChatService {
       query.includes('barrier') ||
       query.includes('peel')
     ) {
-      const barrier = PRODUCTS.find((p) => p.id === 'aegis-barrier')!;
+      const repair = PRODUCTS.find((p) => p.id === 'aegis-repair') || PRODUCTS.find((p) => p.id === 'aegis-hydra')!;
       const wash = PRODUCTS.find((p) => p.id === 'aegis-wash')!;
       return {
         message:
           "Skin tightness after showering is a classic sign of barrier lipid depletion. When the stratum corneum lacks ceramides, water evaporates rapidly (Transepidermal Water Loss).\n\n" +
           "• AEGIS WASH maintains your natural lipid barrier at pH 5.5.\n" +
-          "• AEGIS BARRIER restores essential lipids with a biomimetic 3:1:1 ratio of Ceramides (NP, AP, EOP), cholesterol, and polyglutamic acid in a weightless, non-greasy fluid.",
-        recommendedProducts: [barrier, wash],
+          "• AEGIS REPAIR restores essential lipids with 3:1:1 Ceramides, cholesterol, and madecassoside in a weightless, non-greasy fluid.",
+        recommendedProducts: [repair, wash].filter(Boolean),
         suggestedPrompts: [
           'What is 3:1:1 ratio?',
           'Can I use this post-shave?',
@@ -232,10 +232,10 @@ class ChatService {
         message:
           "Daily razor passes physically scrape off up to 2 superficial layers of skin cells, causing razor burn and exposed micro-abrasions.\n\n" +
           "• Pre-shave/Cleanse: AEGIS WASH softens facial hair keratin with apple amino acid foam.\n" +
-          "• Post-shave Calm: AEGIS BARRIER replenishes stripped ceramides and calms blade friction with squalane and centella.\n" +
+          "• Post-shave Calm: AEGIS AFTER replenishes calm and soothes blade friction with bisabolol and centella.\n" +
           "• Sun Defense: AEGIS SHIELD SPF 50 is 100% transparent in stubble and beards with zero white chalkiness.",
         recommendedProducts: [
-          PRODUCTS.find((p) => p.id === 'aegis-barrier')!,
+          PRODUCTS.find((p) => p.id === 'aegis-after') || PRODUCTS.find((p) => p.id === 'aegis-repair')!,
           PRODUCTS.find((p) => p.id === 'aegis-shield')!
         ].filter(Boolean),
         suggestedPrompts: [

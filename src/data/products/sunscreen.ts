@@ -49,7 +49,6 @@ export const SUNSCREEN: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Water-light fluid',
       finish: 'Completely clear, non-chalky natural matte',
       fragrance: 'Fragrance-free',
       skinType: 'All skin types, stubble & beard friendly',
@@ -84,7 +83,6 @@ export const SUNSCREEN: Product[] = [
     },
     comparison: {
       bestFor: 'Daily sun protection without white cast or shine in facial hair',
-      texture: 'Water-gel fluid',
       keyActive: 'Modern UV Filters + 1% Ectoin + Silica',
       amUse: true,
       pmUse: false,
@@ -106,14 +104,13 @@ export const SUNSCREEN: Product[] = [
         answer: 'It is formulated without volatile fragrances and uses water-resistant structuring agents to resist running.'
       }
     ],
-    image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1529154215902-6014cd7b37cb?auto=format&fit=crop&w=800&q=80',
     galleryImages: [
-      'undefined',
-      'undefined',
+      'https://images.unsplash.com/photo-1529154215902-6014cd7b37cb?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=600&q=80',
-    pairsWith: ['aegis-wash', 'aegis-clear', 'aegis-barrier']
+    pairsWith: ['aegis-wash', 'aegis-clear', 'aegis-hydra']
   },
   {
     id: 'aegis-shield-matte',
@@ -163,7 +160,6 @@ export const SUNSCREEN: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Lightweight air-whipped lotion',
       finish: 'Ultra-dry velvety matte',
       fragrance: 'Fragrance-free',
       skinType: 'Oily, very oily, acne-prone, summer heat',
@@ -198,7 +194,6 @@ export const SUNSCREEN: Product[] = [
     },
     comparison: {
       bestFor: 'Extremely oily skin, humid Indian weather, intense summer sun',
-      texture: 'Air-whipped velvet fluid',
       keyActive: 'SPF 50 + 3% Silica Aerogel + Zinc PCA',
       amUse: true,
       pmUse: false,
@@ -218,11 +213,10 @@ export const SUNSCREEN: Product[] = [
     ],
     image: 'https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&w=800&q=80',
     galleryImages: [
-      'undefined',
-      'undefined',
+      'https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80',
     pairsWith: ['aegis-purify', 'aegis-clear', 'aegis-hydra']
   },
   {
@@ -273,7 +267,6 @@ export const SUNSCREEN: Product[] = [
       }
     ],
     beforeYouBuy: {
-      texture: 'Silky hydrating lotion-cream',
       finish: 'Comfortable natural dewy-satin, non-sticky',
       fragrance: 'Fragrance-free',
       skinType: 'Dry, very dry, dehydrated, normal, post-shave skin',
@@ -302,19 +295,18 @@ export const SUNSCREEN: Product[] = [
       }
     ],
     compatibility: {
-      worksWellWith: ['AEGIS CALM', 'AEGIS HYDRATE', 'AEGIS BARRIER'],
+      worksWellWith: ['AEGIS CALM', 'AEGIS REPAIR', 'AEGIS HYDRA'],
       useCarefullyWith: ['None — compatible with all hydrating routines'],
       explanation: 'Can serve as both moisturizer and sunscreen for normal-to-dry skin on busy mornings.'
     },
     comparison: {
       bestFor: 'Dry tight skin, flaky patches, air-conditioned offices, winter sun protection',
-      texture: 'Moisturizing fluid lotion',
       keyActive: 'SPF 50+ + 2% Hyaluronic Acid + Ceramide NP',
       amUse: true,
       pmUse: false,
       targetSkin: 'Dry, normal, dehydrated skin'
     },
-    completeRoutineItemIds: ['aegis-calm', 'aegis-hydrate', 'aegis-shield-hydrate'],
+    completeRoutineItemIds: ['aegis-calm', 'aegis-repair', 'aegis-shield-hydrate'],
     completeRoutineDiscount: 360,
     protocolAM: 'Apply 2 finger lengths as the final step of your morning skincare protocol.',
     protocolPM: 'Cleanse off before bed with AEGIS CALM or AEGIS WASH.',
@@ -332,11 +324,10 @@ export const SUNSCREEN: Product[] = [
     ],
     image: 'https://images.unsplash.com/photo-1571781564947-f089600e12d4?auto=format&fit=crop&w=800&q=80',
     galleryImages: [
-      'undefined',
-      'undefined',
+      'https://images.unsplash.com/photo-1571781564947-f089600e12d4?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80'
     ],
-    textureImage: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80',
-    pairsWith: ['aegis-calm', 'aegis-hydrate', 'aegis-barrier']
+    pairsWith: ['aegis-calm', 'aegis-repair', 'aegis-hydra']
   }
 ];

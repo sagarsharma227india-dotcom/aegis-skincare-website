@@ -24,15 +24,29 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks: { id: NavView; label: string }[] = [
+  const navLinks: { id: NavView | 'faq'; label: string }[] = [
     { id: 'shop', label: 'SHOP' },
     { id: 'quiz', label: 'SKIN QUIZ' },
     { id: 'routines', label: 'ROUTINES' },
     { id: 'ingredients', label: 'INGREDIENTS' },
     { id: 'science', label: 'OUR SCIENCE' },
+    { id: 'faq', label: 'FAQ' },
     { id: 'journal', label: 'JOURNAL' },
     { id: 'about', label: 'ABOUT' }
   ];
+
+  const handleNavClick = (viewId: NavView | 'faq') => {
+    if (viewId === 'faq') {
+      setCurrentView('home');
+      setTimeout(() => {
+        const el = document.getElementById('aegis-home-faq');
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      return;
+    }
+    setCurrentView(viewId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <header className="sticky top-0 z-40 bg-[#E8E1D6]/95 backdrop-blur-md border-b border-[#CFC8BC]">
@@ -53,18 +67,18 @@ export const Header: React.FC<HeaderProps> = ({
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }
           }}
-          className="cursor-pointer flex items-center gap-3 group select-none"
-          aria-label="AEGIS MEN Home"
+          className="cursor-pointer flex items-center gap-3.5 group select-none"
+          aria-label="AEGIS Men's Skincare Home"
         >
-          <div className="w-9 h-9 rounded bg-[#4B5848] text-[#F8F5EF] flex items-center justify-center shadow-xs">
-            <AegisMonogram size={20} color="#F8F5EF" />
+          <div className="w-10 h-10 rounded-[4px] bg-[#20231F] group-hover:bg-[#4B5848] text-[#F8F5EF] flex items-center justify-center shadow-xs border border-[#3E453D] transition-colors">
+            <AegisMonogram size={22} color="#F8F5EF" accentColor="#D3C9B8" />
           </div>
-          <div className="flex flex-col">
-            <span className="font-bold tracking-[0.2em] text-lg text-[#20231F] leading-tight font-serif-editorial">
+          <div className="flex flex-col text-left">
+            <span className="font-bold tracking-[0.24em] text-xl text-[#20231F] group-hover:text-[#4B5848] transition-colors leading-none font-serif-editorial">
               AEGIS
             </span>
-            <span className="text-[9px] font-mono-spec tracking-[0.25em] text-[#5C625B] uppercase">
-              MEN'S SKINCARE
+            <span className="text-[8.5px] font-mono-spec tracking-[0.3em] text-[#5C625B] uppercase pt-1 font-semibold">
+              CLINICAL MEN'S FORMULAS
             </span>
           </div>
         </div>
@@ -77,11 +91,8 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 key={link.id}
                 id={`nav-${link.id}`}
-                onClick={() => {
-                  setCurrentView(link.id);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className={`py-1 transition-all relative ${
+                onClick={() => handleNavClick(link.id)}
+                className={`py-1 transition-all relative cursor-pointer ${
                   isActive
                     ? 'text-[#20231F] font-semibold'
                     : 'text-[#5C625B] hover:text-[#20231F]'
@@ -154,11 +165,10 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 key={link.id}
                 onClick={() => {
-                  setCurrentView(link.id);
+                  handleNavClick(link.id);
                   setMobileMenuOpen(false);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className={`text-left py-2 border-b border-[#CFC8BC]/50 ${
+                className={`text-left py-2 border-b border-[#CFC8BC]/50 cursor-pointer ${
                   currentView === link.id ? 'text-[#4B5848] font-bold' : 'text-[#20231F]'
                 }`}
               >

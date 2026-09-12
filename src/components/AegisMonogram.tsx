@@ -4,12 +4,14 @@ interface AegisMonogramProps {
   className?: string;
   size?: number;
   color?: string; // default to currentColor or deep charcoal
+  accentColor?: string;
 }
 
 export const AegisMonogram: React.FC<AegisMonogramProps> = ({
   className = 'w-6 h-6',
   size = 24,
-  color = 'currentColor'
+  color = 'currentColor',
+  accentColor = '#A9B7B7'
 }) => {
   return (
     <svg
@@ -19,26 +21,46 @@ export const AegisMonogram: React.FC<AegisMonogramProps> = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="AEGIS Architectural Monogram"
+      aria-label="AEGIS Architectural Shield Monogram"
     >
-      {/* Architectural Geometric A with Protective Chevron & Pillar */}
+      {/* Outer Protective Shield Perimeter */}
       <path
-        d="M24 6L40 40H32L24 22L16 40H8L24 6Z"
+        d="M24 4L40 10.5V23.5C40 33.2 33.2 41.6 24 44C14.8 41.6 8 33.2 8 23.5V10.5L24 4Z"
+        stroke={color}
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+
+      {/* Internal Architectural Chevron & "A" Glyph */}
+      <path
+        d="M24 11L33.5 32H28.5L24 21.5L19.5 32H14.5L24 11Z"
         fill={color}
       />
-      {/* Precision horizontal beam */}
-      <rect
-        x="15"
-        y="29"
-        width="18"
-        height="3.5"
-        fill={color}
+
+      {/* Clinical Cross-Beam with Center Molecular Diamond */}
+      <path
+        d="M18 26.5H30"
+        stroke={color}
+        strokeWidth="2.2"
+        strokeLinecap="round"
       />
-      {/* Subtle protective inner diamond apex */}
+
+      {/* Apex Luminescence Diamond */}
       <polygon
-        points="24,12 28,21 20,21"
-        fill="#F8F5EF"
+        points="24,14 26,17.5 24,21 22,17.5"
+        fill={accentColor}
+      />
+
+      {/* Base Foundation Pillar */}
+      <circle
+        cx="24"
+        cy="37"
+        r="1.75"
+        fill={accentColor}
       />
     </svg>
   );
 };
+

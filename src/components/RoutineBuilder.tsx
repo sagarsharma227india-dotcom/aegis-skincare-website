@@ -19,7 +19,7 @@ export const RoutineBuilder: React.FC<RoutineBuilderProps> = ({
 
   const [selectedPmCleanse, setSelectedPmCleanse] = useState<string>('aegis-wash');
   const [selectedPmTreat, setSelectedPmTreat] = useState<string>('aegis-clear');
-  const [selectedPmRepair, setSelectedPmRepair] = useState<string>('aegis-barrier');
+  const [selectedPmRepair, setSelectedPmRepair] = useState<string>('aegis-hydra');
 
   // Calculate unique selected products
   const selectedProductIds = Array.from(
@@ -44,7 +44,7 @@ export const RoutineBuilder: React.FC<RoutineBuilderProps> = ({
   // Routine check status
   const hasCleanser = selectedProductIds.includes('aegis-wash');
   const hasTreatment = selectedProductIds.includes('aegis-clear');
-  const hasBarrier = selectedProductIds.includes('aegis-barrier');
+  const hasBarrier = selectedProductIds.includes('aegis-hydra') || selectedProductIds.includes('aegis-recover');
   const hasSpf = selectedProductIds.includes('aegis-shield');
 
   const scoreCount = [hasCleanser, hasTreatment, hasBarrier, hasSpf].filter(Boolean).length;
@@ -269,15 +269,15 @@ export const RoutineBuilder: React.FC<RoutineBuilderProps> = ({
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <button
-                onClick={() => setSelectedPmRepair('aegis-barrier')}
+                onClick={() => setSelectedPmRepair('aegis-hydra')}
                 className={`p-3 rounded-[3px] border text-left text-xs transition-all ${
-                  selectedPmRepair === 'aegis-barrier'
+                  selectedPmRepair === 'aegis-hydra'
                     ? 'border-[#4B5848] bg-[#F2EEE7] text-[#20231F] font-medium'
                     : 'border-[#CFC8BC] bg-[#F8F5EF] text-[#5C625B]'
                 }`}
               >
-                <div className="font-mono-spec text-[10px] text-[#4B5848] uppercase">AEGIS BARRIER</div>
-                <div className="text-[11px]">3:1:1 Ceramide Restorative Fluid</div>
+                <div className="font-mono-spec text-[10px] text-[#4B5848] uppercase">AEGIS HYDRA</div>
+                <div className="text-[11px]">Oil-Free Lightweight Gel Moisturizer</div>
               </button>
               <button
                 onClick={() => setSelectedPmRepair('')}

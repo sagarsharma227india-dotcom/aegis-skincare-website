@@ -18,8 +18,6 @@ export const PRODUCTS: Product[] = [
   ...MOISTURIZERS,
   ...SUNSCREEN,
   ...TREATMENTS,
-  ...EXFOLIATION,
-  ...MASKS,
   ...BODY,
-  ...BUNDLES
+  ...BUNDLES,
 ];

@@ -5,9 +5,11 @@ import { AnnouncementBar } from './components/AnnouncementBar';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { BrandPhilosophy } from './components/BrandPhilosophy';
+import { StarterSystemHero } from './components/StarterSystemHero';
 import { ProductCard } from './components/ProductCard';
 import { ClinicalComparison } from './components/ClinicalComparison';
 import { CustomerReviews } from './components/CustomerReviews';
+import { FrequentlyAskedQuestions } from './components/FrequentlyAskedQuestions';
 import { RoutineQuiz } from './components/RoutineQuiz';
 import { ShopView } from './components/ShopView';
 import { RoutinesView } from './components/RoutinesView';
@@ -255,10 +257,18 @@ export function App() {
             <Hero
               setCurrentView={changeView}
               onSelectProduct={handleSelectProduct}
+              onAddToCart={handleAddToCart}
             />
 
             {/* Deep Charcoal Brand Philosophy */}
             <BrandPhilosophy />
+
+            {/* Flagship Hero Product Architectural Showcase: The Starter System */}
+            <StarterSystemHero
+              onSelectProduct={handleSelectProduct}
+              onAddToCart={handleAddToCart}
+              setCurrentView={changeView}
+            />
 
             {/* 3-Minute Routine Guide Section */}
             <section className="py-20 lg:py-24 border-b border-[#CFC8BC] bg-[#E8E1D6] text-left">
@@ -322,7 +332,7 @@ export function App() {
                       </div>
                       <div className="p-3 bg-[#F2EEE7] rounded-[2px] space-y-0.5">
                         <strong className="text-[#20231F] block font-mono-spec text-[11px]">02 / REPAIR (30s)</strong>
-                        <p className="text-[#5C625B]">AEGIS BARRIER with 3:1:1 Ceramides accelerates post-shave overnight recovery.</p>
+                        <p className="text-[#5C625B]">AEGIS RECOVER or HYDRA accelerates post-shave overnight recovery.</p>
                       </div>
                     </div>
                   </div>
@@ -382,29 +392,8 @@ export function App() {
             {/* Everyday Experiences / Customer Reviews */}
             <CustomerReviews />
 
-            {/* Skin Quiz CTA Banner */}
-            <section className="py-16 bg-[#F2EEE7] border-b border-[#CFC8BC] text-center">
-              <div className="max-w-3xl mx-auto px-4 space-y-4">
-                <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase tracking-widest block">
-                  PERSONALIZED SKIN CONSULTATION
-                </span>
-                <h3 className="text-2xl sm:text-4xl font-serif-editorial text-[#20231F]">
-                  Not sure where to begin?
-                </h3>
-                <p className="text-xs sm:text-sm text-[#5C625B] max-w-lg mx-auto leading-relaxed">
-                  Take our 6-step consultation quiz to match your oil levels, shaving frequency, and sun exposure with the right active formulas.
-                </p>
-                <div className="pt-2">
-                  <button
-                    onClick={() => changeView('quiz')}
-                    className="px-8 py-3.5 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] font-mono-spec text-xs font-semibold uppercase tracking-widest rounded-[3px] inline-flex items-center gap-2 shadow-xs transition-colors"
-                  >
-                    <Sparkles className="w-4 h-4 text-[#E8E1D6]" />
-                    <span>Find My Routine</span>
-                  </button>
-                </div>
-              </div>
-            </section>
+            {/* Frequently Asked Questions: Routine Sequencing & Active Ingredients */}
+            <FrequentlyAskedQuestions setCurrentView={changeView} />
           </div>
         )}
 
@@ -451,6 +440,7 @@ export function App() {
           <JournalView
             setCurrentView={changeView}
             onSelectProduct={handleSelectProduct}
+            onAddToCart={handleAddToCart}
           />
         )}
 

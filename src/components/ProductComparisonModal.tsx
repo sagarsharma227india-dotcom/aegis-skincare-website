@@ -21,8 +21,8 @@ export const ProductComparisonModal: React.FC<ProductComparisonModalProps> = ({
   if (products.length === 0) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#20231F]/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-in fade-in">
-      <div className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] w-full max-w-5xl overflow-hidden shadow-2xl relative my-6">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#20231F]/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-in fade-in" onClick={onClose}>
+      <div className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] w-full max-w-5xl overflow-hidden shadow-2xl relative my-6" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div className="px-6 py-4 bg-[#F2EEE7] border-b border-[#CFC8BC] flex items-center justify-between">
           <div className="space-y-0.5 text-left">
@@ -117,12 +117,12 @@ export const ProductComparisonModal: React.FC<ProductComparisonModalProps> = ({
 
               <tr>
                 <td className="py-3 px-3 font-mono-spec text-[#5C625B] text-[11px] uppercase">
-                  Texture & Finish
+                  Finish
                 </td>
                 {products.map((p) => (
                   <td key={p.id} className="py-3 px-3">
                     <span className="font-medium text-[#20231F]">
-                      {p.beforeYouBuy?.texture || p.comparison?.texture || 'Fluid'}
+                      {'Fluid'}
                     </span>
                     <span className="block text-[11px] text-[#5C625B]">
                       {p.beforeYouBuy?.finish || 'Matte'}

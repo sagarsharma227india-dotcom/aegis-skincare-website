@@ -108,7 +108,7 @@ export const ScienceView: React.FC<ScienceViewProps> = ({ setCurrentView }) => {
               Built Around the Skin Barrier: The 3:1:1 Ceramide Ratio
             </h2>
             <p className="text-xs sm:text-sm text-[#CFC8BC] leading-relaxed max-w-3xl">
-              AEGIS BARRIER utilizes a biomimetic lipid approach inspired by the physiological composition of the human stratum corneum:
+              AEGIS barrier formulations utilize a biomimetic lipid approach inspired by the physiological composition of the human stratum corneum:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
               <div className="p-4 bg-[#282C27] border border-[#3E453D] rounded-[3px] space-y-1">
