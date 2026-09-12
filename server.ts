@@ -102,6 +102,38 @@ Keep responses direct, professional, clear, without generic marketing fluff. If 
   }
 });
 
+app.post("/api/sync-images", express.json({ limit: "50mb" }), async (req, res) => {
+  try {
+    const { images } = req.body;
+    if (!Array.isArray(images)) {
+      res.status(400).json({ error: "images array required" });
+      return;
+    }
+
+    const fs = await import("fs/promises");
+    const publicPath = path.join(process.cwd(), "public");
+
+    for (const img of images) {
+      if (!img.id || !img.dataUrl) continue;
+      
+      const matches = img.dataUrl.match(/^data:image\/([A-Za-z-+\/]+);base64,(.+)$/);
+      if (!matches || matches.length !== 3) continue;
+      
+      const type = matches[1] === "jpeg" ? "jpg" : matches[1];
+      const buffer = Buffer.from(matches[2], "base64");
+      const filename = `${img.id}.jpg`;
+      
+      await fs.writeFile(path.join(publicPath, filename), buffer);
+      console.log(`Saved ${filename} to public directory`);
+    }
+
+    res.json({ success: true, message: "Images synced to public folder" });
+  } catch (error) {
+    console.error("Sync error:", error);
+    res.status(500).json({ error: "Failed to sync images" });
+  }
+});
+
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {
     const { createServer: createViteServer } = await import("vite");

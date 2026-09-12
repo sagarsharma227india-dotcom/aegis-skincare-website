@@ -28,6 +28,56 @@ import { AegisAIChatbot } from './components/AegisAIChatbot';
 import { Sparkles, ArrowRight, Sun, Moon, Clock } from 'lucide-react';
 
 export function App() {
+  // Sync memory images to github (runs once on load)
+  useEffect(() => {
+    const syncImages = async () => {
+      try {
+        const images: { id: string, dataUrl: string }[] = [];
+        
+        // Scan localStorage
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith('custom_image_')) {
+            const dataUrl = localStorage.getItem(key);
+            if (dataUrl && dataUrl.startsWith('data:image')) {
+              const id = key.replace('custom_image_', '').replace(/^aegis_/, 'aegis-').replace(/_/, '-');
+              images.push({ id, dataUrl });
+            }
+          }
+        }
+        
+        // Scan sessionStorage
+        for (let i = 0; i < sessionStorage.length; i++) {
+          const key = sessionStorage.key(i);
+          if (key && key.startsWith('custom_image_')) {
+            const dataUrl = sessionStorage.getItem(key);
+            if (dataUrl && dataUrl.startsWith('data:image')) {
+              const id = key.replace('custom_image_', '').replace(/^aegis_/, 'aegis-').replace(/_/, '-');
+              if (!images.some(img => img.id === id)) {
+                images.push({ id, dataUrl });
+              }
+            }
+          }
+        }
+
+        if (images.length > 0) {
+          console.log(`Syncing ${images.length} memory images to server...`);
+          const res = await fetch('/api/sync-images', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ images })
+          });
+          const result = await res.json();
+          console.log('Sync result:', result);
+        }
+      } catch (err) {
+        console.error('Failed to sync memory images:', err);
+      }
+    };
+    
+    syncImages();
+  }, []);
+
   // Navigation View State
   const [currentView, setCurrentView] = useState<NavView>('home');
 
