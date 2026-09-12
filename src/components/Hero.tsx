@@ -246,9 +246,10 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct, onA
 
                 {/* Formula Switcher on the Card */}
                 <div className="flex items-center gap-1 p-1 bg-[#E8E1D6] rounded-[3px] text-[10px] font-mono-spec">
-                  {(['starter', 'repair', 'clear', 'shield'] as const).map((key) => (
+                  {(['starter', 'after', 'shield'] as const).map((key) => (
                     <button
                       key={key}
+                      id={`hero-formula-tab-${key}`}
                       onClick={() => setActiveFormula(key)}
                       className={`flex-1 py-1.5 px-1.5 rounded-[2px] transition-all cursor-pointer truncate ${
                         activeFormula === key
@@ -256,7 +257,7 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct, onA
                           : 'text-[#5C625B] hover:text-[#20231F]'
                       }`}
                     >
-                      {key === 'starter' ? 'STARTER (3-PC)' : key.toUpperCase()}
+                      {key === 'starter' ? 'STARTER (3-PC)' : key === 'after' ? 'AEGIS AFTER' : '03 SHIELD'}
                     </button>
                   ))}
                 </div>

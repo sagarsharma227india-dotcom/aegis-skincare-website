@@ -392,31 +392,57 @@ export const JournalView: React.FC<JournalViewProps> = ({
 
                   {/* Multi-Section Narrative */}
                   <div className="space-y-8 text-[#20231F] font-serif-editorial leading-relaxed">
-                    {readingArticle.sections.map((section, idx) => (
-                      <div key={idx} className="space-y-3">
-                        <h2 className="text-2xl font-serif-editorial text-[#20231F] font-semibold tracking-tight pt-3 border-b border-[#CFC8BC]/50 pb-2">
-                          {section.heading}
-                        </h2>
-                        <div className="text-base text-[#464D44] font-sans font-light leading-relaxed space-y-4">
-                          {section.content.split("\n\n").map((para, pIdx) => (
-                            <p key={pIdx}>{para}</p>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
+                    {readingArticle.content && readingArticle.content.map((block, idx) => {
+                      if (block.startsWith('## ')) {
+                        return (
+                          <h2
+                            key={idx}
+                            className="text-2xl font-serif-editorial text-[#20231F] font-semibold tracking-tight pt-4 border-b border-[#CFC8BC]/50 pb-2"
+                          >
+                            {block.replace('## ', '')}
+                          </h2>
+                        );
+                      }
+                      if (block.startsWith('> ')) {
+                        return (
+                          <blockquote
+                            key={idx}
+                            className="p-4 sm:p-5 my-3 bg-[#E8E1D6]/70 border-l-3 border-[#4B5848] rounded-[2px] italic text-[#20231F] font-serif-editorial text-base sm:text-lg leading-relaxed"
+                          >
+                            {block.replace('> ', '').replace(/^"|"$/g, '')}
+                          </blockquote>
+                        );
+                      }
+                      if (block.startsWith('• ')) {
+                        return (
+                          <div key={idx} className="flex items-start gap-2.5 text-sm sm:text-base text-[#464D44] font-sans font-light leading-relaxed pl-2">
+                            <span className="text-[#4B5848] font-bold mt-1">•</span>
+                            <p>{block.replace('• ', '')}</p>
+                          </div>
+                        );
+                      }
+                      return (
+                        <p
+                          key={idx}
+                          className="text-sm sm:text-base text-[#464D44] font-sans font-light leading-relaxed"
+                        >
+                          {block}
+                        </p>
+                      );
+                    })}
                   </div>
 
-                  {/* INCI Clinical Footnotes & Studies */}
-                  {readingArticle.studies && readingArticle.studies.length > 0 && (
+                  {/* INCI Clinical Footnotes & Studies / References */}
+                  {((readingArticle.references && readingArticle.references.length > 0) || (readingArticle.studies && readingArticle.studies.length > 0)) && (
                     <div className="pt-6 border-t border-[#CFC8BC] space-y-3">
                       <h3 className="text-xs font-mono-spec uppercase text-[#4B5848] font-bold tracking-wider">
                         REFERENCED CLINICAL LITERATURE
                       </h3>
                       <ul className="space-y-1.5 text-xs font-mono-spec text-[#7A8279]">
-                        {readingArticle.studies.map((study, idx) => (
+                        {(readingArticle.references || readingArticle.studies || []).map((ref, idx) => (
                           <li key={idx} className="flex items-start gap-2">
                             <span>[{idx + 1}]</span>
-                            <span>{study}</span>
+                            <span>{ref}</span>
                           </li>
                         ))}
                       </ul>
@@ -426,18 +452,31 @@ export const JournalView: React.FC<JournalViewProps> = ({
 
                 {/* Right: Formulation Synergies & Author Credentialing (4 cols) */}
                 <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
-                  {/* Related Clinical Formulation Card */}
-                  {readingArticle.relatedProductId && (() => {
-                    const relatedProduct = PRODUCTS.find((p) => p.id === readingArticle.relatedProductId);
-                    if (!relatedProduct) return null;
+                  {/* Related Clinical Formulation Cards */}
+                  {(() => {
+                    const productIds = readingArticle.relatedProducts || (readingArticle.relatedProductId ? [readingArticle.relatedProductId] : []);
+                    const matchedProducts = productIds
+                      .map((id) => PRODUCTS.find((p) => p.id === id))
+                      .filter((p): p is Product => !!p);
+
+                    if (matchedProducts.length === 0) return null;
 
                     return (
-                      <RelatedJournalProductCard
-                        product={relatedProduct}
-                        onSelectProduct={onSelectProduct}
-                        isAdded={addedProductId === relatedProduct.id}
-                        onAddClick={handleAddRelatedProduct}
-                      />
+                      <div className="space-y-4">
+                        <div className="text-xs font-mono-spec uppercase text-[#4B5848] font-bold tracking-wider flex items-center gap-1.5">
+                          <Layers className="w-3.5 h-3.5" />
+                          <span>REFERENCED FORMULATIONS ({matchedProducts.length})</span>
+                        </div>
+                        {matchedProducts.map((relatedProduct) => (
+                          <RelatedJournalProductCard
+                            key={relatedProduct.id}
+                            product={relatedProduct}
+                            onSelectProduct={onSelectProduct}
+                            isAdded={addedProductId === relatedProduct.id}
+                            onAddClick={handleAddRelatedProduct}
+                          />
+                        ))}
+                      </div>
                     );
                   })()}
 

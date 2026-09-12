@@ -163,8 +163,10 @@ export interface JournalArticle {
   clinicalKeypoints?: string[];
   tableOfContents?: { id: string; title: string }[];
   references?: string[];
+  studies?: string[];
   image: string;
   relatedProducts?: string[];
+  relatedProductId?: string;
   relatedIngredients?: string[];
   relatedArticleIds?: string[];
 }
