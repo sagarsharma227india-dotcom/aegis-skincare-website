@@ -306,7 +306,7 @@ export function App() {
             {/* Hero Magazine Section */}
             <Hero
               setCurrentView={changeView}
-              onSelectProduct={handleSelectProduct}
+              onSelectProduct={() => {}}
               onAddToCart={handleAddToCart}
             />
 
@@ -315,7 +315,7 @@ export function App() {
 
             {/* Flagship Hero Product Architectural Showcase: The Starter System */}
             <StarterSystemHero
-              onSelectProduct={handleSelectProduct}
+              onSelectProduct={() => {}}
               onAddToCart={handleAddToCart}
               setCurrentView={changeView}
             />
@@ -404,7 +404,7 @@ export function App() {
             <ClinicalComparison />
 
             {/* Everyday Experiences / Customer Reviews */}
-            <CustomerReviews onSelectProduct={handleSelectProduct} />
+            <CustomerReviews onSelectProduct={() => {}} />
 
             {/* FAQ: Routine Sequencing & Active Ingredients */}
             <FrequentlyAskedQuestions setCurrentView={changeView} />
@@ -413,7 +413,7 @@ export function App() {
 
         {currentView === 'shop' && (
           <ShopView
-            onSelectProduct={handleSelectProduct}
+            onSelectProduct={() => {}}
             onAddToCart={handleAddToCart}
             onToggleWishlist={handleToggleWishlist}
             wishlistIds={wishlistIds}

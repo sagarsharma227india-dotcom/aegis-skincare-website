@@ -98,7 +98,7 @@ export const TREATMENTS: Product[] = [
         answer: 'No. Formulated free of migrating oils and volatile scents to prevent eye irritation.'
       }
     ],
-    image: 'https://images.unsplash.com/photo-1609175402361-9c6f2c69470c?auto=format&fit=crop&w=800&q=80',
+    image: '/aegis-eye.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=800&q=80',
@@ -205,7 +205,7 @@ export const TREATMENTS: Product[] = [
         answer: 'No! It is 100% alcohol-free and specifically engineered to deliver zero sting.'
       }
     ],
-    image: 'https://images.unsplash.com/photo-1599733594230-6b823276abce?auto=format&fit=crop&w=800&q=80',
+    image: '/aegis-after.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=800&q=80',

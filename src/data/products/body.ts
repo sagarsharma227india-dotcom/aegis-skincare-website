@@ -98,7 +98,7 @@ export const BODY: Product[] = [
         answer: 'We recommend AEGIS WASH or PURIFY for the face, as the body wash includes invigorating menthol designed for body skin.'
       }
     ],
-    image: 'https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?auto=format&fit=crop&w=800&q=80',
+    image: '/aegis-body-wash.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?auto=format&fit=crop&w=800&q=80',

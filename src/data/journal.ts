@@ -56,7 +56,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
       'Draelos, Z. D. (2018). "The science behind shaving and post-shave barrier restoration." Journal of Clinical and Aesthetic Dermatology, 11(2), 24-28.',
       'Elias, P. M. (2005). "Stratum corneum defensive functions: an integrated view." Journal of Investigative Dermatology, 125(2), 183-200.'
     ],
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80',
+    image: '/art-minimalist-dermatology-protocols.jpg',
     relatedProducts: ['aegis-starter-bundle', 'aegis-wash', 'aegis-hydra', 'aegis-after'],
     relatedIngredients: ['Amino Acids', 'Niacinamide', 'Ceramides']
   },
@@ -118,7 +118,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
       'Ali, S. M., & Yosipovitch, G. (2013). "Skin pH: From basic science to basic skin care." Acta Dermato-Venereologica, 93(3), 261-267.',
       'Bouwstra, J. A., & Ponec, M. (2006). "The skin barrier in healthy and diseased state." Biochimica et Biophysica Acta (BBA) - Biomembranes, 1758(12), 2080-2095.'
     ],
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    image: '/art-circadian-dermatology-nocturnal-repair.jpg',
     relatedProducts: ['aegis-repair', 'aegis-recover', 'aegis-wash'],
     relatedIngredients: ['Ceramides', 'Cholesterol', 'Hyaluronic Acid']
   },
@@ -181,7 +181,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
       'Parisi, A. V., et al. (2012). "Dosimetric investigation of the solar erythemal ultraviolet radiation protection provided by beards and moustaches." Radiation Protection Dosimetry, 150(3), 278-282.',
       'Bünger, J., et al. (2001). "Ectoine: an effective natural substance to prevent UVA-induced premature photoaging." Skin Pharmacology and Physiology, 14(3), 161-170.'
     ],
-    image: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80',
+    image: '/art-photobiology-cellular-senescence.jpg',
     relatedProducts: ['aegis-shield', 'aegis-shield-matte', 'aegis-starter-bundle'],
     relatedIngredients: ['Ectoin', 'Uvinul A Plus', 'Tinosorb S']
   },
@@ -246,7 +246,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
       'Fitz-Gibbon, S., et al. (2013). "Propionibacterium acnes strain populations in the human skin microbiome associated with acne." Journal of Investigative Dermatology, 133(9), 2152-2160.',
       'Draelos, Z. D., et al. (2006). "The effect of 2% niacinamide on facial sebum production." Journal of Cosmetic and Laser Therapy, 8(2), 96-101.'
     ],
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80',
+    image: '/art-follicular-dysbiosis-sebum.jpg',
     relatedProducts: ['aegis-clear', 'aegis-wash', 'aegis-hydra'],
     relatedIngredients: ['Salicylic Acid (BHA)', 'Niacinamide', 'Zinc PCA']
   },
@@ -307,7 +307,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
       'Matsui, M. S., et al. (2016). "Biological rhythms in the skin." International Journal of Molecular Sciences, 17(6), 801.',
       'Perez-Sanchez, A., et al. (2018). "Nutritional photoprotection and circadian rhythms in cutaneous biology." Photochemical & Photobiological Sciences, 17(12), 1914-1925.'
     ],
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
+    image: '/art-skin-barrier-tewl.jpg',
     relatedProducts: ['aegis-repair', 'aegis-recover', 'aegis-wash'],
     relatedIngredients: ['Ceramides', 'Centella Asiatica', 'Hyaluronic Acid']
   },
@@ -370,7 +370,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
       'Ghadially, R., et al. (1995). "Effects of aging on skin barrier function: changes in lipid composition and morphology." Journal of Clinical Investigation, 95(5), 2281-2290.',
       'Haynes, R. B., et al. (2002). "Interventions for helping patients to follow prescriptions for medications." Cochrane Database of Systematic Reviews, (2).'
     ],
-    image: 'https://images.unsplash.com/photo-1556228722-dca98b8c59da?auto=format&fit=crop&w=1200&q=80',
+    image: '/art-male-dermal-biology.jpg',
     relatedProducts: ['aegis-starter-bundle', 'aegis-wash', 'aegis-hydra', 'aegis-shield'],
     relatedIngredients: ['Hyaluronic Acid', 'Niacinamide', 'Ceramides']
   }
