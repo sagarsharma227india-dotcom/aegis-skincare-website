@@ -350,49 +350,13 @@ export function App() {
               </div>
             </section>
 
-            {/* Featured Formulations Catalog Preview */}
-            <section className="py-20 lg:py-24 border-b border-[#CFC8BC] bg-[#E8E1D6] text-left">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-                  <div className="space-y-2">
-                    <div className="inline-flex items-center gap-2 text-[10px] font-mono-spec tracking-[0.2em] uppercase text-[#4B5848] font-bold">
-                      <span>THE CORE ARCHITECTURE</span>
-                    </div>
-                    <h2 className="text-3xl sm:text-4xl font-serif-editorial font-normal text-[#20231F]">
-                      Essential Formulations
-                    </h2>
-                  </div>
-                  <button
-                    onClick={() => changeView('shop')}
-                    className="inline-flex items-center gap-2 text-xs font-mono-spec text-[#4B5848] font-bold uppercase tracking-wider hover:text-[#20231F]"
-                  >
-                    <span>View Complete Catalogue ({PRODUCTS.length})</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                  {PRODUCTS.slice(0, 3).map((product) => (
-                    <ProductCard
-                      key={product.id}
-                      product={product}
-                      onSelectProduct={handleSelectProduct}
-                      onAddToCart={handleAddToCart}
-                      onToggleWishlist={handleToggleWishlist}
-                      isWishlisted={wishlistIds.includes(product.id)}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
-
             {/* High-Contrast Deep Charcoal Clinical Contrast Section */}
             <ClinicalComparison />
 
             {/* Everyday Experiences / Customer Reviews */}
-            <CustomerReviews />
+            <CustomerReviews onSelectProduct={handleSelectProduct} />
 
-            {/* Frequently Asked Questions: Routine Sequencing & Active Ingredients */}
+            {/* FAQ: Routine Sequencing & Active Ingredients */}
             <FrequentlyAskedQuestions setCurrentView={changeView} />
           </div>
         )}

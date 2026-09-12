@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Product } from "../types";
-import { Heart, Star, Plus } from "lucide-react";
+import { Heart, Star, Plus, Check } from "lucide-react";
 import { useImageStore } from "../hooks/useImageStore";
+import { motion } from "motion/react";
 
 interface ProductCardProps {
   product: Product;
@@ -20,6 +21,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const specCode = product.id.toUpperCase().replace("AEGIS-", "AG-");
   const { image } = useImageStore(product.id, product.image);
+  const [isJustAdded, setIsJustAdded] = useState(false);
 
   // Check if product is Limited Edition or In Stock
   const isLimited =
@@ -30,9 +32,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       /limited|exclusive|rare|special|starter/i.test(b)
     );
 
+  const handleQuickAdd = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onAddToCart(product);
+    setIsJustAdded(true);
+    setTimeout(() => setIsJustAdded(false), 1200);
+  };
+
   return (
-    <div
+    <motion.div
       id={`product-card-${product.id}`}
+      whileHover={{ y: -3 }}
+      transition={{ duration: 0.2 }}
       onClick={() => onSelectProduct(product.id)}
       className="group h-full flex-1 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#4B5848] hover:shadow-md cursor-pointer select-none"
     >
@@ -58,9 +69,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
 
           <div className="flex items-center gap-1.5">
-            <button
+            <motion.button
               id={`wishlist-btn-${product.id}`}
               type="button"
+              whileTap={{ scale: 0.88 }}
               onClick={(e) => {
                 e.stopPropagation();
                 onToggleWishlist(product.id);
@@ -77,7 +89,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               <Heart
                 className={`w-3.5 h-3.5 ${isWishlisted ? "fill-current" : ""}`}
               />
-            </button>
+            </motion.button>
           </div>
         </div>
 
@@ -163,19 +175,31 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
-          <button
+          <motion.button
             id={`add-to-bag-${product.id}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              onAddToCart(product);
-            }}
-            className="px-3.5 sm:px-4 py-2 rounded-[3px] bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] font-mono-spec text-[11px] uppercase tracking-wider font-semibold transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.93 }}
+            onClick={handleQuickAdd}
+            className={`px-3.5 sm:px-4 py-2 rounded-[3px] font-mono-spec text-[11px] uppercase tracking-wider font-semibold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs ${
+              isJustAdded
+                ? "bg-[#20231F] text-[#F8F5EF]"
+                : "bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF]"
+            }`}
           >
-            <Plus className="w-3.5 h-3.5" />
-            <span>Add</span>
-          </button>
+            {isJustAdded ? (
+              <>
+                <Check className="w-3.5 h-3.5 text-[#A8D5BA]" />
+                <span>Added</span>
+              </>
+            ) : (
+              <>
+                <Plus className="w-3.5 h-3.5" />
+                <span>Add</span>
+              </>
+            )}
+          </motion.button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

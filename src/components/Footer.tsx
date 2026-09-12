@@ -117,7 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentView }) => {
                   }}
                   className="hover:text-[#F8F5EF] transition-colors"
                 >
-                  Frequently Asked Questions (FAQ)
+                  FAQ
                 </button>
               </li>
             </ul>

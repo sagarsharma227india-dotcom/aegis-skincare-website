@@ -45,6 +45,88 @@ const JournalReadingHero: React.FC<{
   );
 };
 
+const RelatedJournalProductCard: React.FC<{
+  product: Product;
+  onSelectProduct?: (productId: string) => void;
+  isAdded: boolean;
+  onAddClick: (product: Product) => void;
+}> = ({ product, onSelectProduct, isAdded, onAddClick }) => {
+  const { image } = useImageStore(product.id, product.image);
+
+  return (
+    <div className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 space-y-4 shadow-sm text-left">
+      <div className="flex items-center justify-between text-[10px] font-mono-spec uppercase text-[#4B5848] font-bold pb-2 border-b border-[#CFC8BC]">
+        <span>CORRESPONDING FORMULATION</span>
+        <span>{product.stepNumber}</span>
+      </div>
+
+      <div
+        onClick={() => onSelectProduct && onSelectProduct(product.id)}
+        className="aspect-square bg-[#151714] rounded-[3px] overflow-hidden cursor-pointer group/rel"
+      >
+        <img
+          src={image}
+          alt={product.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover/rel:scale-105"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+
+      <div className="space-y-1">
+        <h4
+          onClick={() => onSelectProduct && onSelectProduct(product.id)}
+          className="font-serif-editorial text-lg font-medium text-[#20231F] hover:text-[#4B5848] transition-colors cursor-pointer"
+        >
+          {product.name}
+        </h4>
+        <p className="text-xs text-[#5C625B]">
+          {product.subtitle}
+        </p>
+        <div className="flex items-baseline justify-between pt-2">
+          <span className="font-mono-spec font-bold text-[#20231F] text-base">
+            ₹{product.price}
+          </span>
+          <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold">
+            {product.formulaSpec}
+          </span>
+        </div>
+      </div>
+
+      <div className="space-y-2 pt-2 border-t border-[#CFC8BC]">
+        <button
+          onClick={() => onAddClick(product)}
+          className={`w-full py-2.5 rounded-[3px] font-mono-spec text-xs uppercase tracking-wider font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
+            isAdded
+              ? "bg-[#20231F] text-[#F8F5EF]"
+              : "bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF]"
+          }`}
+        >
+          {isAdded ? (
+            <>
+              <Check className="w-3.5 h-3.5 text-[#A9B7B7]" />
+              <span>ADDED TO BAG</span>
+            </>
+          ) : (
+            <>
+              <ShoppingBag className="w-3.5 h-3.5 text-[#E8E1D6]" />
+              <span>ADD TO BAG · ₹{product.price}</span>
+            </>
+          )}
+        </button>
+
+        {onSelectProduct && (
+          <button
+            onClick={() => onSelectProduct(product.id)}
+            className="w-full py-2 rounded-[3px] border border-[#CFC8BC] hover:border-[#20231F] text-[#20231F] font-mono-spec text-[11px] uppercase tracking-wider font-medium text-center transition-colors cursor-pointer"
+          >
+            VIEW CLINICAL DOSSIER
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const JournalCard: React.FC<{
   article: JournalArticle;
   onSelect: (article: JournalArticle) => void;
@@ -350,70 +432,12 @@ export const JournalView: React.FC<JournalViewProps> = ({
                     if (!relatedProduct) return null;
 
                     return (
-                      <div className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 space-y-4 shadow-sm text-left">
-                        <div className="flex items-center justify-between text-[10px] font-mono-spec uppercase text-[#4B5848] font-bold pb-2 border-b border-[#CFC8BC]">
-                          <span>CORRESPONDING FORMULATION</span>
-                          <span>{relatedProduct.stepNumber}</span>
-                        </div>
-
-                        <div className="aspect-square bg-[#151714] rounded-[3px] overflow-hidden">
-                          <img
-                            src={relatedProduct.image}
-                            alt={relatedProduct.name}
-                            className="w-full h-full object-cover"
-                            referrerPolicy="no-referrer"
-                          />
-                        </div>
-
-                        <div className="space-y-1">
-                          <h4 className="font-serif-editorial text-lg font-medium text-[#20231F]">
-                            {relatedProduct.name}
-                          </h4>
-                          <p className="text-xs text-[#5C625B]">
-                            {relatedProduct.subtitle}
-                          </p>
-                          <div className="flex items-baseline justify-between pt-2">
-                            <span className="font-mono-spec font-bold text-[#20231F] text-base">
-                              ₹{relatedProduct.price}
-                            </span>
-                            <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold">
-                              {relatedProduct.formulaSpec}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="space-y-2 pt-2 border-t border-[#CFC8BC]">
-                          <button
-                            onClick={() => handleAddRelatedProduct(relatedProduct)}
-                            className={`w-full py-2.5 rounded-[3px] font-mono-spec text-xs uppercase tracking-wider font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                              addedProductId === relatedProduct.id
-                                ? "bg-[#20231F] text-[#F8F5EF]"
-                                : "bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF]"
-                            }`}
-                          >
-                            {addedProductId === relatedProduct.id ? (
-                              <>
-                                <Check className="w-3.5 h-3.5 text-[#A9B7B7]" />
-                                <span>ADDED TO BAG</span>
-                              </>
-                            ) : (
-                              <>
-                                <ShoppingBag className="w-3.5 h-3.5 text-[#E8E1D6]" />
-                                <span>ADD TO BAG · ₹{relatedProduct.price}</span>
-                              </>
-                            )}
-                          </button>
-
-                          {onSelectProduct && (
-                            <button
-                              onClick={() => onSelectProduct(relatedProduct.id)}
-                              className="w-full py-2 rounded-[3px] border border-[#CFC8BC] hover:border-[#20231F] text-[#20231F] font-mono-spec text-[11px] uppercase tracking-wider font-medium text-center transition-colors cursor-pointer"
-                            >
-                              VIEW CLINICAL DOSSIER
-                            </button>
-                          )}
-                        </div>
-                      </div>
+                      <RelatedJournalProductCard
+                        product={relatedProduct}
+                        onSelectProduct={onSelectProduct}
+                        isAdded={addedProductId === relatedProduct.id}
+                        onAddClick={handleAddRelatedProduct}
+                      />
                     );
                   })()}
 

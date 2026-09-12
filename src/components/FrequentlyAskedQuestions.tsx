@@ -183,10 +183,10 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 text-[10px] font-mono-spec tracking-[0.2em] uppercase text-[#4B5848] font-bold">
               <HelpCircle className="w-3.5 h-3.5" />
-              <span>EVIDENCE-BASED ANSWERS</span>
+              <span>FAQ · CLINICAL ANSWERS</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif-editorial font-normal text-[#20231F] leading-[1.15] tracking-tight">
-              Frequently Asked Inquiries
+              FAQ
             </h2>
             <p className="text-sm sm:text-base text-[#5C625B] leading-relaxed">
               Straightforward, dermatologically grounded clarifications on male dermal architecture, ingredient concentrations, layering mechanics, and shave recovery.

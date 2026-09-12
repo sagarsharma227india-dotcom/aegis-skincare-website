@@ -1,8 +1,12 @@
 import React from 'react';
-import { REVIEWS } from '../data/products';
+import { REVIEWS, PRODUCTS } from '../data/products';
 import { Star, ShieldCheck } from 'lucide-react';
 
-export const CustomerReviews: React.FC = () => {
+interface CustomerReviewsProps {
+  onSelectProduct?: (productId: string) => void;
+}
+
+export const CustomerReviews: React.FC<CustomerReviewsProps> = ({ onSelectProduct }) => {
   return (
     <section className="bg-[#E8E1D6] py-20 lg:py-24 border-b border-[#CFC8BC] text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -21,46 +25,65 @@ export const CustomerReviews: React.FC = () => {
 
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {REVIEWS.map((review) => (
-            <div
-              key={review.id}
-              className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 flex flex-col justify-between space-y-4 shadow-xs"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex text-[#4B5848]">
-                    {Array.from({ length: review.rating }).map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-[10px] font-mono-spec text-[#5C625B]">
-                    {review.date}
-                  </span>
-                </div>
+          {REVIEWS.map((review) => {
+            const matchedProduct = PRODUCTS.find(
+              (p) =>
+                p.name.toLowerCase() === review.productName.toLowerCase() ||
+                p.name.toLowerCase().includes(review.productName.toLowerCase()) ||
+                review.productName.toLowerCase().includes(p.name.toLowerCase())
+            );
 
-                <p className="text-xs text-[#20231F] leading-relaxed font-serif-editorial italic">
-                  "{review.comment}"
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-[#CFC8BC]/60 space-y-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#20231F] font-serif-editorial">
-                    {review.author}
-                  </span>
-                  {review.verifiedBuyer && (
-                    <span className="text-[9px] font-mono-spec text-[#4B5848] font-semibold uppercase">
-                      ✓ Verified
+            return (
+              <div
+                key={review.id}
+                className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 flex flex-col justify-between space-y-4 shadow-xs hover:border-[#4B5848] transition-colors"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex text-[#4B5848]">
+                      {Array.from({ length: review.rating }).map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-[10px] font-mono-spec text-[#5C625B]">
+                      {review.date}
                     </span>
-                  )}
+                  </div>
+
+                  <p className="text-xs text-[#20231F] leading-relaxed font-serif-editorial italic">
+                    "{review.comment}"
+                  </p>
                 </div>
-                <div className="flex items-center justify-between text-[10px] font-mono-spec text-[#5C625B]">
-                  <span>{review.city}</span>
-                  <span className="truncate max-w-[120px]">{review.productName}</span>
+
+                <div className="pt-3 border-t border-[#CFC8BC]/60 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-[#20231F] font-serif-editorial">
+                      {review.author}
+                    </span>
+                    {review.verifiedBuyer && (
+                      <span className="text-[9px] font-mono-spec text-[#4B5848] font-semibold uppercase">
+                        ✓ Verified
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between text-[10px] font-mono-spec text-[#5C625B]">
+                    <span>{review.city}</span>
+                    {matchedProduct && onSelectProduct ? (
+                      <button
+                        onClick={() => onSelectProduct(matchedProduct.id)}
+                        className="truncate max-w-[140px] text-[#4B5848] hover:text-[#20231F] font-semibold underline underline-offset-2 cursor-pointer text-right"
+                        title={`View ${review.productName} specs`}
+                      >
+                        {review.productName}
+                      </button>
+                    ) : (
+                      <span className="truncate max-w-[120px]">{review.productName}</span>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

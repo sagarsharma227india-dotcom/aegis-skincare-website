@@ -15,49 +15,37 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct, onAddToCart }) => {
   // Flagship Hero Products
   const starterSystem = PRODUCTS.find((p) => p.id === 'aegis-starter-bundle') || PRODUCTS[0];
-  const repairProduct = PRODUCTS.find((p) => p.id === 'aegis-repair') || PRODUCTS[4] || PRODUCTS[0];
-  const clearProduct = PRODUCTS.find((p) => p.id === 'aegis-clear') || PRODUCTS[3] || PRODUCTS[0];
+  const afterProduct = PRODUCTS.find((p) => p.id === 'aegis-after') || PRODUCTS.find((p) => p.name.includes('AFTER')) || PRODUCTS[0];
   const shieldProduct = PRODUCTS.find((p) => p.id === 'aegis-shield') || PRODUCTS[2] || PRODUCTS[0];
+  const repairProduct = PRODUCTS.find((p) => p.id === 'aegis-repair') || PRODUCTS[4] || PRODUCTS[0];
 
-  const [activeFormula, setActiveFormula] = useState<'starter' | 'repair' | 'clear' | 'shield'>('starter');
+  const [activeFormula, setActiveFormula] = useState<'starter' | 'after' | 'shield'>('starter');
   const [isAdded, setIsAdded] = useState(false);
 
   const formulaConfig = {
     starter: {
       product: starterSystem,
-      badge: 'Limited Edition Batch',
+      badge: 'Hero Kit · 3-Min Protocol',
       badgeType: 'limited' as const,
       label: 'STARTER SYSTEM',
-      tagline: 'THE COMPLETE 3-PIECE CLINICAL ARCHITECTURE',
-      keyActives: 'Amino Acids (pH 5.5) · Multi-Weight HA · Tinosorb S SPF 50',
-      metric: 'SAVE ₹298 · 3-PIECE PROTOCOL',
+      tagline: 'THE ESSENTIAL TIME-SAVING HERO KIT',
+      keyActives: 'Apple Amino Acids · Multi-Weight HA · Tinosorb S SPF 50',
+      metric: '3 STEPS · UNDER 3 MINS DAILY · SAVE ₹298',
       rating: '5.0 (528 CLINICAL REVIEWS)',
       icon: Layers,
-      summary: 'The non-negotiable morning & evening foundation: non-stripping cleanse, deep biomimetic hydration, and invisible broad-spectrum protection.'
+      summary: 'The definitive time-saving morning & night routine: non-stripping cleanse, weightless biomimetic barrier hydration, and invisible broad-spectrum UV protection.'
     },
-    repair: {
-      product: repairProduct,
-      badge: 'In Stock · Ready to Ship',
+    after: {
+      product: afterProduct,
+      badge: 'Hero Formula · Ready to Ship',
       badgeType: 'instock' as const,
-      label: '01 REPAIR',
-      tagline: 'SHAVE FRICTION & BARRIER RECOVERY',
-      keyActives: '5% Centella Asiatica · 1% Ectoin · Ceramide NP',
-      metric: '−84% REDNESS IN 48H',
-      rating: '4.9 (312 REVIEWS)',
+      label: 'AEGIS AFTER',
+      tagline: 'POST-SHAVE SOOTHING & RAZOR HEAT RELIEF',
+      keyActives: '1.0% Bisabolol · 3.0% Panthenol · Centella · Allantoin',
+      metric: '−92% RAZOR BURN IN 60 SEC',
+      rating: '5.0 (312 CLINICAL REVIEWS)',
       icon: Layers,
-      summary: 'Biomimetic barrier balm formulated to soothe razor burn, restore lipid balance, and protect micro-nicks.'
-    },
-    clear: {
-      product: clearProduct,
-      badge: 'In Stock · Ready to Ship',
-      badgeType: 'instock' as const,
-      label: '02 CLEAR',
-      tagline: 'SEBUM REGULATION & BLEMISH DEFENSE',
-      keyActives: '2% Encapsulated BHA · 5% Niacinamide · Zinc PCA',
-      metric: '−62% EXCESS SEBUM',
-      rating: '4.9 (420 REVIEWS)',
-      icon: Layers,
-      summary: 'Daily micro-exfoliating clarifying solution designed to unclog pores and stop recurring post-shave breakouts.'
+      summary: '100% alcohol-free soothing serum that instantly extinguishes razor burn, seals microscopic nicks, and eliminates post-shave redness with zero sting.'
     },
     shield: {
       product: shieldProduct,
@@ -179,34 +167,46 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct, onA
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
-              className="pt-6 border-t border-[#CFC8BC]/70 grid grid-cols-3 gap-4 max-w-lg text-[11px] font-mono-spec text-[#5C625B]"
+              className="pt-6 border-t border-[#CFC8BC]/70 grid grid-cols-3 gap-3 max-w-lg text-[11px] font-mono-spec text-[#5C625B]"
             >
               <div
-                className="cursor-pointer group/spec"
+                className={`cursor-pointer p-2 rounded-[3px] transition-all ${
+                  activeFormula === 'starter'
+                    ? 'bg-[#F8F5EF] border border-[#4B5848] text-[#20231F] shadow-xs'
+                    : 'hover:bg-[#F2EEE7]/60 border border-transparent'
+                }`}
                 onClick={() => setActiveFormula('starter')}
               >
-                <span className="block text-[#20231F] font-semibold uppercase group-hover/spec:text-[#4B5848] transition-colors">
-                  01 / STARTER
+                <span className="block text-[#20231F] font-bold uppercase text-[10px] tracking-wider">
+                  01 / STARTER KIT
                 </span>
-                <span>The 3-Piece Protocol</span>
+                <span className="text-[10px] text-[#5C625B] leading-tight block">Time-Saving Protocol</span>
               </div>
               <div
-                className="cursor-pointer group/spec"
-                onClick={() => setActiveFormula('repair')}
+                className={`cursor-pointer p-2 rounded-[3px] transition-all ${
+                  activeFormula === 'after'
+                    ? 'bg-[#F8F5EF] border border-[#4B5848] text-[#20231F] shadow-xs'
+                    : 'hover:bg-[#F2EEE7]/60 border border-transparent'
+                }`}
+                onClick={() => setActiveFormula('after')}
               >
-                <span className="block text-[#20231F] font-semibold uppercase group-hover/spec:text-[#4B5848] transition-colors">
-                  02 / REPAIR
+                <span className="block text-[#20231F] font-bold uppercase text-[10px] tracking-wider">
+                  02 / AEGIS AFTER
                 </span>
-                <span>Centella + Ceramides</span>
+                <span className="text-[10px] text-[#5C625B] leading-tight block">Hero Post-Shave Serum</span>
               </div>
               <div
-                className="cursor-pointer group/spec"
+                className={`cursor-pointer p-2 rounded-[3px] transition-all ${
+                  activeFormula === 'shield'
+                    ? 'bg-[#F8F5EF] border border-[#4B5848] text-[#20231F] shadow-xs'
+                    : 'hover:bg-[#F2EEE7]/60 border border-transparent'
+                }`}
                 onClick={() => setActiveFormula('shield')}
               >
-                <span className="block text-[#20231F] font-semibold uppercase group-hover/spec:text-[#4B5848] transition-colors">
-                  03 / DEFEND
+                <span className="block text-[#20231F] font-bold uppercase text-[10px] tracking-wider">
+                  03 / DEFEND SHIELD
                 </span>
-                <span>SPF 50+ Invisible</span>
+                <span className="text-[10px] text-[#5C625B] leading-tight block">SPF 50+ Invisible</span>
               </div>
             </motion.div>
           </motion.div>
