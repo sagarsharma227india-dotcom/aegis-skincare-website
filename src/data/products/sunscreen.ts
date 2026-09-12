@@ -104,7 +104,7 @@ export const SUNSCREEN: Product[] = [
         answer: 'It is formulated without volatile fragrances and uses water-resistant structuring agents to resist running.'
       }
     ],
-    image: '/aegis-shield.jpg',
+    image: './aegis-shield.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1529154215902-6014cd7b37cb?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
@@ -211,7 +211,7 @@ export const SUNSCREEN: Product[] = [
         answer: 'It is specifically formulated for oily skin. If you have dry skin, choose regular AEGIS SHIELD instead.'
       }
     ],
-    image: '/aegis-shield-matte.jpg',
+    image: './aegis-shield-matte.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80',
@@ -322,7 +322,7 @@ export const SUNSCREEN: Product[] = [
         answer: 'No. It absorbs cleanly into a natural hydrated satin finish, not an oily reflective shine.'
       }
     ],
-    image: '/aegis-shield-hydrate.jpg',
+    image: './aegis-shield-hydrate.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1571781564947-f089600e12d4?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',

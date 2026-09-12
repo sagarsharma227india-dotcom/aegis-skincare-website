@@ -191,7 +191,7 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
               className="inline-flex items-center gap-2.5 px-3 py-1.5 bg-[#E8E1D6] border border-[#CFC8BC] rounded-[3px] text-[#4B5848] text-[10px] font-mono-spec tracking-[0.2em] uppercase font-bold"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#4B5848]" />
-              <span>THE HERO PRODUCT · FOUNDATIONAL PROTOCOL</span>
+              <span>THE HERO KIT · FOUNDATIONAL PROTOCOL</span>
             </motion.div>
 
             <motion.h2
@@ -212,7 +212,7 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
               className="text-sm sm:text-base text-[#5C625B] leading-relaxed max-w-2xl"
             >
               Three synergistic formulations. Under 3 minutes daily. Zero confusion. Engineered as the
-              definitive hero routine for men’s skin — balancing sebum, accelerating post-shave barrier
+              definitive hero kit for men’s skin — balancing sebum, accelerating post-shave barrier
               recovery, and delivering 100% transparent SPF 50 photoprotection.
             </motion.p>
           </div>
@@ -323,7 +323,7 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                       >
                         <div>
                           <span className="text-[10px] font-mono-spec font-bold tracking-[0.15em] text-[#CFC8BC] uppercase block">
-                            THE FLAGSHIP 3-PIECE CLINICAL SUITE
+                            THE HERO KIT
                           </span>
                           <span className="text-sm font-serif-editorial text-[#F8F5EF]">
                             {starterBundle.name}

@@ -98,7 +98,7 @@ export const BUNDLES: Product[] = [
         answer: 'Approximately 60 to 75 days of twice-daily recommended usage.'
       }
     ],
-    image: '/aegis-starter-bundle.jpg',
+    image: './aegis-starter-bundle.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80',
@@ -204,7 +204,7 @@ export const BUNDLES: Product[] = [
         answer: 'No. AEGIS CLEAR is balanced with 10% niacinamide and hyaluronic acid to preserve moisture while controlling shine.'
       }
     ],
-    image: '/aegis-clear-routine.jpg',
+    image: './aegis-clear-routine.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
@@ -310,7 +310,7 @@ export const BUNDLES: Product[] = [
         answer: 'Visible lightening typically begins in 4 to 6 weeks of daily twice-a-day application paired with consistent SPF 50.'
       }
     ],
-    image: '/aegis-even-routine.jpg',
+    image: './aegis-even-routine.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1615397323058-29a393fbab93?auto=format&fit=crop&w=800&q=80',

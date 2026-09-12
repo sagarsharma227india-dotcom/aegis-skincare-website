@@ -100,7 +100,7 @@ export const SERUMS: Product[] = [
         answer: 'No. Formulated free of drying alcohols, fragrance, and essential oils to provide instant relief.'
       }
     ],
-    image: '/aegis-repair.jpg',
+    image: './aegis-repair.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80',
@@ -207,7 +207,7 @@ export const SERUMS: Product[] = [
         answer: 'No. Formulated as a fast-absorbing water-gel that dries completely weightless and matte.'
       }
     ],
-    image: '/aegis-clear.jpg',
+    image: './aegis-clear.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1580870059805-47c63be3db94?auto=format&fit=crop&w=800&q=80',
@@ -318,7 +318,7 @@ export const SERUMS: Product[] = [
         answer: 'Yes, but if you have open razor nicks, use AEGIS AFTER first and apply AEGIS EVEN the following day.'
       }
     ],
-    image: '/aegis-even.jpg',
+    image: './aegis-even.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=800&q=80',

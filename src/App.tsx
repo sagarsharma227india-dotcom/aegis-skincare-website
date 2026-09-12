@@ -303,22 +303,15 @@ export function App() {
       <main className="flex-1">
         {currentView === 'home' && (
           <div>
-            {/* Hero Magazine Section */}
+            {/* Website Intro Section */}
             <Hero
               setCurrentView={changeView}
-              onSelectProduct={() => {}}
+              onSelectProduct={handleSelectProduct}
               onAddToCart={handleAddToCart}
             />
 
             {/* Deep Charcoal Brand Philosophy */}
             <BrandPhilosophy />
-
-            {/* Flagship Hero Product Architectural Showcase: The Starter System */}
-            <StarterSystemHero
-              onSelectProduct={() => {}}
-              onAddToCart={handleAddToCart}
-              setCurrentView={changeView}
-            />
 
             {/* 3-Minute Routine Guide Section */}
             <section className="py-20 lg:py-24 border-b border-[#CFC8BC] bg-[#E8E1D6] text-left">

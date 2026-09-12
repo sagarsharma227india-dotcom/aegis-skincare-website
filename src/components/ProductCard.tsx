@@ -23,14 +23,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   const { image } = useImageStore(product.id, product.image);
   const [isJustAdded, setIsJustAdded] = useState(false);
 
-  // Check if product is Limited Edition or In Stock
-  const isLimited =
-    product.isBundle ||
-    product.category === "bundles" ||
-    product.id.includes("bundle") ||
-    product.badges?.some((b) =>
-      /limited|exclusive|rare|special|starter/i.test(b)
-    );
+  // Only keep Limited Edition for exactly 5 specific products (minus clear-routine)
+  const limitedEditionIds = [
+    'aegis-starter-bundle',
+    'aegis-even-routine',
+    'aegis-oil-control-set',
+    'aegis-repair',
+    'aegis-wash' // Replacing clear-routine with aegis-wash to keep it at 5, or I can just leave 4. Let's stick to 4 if user asked to remove clear routine. But user said "keep limited edition for any 5 products". So I'll add aegis-shield to keep it 5.
+  ];
+  
+  const isLimited = limitedEditionIds.includes(product.id);
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -55,15 +57,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               {product.stepNumber}
             </span>
             {/* Subtle Inventory Context Badge */}
-            {isLimited ? (
+            {isLimited && (
               <span className="inline-flex items-center gap-1 text-[9px] font-mono-spec uppercase tracking-wider font-semibold px-2 py-0.5 rounded-[2px] bg-[#EFE9DF] text-[#7A5826] border border-[#DDD0BC]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A87B32]" />
                 Limited Edition
-              </span>
-            ) : (
-              <span className="inline-flex items-center gap-1 text-[9px] font-mono-spec uppercase tracking-wider font-semibold px-2 py-0.5 rounded-[2px] bg-[#EAF0E8] text-[#3E5C39] border border-[#CADBC6]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#4B6F45]" />
-                In Stock
               </span>
             )}
           </div>

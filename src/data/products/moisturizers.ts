@@ -100,7 +100,7 @@ export const MOISTURIZERS: Product[] = [
         answer: 'No. It is 100% oil-free and dries to an invisible matte finish that actually helps control shine.'
       }
     ],
-    image: '/aegis-hydra.jpg',
+    image: './aegis-hydra.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1556228720-1c2be2414d8c?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
@@ -207,7 +207,7 @@ export const MOISTURIZERS: Product[] = [
         answer: 'No. It is non-greasy and absorbs into a velvety cushion within 5 minutes.'
       }
     ],
-    image: '/aegis-recover.jpg',
+    image: './aegis-recover.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1611078449492-5743b35be9bd?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1556228720-1c2be2414d8c?auto=format&fit=crop&w=800&q=80',
@@ -314,7 +314,7 @@ export const MOISTURIZERS: Product[] = [
         answer: 'No. Unlike alcohol-heavy astringents, AEGIS MATTE hydrates skin with hyaluronic acid while porous silica controls only surface grease.'
       }
     ],
-    image: '/aegis-matte.jpg',
+    image: './aegis-matte.jpg',
     galleryImages: [
       'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1611078449492-5743b35be9bd?auto=format&fit=crop&w=800&q=80',
