@@ -17,9 +17,9 @@ export const AnnouncementBar: React.FC = () => {
   }, []);
 
   return (
-    <aside aria-label="Announcement" className="bg-[#20231F] text-[#F8F5EF] text-[11px] font-mono-spec py-2 px-4 text-center border-b border-[#343A33] transition-all duration-500 tracking-wider">
+    <aside aria-label="Announcement" className="bg-[#1A1C1B] text-[#FAF9F7] text-[11px] font-mono-spec py-2 px-4 text-center border-b border-[#343A33] transition-all duration-500 tracking-wider">
       <div className="max-w-7xl mx-auto flex items-center justify-center gap-2">
-        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#4B5848]" />
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#526442]" />
         <span className="font-medium">{MESSAGES[index]}</span>
       </div>
     </aside>

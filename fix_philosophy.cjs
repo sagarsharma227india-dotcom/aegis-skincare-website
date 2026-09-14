@@ -1,4 +1,7 @@
+const fs = require('fs');
+let code = fs.readFileSync('src/components/BrandPhilosophy.tsx', 'utf8');
 
+code = `
 import React from 'react';
 import { motion } from 'motion/react';
 import { Beaker, ShieldCheck, Droplet, Clock } from 'lucide-react';
@@ -85,3 +88,6 @@ export const BrandPhilosophy = () => {
     </section>
   );
 };
+`;
+
+fs.writeFileSync('src/components/BrandPhilosophy.tsx', code);

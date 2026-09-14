@@ -8,17 +8,17 @@ interface CustomerReviewsProps {
 
 export const CustomerReviews: React.FC<CustomerReviewsProps> = ({ onSelectProduct }) => {
   return (
-    <section className="bg-[#E8E1D6] py-20 lg:py-24 border-b border-[#CFC8BC] text-left">
+    <section className="bg-[#F2EFE9] py-20 lg:py-24 border-b border-[#E2DDD5] text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="max-w-2xl space-y-3">
-          <div className="inline-flex items-center gap-2 text-[10px] font-mono-spec tracking-[0.2em] uppercase text-[#4B5848] font-bold">
+          <div className="inline-flex items-center gap-2 text-[10px] font-mono-spec tracking-[0.2em] uppercase text-[#526442] font-bold">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>COMMUNITY FEEDBACK</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif-editorial font-normal text-[#20231F]">
+          <h2 className="text-3xl sm:text-4xl font-serif-editorial font-normal text-[#1A1C1B]">
             Everyday Experiences
           </h2>
-          <p className="text-xs sm:text-sm text-[#5C625B] leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#5E645F] leading-relaxed">
             Real feedback from men using the 3-minute protocol across varying climates and skin types.
           </p>
         </div>
@@ -36,42 +36,42 @@ export const CustomerReviews: React.FC<CustomerReviewsProps> = ({ onSelectProduc
             return (
               <div
                 key={review.id}
-                className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 flex flex-col justify-between space-y-4 shadow-xs hover:border-[#4B5848] transition-colors"
+                className="bg-[#FAF9F7] border border-[#E2DDD5] rounded-[4px] p-6 flex flex-col justify-between space-y-4 shadow-xs hover:border-[#526442] transition-colors"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="flex text-[#4B5848]">
+                    <div className="flex text-[#526442]">
                       {Array.from({ length: review.rating }).map((_, i) => (
                         <Star key={i} className="w-3 h-3 fill-current" />
                       ))}
                     </div>
-                    <span className="text-[10px] font-mono-spec text-[#5C625B]">
+                    <span className="text-[10px] font-mono-spec text-[#5E645F]">
                       {review.date}
                     </span>
                   </div>
 
-                  <p className="text-xs text-[#20231F] leading-relaxed font-serif-editorial italic">
+                  <p className="text-xs text-[#1A1C1B] leading-relaxed font-serif-editorial italic">
                     "{review.comment}"
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[#CFC8BC]/60 space-y-1">
+                <div className="pt-3 border-t border-[#E2DDD5]/60 space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#20231F] font-serif-editorial">
+                    <span className="text-xs font-bold text-[#1A1C1B] font-serif-editorial">
                       {review.author}
                     </span>
                     {review.verifiedBuyer && (
-                      <span className="text-[9px] font-mono-spec text-[#4B5848] font-semibold uppercase">
+                      <span className="text-[9px] font-mono-spec text-[#526442] font-semibold uppercase">
                         ✓ Verified
                       </span>
                     )}
                   </div>
-                  <div className="flex items-center justify-between text-[10px] font-mono-spec text-[#5C625B]">
+                  <div className="flex items-center justify-between text-[10px] font-mono-spec text-[#5E645F]">
                     <span>{review.city}</span>
                     {matchedProduct && onSelectProduct ? (
                       <button
                         onClick={() => onSelectProduct(matchedProduct.id)}
-                        className="truncate max-w-[140px] text-[#4B5848] hover:text-[#20231F] font-semibold underline underline-offset-2 cursor-pointer text-right"
+                        className="truncate max-w-[140px] text-[#526442] hover:text-[#1A1C1B] font-semibold underline underline-offset-2 cursor-pointer text-right"
                         title={`View ${review.productName} specs`}
                       >
                         {review.productName}

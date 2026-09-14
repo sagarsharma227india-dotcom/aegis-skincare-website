@@ -41,7 +41,7 @@ const PairedProductCard: React.FC<{ pair: Product, onSelect: (id: string) => voi
   return (
     <div
       onClick={() => onSelect(pair.id)}
-      className="cursor-pointer flex items-center gap-2 p-2 bg-[#F2EEE7] hover:bg-[#E8E1D6] rounded-[3px] border border-[#CFC8BC] transition-colors"
+      className="cursor-pointer flex items-center gap-2 p-2 bg-[#F2EFE9] hover:bg-[#F2EFE9] rounded-[3px] border border-[#E2DDD5] transition-colors"
     >
       <div className="w-8 h-8 rounded-[2px] overflow-hidden shrink-0">
         <img
@@ -52,10 +52,10 @@ const PairedProductCard: React.FC<{ pair: Product, onSelect: (id: string) => voi
         />
       </div>
       <div className="text-[11px] font-mono-spec">
-        <span className="block text-[#20231F] font-semibold">
+        <span className="block text-[#1A1C1B] font-semibold">
           {pair.name}
         </span>
-        <span className="text-[#5C625B]">₹{pair.price}</span>
+        <span className="text-[#5E645F]">₹{pair.price.toLocaleString('en-IN')}</span>
       </div>
     </div>
   );
@@ -132,18 +132,18 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-[#20231F]/70 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4 lg:p-6 animate-in fade-in"
+      className="fixed inset-0 z-50 overflow-y-auto bg-[#1A1C1B]/70 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4 lg:p-6 animate-in fade-in"
       onClick={onClose}
     >
       <div
-        className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] w-full max-w-5xl overflow-hidden shadow-2xl relative my-6 text-left"
+        className="bg-[#FAF9F7] border border-[#E2DDD5] rounded-[4px] w-full max-w-5xl overflow-hidden shadow-2xl relative my-6 text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           id="product-modal-close-btn"
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-[#F2EEE7] text-[#20231F] hover:bg-[#E8E1D6] transition-colors border border-[#CFC8BC]"
+          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-[#F2EFE9] text-[#1A1C1B] hover:bg-[#F2EFE9] transition-colors border border-[#E2DDD5]"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -151,19 +151,19 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
           {/* Left Gallery & Quick Spec */}
-          <div className="lg:col-span-5 bg-[#F2EEE7] p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-[#CFC8BC] flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-5 bg-[#F2EFE9] p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-[#E2DDD5] flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase tracking-widest">
+                <span className="text-[10px] font-mono-spec text-[#526442] font-bold uppercase tracking-widest">
                   {product.stepNumber}
                 </span>
-                <span className="text-[9px] font-mono-spec text-[#5C625B] uppercase">
+                <span className="text-[9px] font-mono-spec text-[#5E645F] uppercase">
                   {product.category.toUpperCase()}
                 </span>
               </div>
 
               {/* Main Visual Display Area */}
-              <div className="aspect-square bg-[#151714] rounded-[3px] p-0 flex items-center justify-center border border-[#CFC8BC] relative overflow-hidden group/img">
+              <div className="aspect-square bg-[#151714] rounded-[3px] p-0 flex items-center justify-center border border-[#E2DDD5] relative overflow-hidden group/img">
                 <div className="w-full h-full relative">
                   <img
                     src={image}
@@ -176,19 +176,19 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
 
               <div className="space-y-1">
-                <h2 className="font-serif-editorial text-3xl font-medium text-[#20231F] leading-tight">
+                <h2 className="font-serif-editorial text-3xl font-medium text-[#1A1C1B] leading-tight">
                   {product.name}
                 </h2>
-                <p className="text-[#5C625B] text-sm">{product.subtitle}</p>
-                <div className="flex items-center gap-2 text-xs font-mono-spec text-[#5C625B] pt-2">
-                  <div className="flex text-[#4B5848]">
+                <p className="text-[#5E645F] text-sm">{product.subtitle}</p>
+                <div className="flex items-center gap-2 text-xs font-mono-spec text-[#5E645F] pt-2">
+                  <div className="flex text-[#526442]">
                     {Array.from({ length: Math.floor(product.rating) }).map(
                       (_, i) => (
                         <Star key={i} className="w-3.5 h-3.5 fill-current" />
                       ),
                     )}
                   </div>
-                  <span className="font-semibold text-[#20231F]">
+                  <span className="font-semibold text-[#1A1C1B]">
                     {product.rating}
                   </span>
                   <span>({product.reviewCount} reviews)</span>
@@ -197,21 +197,21 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
 
             {/* Sticky Actions Toolbar */}
-            <div className="p-4 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[4px] flex flex-wrap items-center gap-3">
-              <div className="flex items-center border border-[#CFC8BC] rounded-[3px] bg-[#F8F5EF]">
+            <div className="sticky bottom-0 left-0 right-0 z-20 p-4 bg-[#F2EFE9]/95 backdrop-blur-sm border-t lg:border border-[#E2DDD5] lg:rounded-[4px] flex flex-wrap items-center gap-3 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] lg:shadow-none lg:static -mx-5 lg:mx-0 -mb-5 lg:mb-0 mt-6">
+              <div className="flex items-center border border-[#E2DDD5] rounded-[3px] bg-[#FAF9F7]">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="px-3 py-2 text-[#20231F] hover:bg-[#E8E1D6] text-xs font-mono-spec"
+                  className="px-3 py-2 text-[#1A1C1B] hover:bg-[#F2EFE9] text-xs font-mono-spec"
                   aria-label="Decrease quantity"
                 >
                   <Minus className="w-3.5 h-3.5" />
                 </button>
-                <span className="px-3 text-xs font-mono-spec font-semibold text-[#20231F]">
+                <span className="px-3 text-xs font-mono-spec font-semibold text-[#1A1C1B]">
                   {quantity}
                 </span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="px-3 py-2 text-[#20231F] hover:bg-[#E8E1D6] text-xs font-mono-spec"
+                  className="px-3 py-2 text-[#1A1C1B] hover:bg-[#F2EFE9] text-xs font-mono-spec"
                   aria-label="Increase quantity"
                 >
                   <Plus className="w-3.5 h-3.5" />
@@ -224,7 +224,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   onAddToCart(product, quantity);
                   onClose();
                 }}
-                className="flex-1 py-3 px-6 rounded-[3px] bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] font-mono-spec text-xs uppercase tracking-widest font-semibold transition-colors flex items-center justify-center gap-2"
+                className="flex-1 py-3 px-6 rounded-[3px] bg-[#526442] hover:bg-[#394536] text-[#FAF9F7] font-mono-spec text-xs uppercase tracking-widest font-semibold transition-colors flex items-center justify-center gap-2"
               >
                 <span>Add to Bag · ₹{product.price * quantity}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -235,8 +235,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 onClick={() => onToggleWishlist(product.id)}
                 className={`p-3 rounded-[3px] border transition-colors ${
                   isWishlisted
-                    ? "border-[#A65F5F] text-[#A65F5F] bg-[#F8F5EF]"
-                    : "border-[#CFC8BC] text-[#5C625B] hover:text-[#20231F] bg-[#F8F5EF]"
+                    ? "border-[#A65F5F] text-[#A65F5F] bg-[#FAF9F7]"
+                    : "border-[#E2DDD5] text-[#5E645F] hover:text-[#1A1C1B] bg-[#FAF9F7]"
                 }`}
                 title="Save formulation"
               >
@@ -248,48 +248,48 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
             {/* Before You Buy Section */}
             {product.beforeYouBuy && (
-              <div className="p-4 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[4px] space-y-3">
-                <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase tracking-widest block">
+              <div className="p-4 bg-[#F2EFE9] border border-[#E2DDD5] rounded-[4px] space-y-3">
+                <span className="text-[10px] font-mono-spec text-[#526442] font-bold uppercase tracking-widest block">
                   BEFORE YOU BUY
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
                   <div>
-                    <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase block">
+                    <span className="text-[10px] font-mono-spec text-[#5E645F] uppercase block">
                       Finish
                     </span>
-                    <span className="font-medium text-[#20231F]">
+                    <span className="font-medium text-[#1A1C1B]">
                       {product.beforeYouBuy.finish}
                     </span>
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase block">
+                    <span className="text-[10px] font-mono-spec text-[#5E645F] uppercase block">
                       Fragrance
                     </span>
-                    <span className="font-medium text-[#20231F]">
+                    <span className="font-medium text-[#1A1C1B]">
                       {product.beforeYouBuy.fragrance}
                     </span>
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase block">
+                    <span className="text-[10px] font-mono-spec text-[#5E645F] uppercase block">
                       Best For
                     </span>
-                    <span className="font-medium text-[#20231F]">
+                    <span className="font-medium text-[#1A1C1B]">
                       {product.beforeYouBuy.skinType}
                     </span>
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase block">
+                    <span className="text-[10px] font-mono-spec text-[#5E645F] uppercase block">
                       Placement
                     </span>
-                    <span className="font-medium text-[#20231F]">
+                    <span className="font-medium text-[#1A1C1B]">
                       {product.beforeYouBuy.routine}
                     </span>
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase block">
+                    <span className="text-[10px] font-mono-spec text-[#5E645F] uppercase block">
                       Supply Duration
                     </span>
-                    <span className="font-medium text-[#20231F]">
+                    <span className="font-medium text-[#1A1C1B]">
                       {product.beforeYouBuy.expectedUse}
                     </span>
                   </div>
@@ -300,24 +300,24 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             {/* How to Use Timeline */}
             {product.howToUseTimeline && (
               <div className="space-y-3 pt-2">
-                <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase tracking-widest block">
+                <span className="text-[10px] font-mono-spec text-[#526442] font-bold uppercase tracking-widest block">
                   APPLICATION PROTOCOL
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {product.howToUseTimeline.map((step, i) => (
                     <div
                       key={i}
-                      className="p-3 bg-[#F2EEE7] rounded-[3px] border border-[#CFC8BC] space-y-1"
+                      className="p-3 bg-[#F2EFE9] rounded-[3px] border border-[#E2DDD5] space-y-1"
                     >
                       <div className="flex items-center justify-between text-[10px] font-mono-spec">
-                        <span className="font-bold text-[#4B5848]">
+                        <span className="font-bold text-[#526442]">
                           STEP {step.stepNumber} · {step.action}
                         </span>
-                        <span className="text-[#5C625B]">
+                        <span className="text-[#5E645F]">
                           {step.amountOrTime}
                         </span>
                       </div>
-                      <p className="text-[11px] text-[#20231F]">
+                      <p className="text-[11px] text-[#1A1C1B]">
                         {step.instruction}
                       </p>
                     </div>
@@ -329,17 +329,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             {/* Check Delivery & Indian PIN Code */}
             <form
               onSubmit={handleCheckPincode}
-              className="pt-2 text-xs space-y-2 border-t border-[#CFC8BC]"
+              className="pt-2 text-xs space-y-2 border-t border-[#E2DDD5]"
             >
               <label
                 htmlFor="pincode-input"
-                className="font-mono-spec text-[#5C625B] flex items-center justify-between"
+                className="font-mono-spec text-[#5E645F] flex items-center justify-between"
               >
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#4B5848]" />
+                  <MapPin className="w-3.5 h-3.5 text-[#526442]" />
                   <span>Check Express Delivery & Cash on Delivery:</span>
                 </span>
-                <span className="text-[10px] text-[#4B5848] font-bold uppercase">
+                <span className="text-[10px] text-[#526442] font-bold uppercase">
                   Free on orders &gt; ₹999
                 </span>
               </label>
@@ -351,17 +351,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   value={pincode}
                   onChange={(e) => setPincode(e.target.value)}
                   maxLength={6}
-                  className="px-3 py-2 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[3px] text-xs font-mono-spec text-[#20231F] w-44 focus:outline-hidden"
+                  className="px-3 py-2 bg-[#FAF9F7] border border-[#E2DDD5] rounded-[3px] text-xs font-mono-spec text-[#1A1C1B] w-44 focus:outline-hidden"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-[#20231F] hover:bg-[#343A33] text-[#F8F5EF] rounded-[3px] text-xs font-mono-spec uppercase font-semibold transition-colors"
+                  className="px-4 py-2 bg-[#1A1C1B] hover:bg-[#343A33] text-[#FAF9F7] rounded-[3px] text-xs font-mono-spec uppercase font-semibold transition-colors"
                 >
                   Verify
                 </button>
               </div>
               {deliveryStatus && (
-                <p className="text-[11px] font-mono-spec text-[#4B5848] pt-1">
+                <p className="text-[11px] font-mono-spec text-[#526442] pt-1">
                   {deliveryStatus}
                 </p>
               )}
@@ -369,22 +369,22 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
             {/* Complete Your Routine (Bundled Section) */}
             {completeRoutineProducts.length > 1 && (
-              <div className="p-5 bg-[#20231F] text-[#F8F5EF] rounded-[4px] space-y-4 border border-[#3E453D]">
+              <div className="p-5 bg-[#1A1C1B] text-[#FAF9F7] rounded-[4px] space-y-4 border border-[#3E453D]">
                 <div className="flex items-center justify-between pb-2 border-b border-[#343A33]">
                   <div>
                     <span className="text-[9px] font-mono-spec text-[#A9B7B7] uppercase tracking-widest block">
                       COMPLETE THE PROTOCOL
                     </span>
-                    <h4 className="font-serif-editorial text-lg text-[#F8F5EF]">
+                    <h4 className="font-serif-editorial text-lg text-[#FAF9F7]">
                       The 3-Step Daily System
                     </h4>
                   </div>
                   <div className="text-right font-mono-spec">
                     <span className="text-xs text-[#A9B7B7] line-through block">
-                      ₹{routineTotalPrice}
+                      ₹{routineTotalPrice.toLocaleString('en-IN')}
                     </span>
-                    <span className="text-base font-bold text-[#F8F5EF]">
-                      ₹{routineFinalPrice}
+                    <span className="text-base font-bold text-[#FAF9F7]">
+                      ₹{routineFinalPrice.toLocaleString('en-IN')}
                     </span>
                   </div>
                 </div>
@@ -398,10 +398,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       <span className="text-[#A9B7B7] block">
                         {item.stepCategory}
                       </span>
-                      <span className="text-[#F8F5EF] font-semibold block truncate">
+                      <span className="text-[#FAF9F7] font-semibold block truncate">
                         {item.name}
                       </span>
-                      <span className="text-[#CFC8BC]">₹{item.price}</span>
+                      <span className="text-[#E2DDD5]">₹{item.price.toLocaleString('en-IN')}</span>
                     </div>
                   ))}
                 </div>
@@ -409,7 +409,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <button
                   id="modal-add-routine-bundle-btn"
                   onClick={handleAddFullRoutine}
-                  className="w-full py-2.5 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] rounded-[3px] text-xs font-mono-spec uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-2.5 bg-[#526442] hover:bg-[#394536] text-[#FAF9F7] rounded-[3px] text-xs font-mono-spec uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-2"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-[#A9B7B7]" />
                   <span>Add Full 3-Step System (Save ₹{routineDiscount})</span>
@@ -418,8 +418,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             )}
 
             {/* Detail Tabs */}
-            <div className="space-y-4 pt-4 border-t border-[#CFC8BC]">
-              <div className="flex border-b border-[#CFC8BC] text-xs font-mono-spec overflow-x-auto gap-4">
+            <div className="space-y-4 pt-4 border-t border-[#E2DDD5]">
+              <div className="flex border-b border-[#E2DDD5] text-xs font-mono-spec overflow-x-auto gap-4">
                 {(
                   [
                     { id: "why", label: "Why It Exists" },
@@ -435,8 +435,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     onClick={() => setActiveTab(tab.id)}
                     className={`pb-2 uppercase transition-all whitespace-nowrap ${
                       activeTab === tab.id
-                        ? "border-b-2 border-[#4B5848] text-[#20231F] font-bold"
-                        : "text-[#5C625B] hover:text-[#20231F]"
+                        ? "border-b-2 border-[#526442] text-[#1A1C1B] font-bold"
+                        : "text-[#5E645F] hover:text-[#1A1C1B]"
                     }`}
                   >
                     {tab.label}
@@ -445,19 +445,19 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
 
               {/* Tab Content */}
-              <div className="text-xs text-[#20231F] leading-relaxed space-y-3 min-h-[140px]">
+              <div className="text-xs text-[#1A1C1B] leading-relaxed space-y-3 min-h-[140px]">
                 {activeTab === "why" && (
                   <div className="space-y-3">
-                    <p className="text-[#5C625B] leading-relaxed">
+                    <p className="text-[#5E645F] leading-relaxed">
                       {product.whyItExists}
                     </p>
                     <div className="space-y-1.5 pt-2">
-                      <span className="font-mono-spec font-bold text-[11px] text-[#4B5848] uppercase block">
+                      <span className="font-mono-spec font-bold text-[11px] text-[#526442] uppercase block">
                         Observed Benefits:
                       </span>
                       {product.benefits.map((b, i) => (
                         <div key={i} className="flex items-start gap-2">
-                          <Check className="w-3.5 h-3.5 text-[#4B5848] mt-0.5 shrink-0" />
+                          <Check className="w-3.5 h-3.5 text-[#526442] mt-0.5 shrink-0" />
                           <span>{b}</span>
                         </div>
                       ))}
@@ -470,15 +470,15 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     {product.keyActives.map((act, i) => (
                       <div
                         key={i}
-                        className="p-3 bg-[#F2EEE7] rounded-[3px] border border-[#CFC8BC] space-y-1"
+                        className="p-3 bg-[#F2EFE9] rounded-[3px] border border-[#E2DDD5] space-y-1"
                       >
                         <div className="flex justify-between font-mono-spec text-[11px]">
-                          <strong className="text-[#20231F]">
+                          <strong className="text-[#1A1C1B]">
                             {act.name} ({act.concentration})
                           </strong>
-                          <span className="text-[#4B5848]">{act.role}</span>
+                          <span className="text-[#526442]">{act.role}</span>
                         </div>
-                        <p className="text-[#5C625B] text-[11px]">
+                        <p className="text-[#5E645F] text-[11px]">
                           {act.mechanism}
                         </p>
                       </div>
@@ -488,18 +488,18 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
                 {activeTab === "how" && (
                   <div className="space-y-3">
-                    <div className="p-3 bg-[#F2EEE7] rounded-[3px] border border-[#CFC8BC] space-y-1">
-                      <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase block">
+                    <div className="p-3 bg-[#F2EFE9] rounded-[3px] border border-[#E2DDD5] space-y-1">
+                      <span className="text-[10px] font-mono-spec text-[#526442] font-bold uppercase block">
                         Morning Protocol (AM):
                       </span>
-                      <p className="text-[#5C625B]">{product.protocolAM}</p>
+                      <p className="text-[#5E645F]">{product.protocolAM}</p>
                     </div>
 
-                    <div className="p-3 bg-[#F2EEE7] rounded-[3px] border border-[#CFC8BC] space-y-1">
-                      <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase block">
+                    <div className="p-3 bg-[#F2EFE9] rounded-[3px] border border-[#E2DDD5] space-y-1">
+                      <span className="text-[10px] font-mono-spec text-[#526442] font-bold uppercase block">
                         Evening Protocol (PM):
                       </span>
-                      <p className="text-[#5C625B]">{product.protocolPM}</p>
+                      <p className="text-[#5E645F]">{product.protocolPM}</p>
                     </div>
                   </div>
                 )}
@@ -508,28 +508,28 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   <div className="space-y-3">
                     {product.compatibility ? (
                       <div className="space-y-3">
-                        <div className="p-3 bg-[#F2EEE7] rounded-[3px] border border-[#CFC8BC] space-y-1">
-                          <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase block">
+                        <div className="p-3 bg-[#F2EFE9] rounded-[3px] border border-[#E2DDD5] space-y-1">
+                          <span className="text-[10px] font-mono-spec text-[#526442] font-bold uppercase block">
                             Works Well With:
                           </span>
-                          <p className="text-[#20231F]">
+                          <p className="text-[#1A1C1B]">
                             {product.compatibility.worksWellWith.join(", ")}
                           </p>
                         </div>
-                        <div className="p-3 bg-[#F2EEE7] rounded-[3px] border border-[#CFC8BC] space-y-1">
+                        <div className="p-3 bg-[#F2EFE9] rounded-[3px] border border-[#E2DDD5] space-y-1">
                           <span className="text-[10px] font-mono-spec text-[#A65F5F] font-bold uppercase block">
                             Use Carefully With:
                           </span>
-                          <p className="text-[#5C625B]">
+                          <p className="text-[#5E645F]">
                             {product.compatibility.useCarefullyWith.join(", ")}
                           </p>
                         </div>
-                        <p className="text-[11px] text-[#5C625B] italic">
+                        <p className="text-[11px] text-[#5E645F] italic">
                           {product.compatibility.explanation}
                         </p>
                       </div>
                     ) : (
-                      <p className="text-[#5C625B]">
+                      <p className="text-[#5E645F]">
                         Universally compatible with all AEGIS barrier care
                         formulations.
                       </p>
@@ -539,10 +539,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
                 {activeTab === "inci" && (
                   <div className="space-y-2">
-                    <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase block">
+                    <span className="text-[10px] font-mono-spec text-[#5E645F] uppercase block">
                       100% Disclosed INCI List:
                     </span>
-                    <p className="text-[11px] font-mono-spec text-[#5C625B] bg-[#F2EEE7] p-3 rounded-[3px] border border-[#CFC8BC] leading-relaxed">
+                    <p className="text-[11px] font-mono-spec text-[#5E645F] bg-[#F2EFE9] p-3 rounded-[3px] border border-[#E2DDD5] leading-relaxed">
                       {product.fullIngredients}
                     </p>
                   </div>
@@ -553,12 +553,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     {product.faqList.map((faq, i) => (
                       <div
                         key={i}
-                        className="space-y-1 border-b border-[#CFC8BC]/50 pb-2"
+                        className="space-y-1 border-b border-[#E2DDD5]/50 pb-2"
                       >
-                        <strong className="text-[#20231F] block">
+                        <strong className="text-[#1A1C1B] block">
                           {faq.question}
                         </strong>
-                        <p className="text-[#5C625B] text-[11px]">
+                        <p className="text-[#5E645F] text-[11px]">
                           {faq.answer}
                         </p>
                       </div>
@@ -569,13 +569,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
 
             {/* Reviews Section with Star Filter */}
-            <div className="pt-6 border-t border-[#CFC8BC] space-y-4">
+            <div className="pt-6 border-t border-[#E2DDD5] space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase tracking-widest block">
+                  <span className="text-[10px] font-mono-spec text-[#526442] font-bold uppercase tracking-widest block">
                     COMMUNITY FEEDBACK
                   </span>
-                  <h4 className="font-serif-editorial text-lg text-[#20231F]">
+                  <h4 className="font-serif-editorial text-lg text-[#1A1C1B]">
                     Customer Reviews ({product.reviewCount})
                   </h4>
                 </div>
@@ -585,8 +585,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     onClick={() => setReviewFilterRating(null)}
                     className={`px-2 py-1 rounded-[2px] border ${
                       reviewFilterRating === null
-                        ? "bg-[#20231F] text-[#F8F5EF] border-[#20231F]"
-                        : "border-[#CFC8BC] text-[#5C625B]"
+                        ? "bg-[#1A1C1B] text-[#FAF9F7] border-[#1A1C1B]"
+                        : "border-[#E2DDD5] text-[#5E645F]"
                     }`}
                   >
                     All
@@ -595,8 +595,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     onClick={() => setReviewFilterRating(5)}
                     className={`px-2 py-1 rounded-[2px] border ${
                       reviewFilterRating === 5
-                        ? "bg-[#20231F] text-[#F8F5EF] border-[#20231F]"
-                        : "border-[#CFC8BC] text-[#5C625B]"
+                        ? "bg-[#1A1C1B] text-[#FAF9F7] border-[#1A1C1B]"
+                        : "border-[#E2DDD5] text-[#5E645F]"
                     }`}
                   >
                     5★
@@ -605,8 +605,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     onClick={() => setReviewFilterRating(4)}
                     className={`px-2 py-1 rounded-[2px] border ${
                       reviewFilterRating === 4
-                        ? "bg-[#20231F] text-[#F8F5EF] border-[#20231F]"
-                        : "border-[#CFC8BC] text-[#5C625B]"
+                        ? "bg-[#1A1C1B] text-[#FAF9F7] border-[#1A1C1B]"
+                        : "border-[#E2DDD5] text-[#5E645F]"
                     }`}
                   >
                     4★
@@ -618,34 +618,34 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 {filteredReviews.slice(0, 3).map((r) => (
                   <div
                     key={r.id}
-                    className="p-3 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[3px] space-y-1.5"
+                    className="p-3 bg-[#F2EFE9] border border-[#E2DDD5] rounded-[3px] space-y-1.5"
                   >
                     <div className="flex items-center justify-between text-xs">
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-[#20231F]">
+                        <span className="font-bold text-[#1A1C1B]">
                           {r.author}
                         </span>
                         {r.verified && (
-                          <span className="text-[9px] font-mono-spec bg-[#E8E1D6] px-1.5 py-0.5 rounded-[2px] text-[#4B5848]">
+                          <span className="text-[9px] font-mono-spec bg-[#F2EFE9] px-1.5 py-0.5 rounded-[2px] text-[#526442]">
                             Verified Buyer
                           </span>
                         )}
                       </div>
-                      <span className="text-[10px] font-mono-spec text-[#5C625B]">
+                      <span className="text-[10px] font-mono-spec text-[#5E645F]">
                         {r.date}
                       </span>
                     </div>
 
-                    <div className="flex text-[#4B5848]">
+                    <div className="flex text-[#526442]">
                       {Array.from({ length: r.rating }).map((_, i) => (
                         <Star key={i} className="w-3 h-3 fill-current" />
                       ))}
                     </div>
 
-                    <p className="text-xs font-semibold text-[#20231F]">
+                    <p className="text-xs font-semibold text-[#1A1C1B]">
                       {r.title}
                     </p>
-                    <p className="text-xs text-[#5C625B] leading-relaxed">
+                    <p className="text-xs text-[#5E645F] leading-relaxed">
                       {r.comment}
                     </p>
                   </div>
@@ -655,8 +655,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
             {/* Pairs Well With */}
             {pairedProducts.length > 0 && (
-              <div className="pt-4 border-t border-[#CFC8BC] space-y-2">
-                <span className="text-[10px] font-mono-spec text-[#4B5848] font-bold uppercase tracking-wider block">
+              <div className="pt-4 border-t border-[#E2DDD5] space-y-2">
+                <span className="text-[10px] font-mono-spec text-[#526442] font-bold uppercase tracking-wider block">
                   PAIRS WELL WITH:
                 </span>
                 <div className="flex gap-3 overflow-x-auto pb-1">

@@ -37,15 +37,13 @@ export const Header: React.FC<HeaderProps> = ({
     prevCountRef.current = cartCount;
   }, [cartCount]);
 
-  const navLinks: { id: NavView | 'faq'; label: string }[] = [
+    const navLinks: { id: NavView | 'faq'; label: string }[] = [
     { id: 'shop', label: 'SHOP' },
-    { id: 'quiz', label: 'SKIN QUIZ' },
+    { id: 'shop', label: 'CONCERNS' },
     { id: 'routines', label: 'ROUTINES' },
-    { id: 'ingredients', label: 'INGREDIENTS' },
-    { id: 'science', label: 'OUR SCIENCE' },
-    { id: 'faq', label: 'FAQ' },
+    { id: 'science', label: 'SCIENCE' },
     { id: 'journal', label: 'JOURNAL' },
-    { id: 'about', label: 'ABOUT' }
+    { id: 'about', label: 'ABOUT' },
   ];
 
   const handleNavClick = (viewId: NavView | 'faq') => {
@@ -62,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#E8E1D6]/95 backdrop-blur-md border-b border-[#CFC8BC]">
+    <header className="sticky top-0 z-40 bg-[#F2EFE9]/95 backdrop-blur-md border-b border-[#E2DDD5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Left: Brand Monogram + Wordmark */}
         <motion.div
@@ -83,17 +81,17 @@ export const Header: React.FC<HeaderProps> = ({
             }
           }}
           className="cursor-pointer flex items-center gap-3.5 group select-none"
-          aria-label="AEGIS Men's Skincare Home"
+          aria-label="AEGIS MEN Home"
         >
-          <div className="w-10 h-10 rounded-[4px] bg-[#20231F] group-hover:bg-[#4B5848] text-[#F8F5EF] flex items-center justify-center shadow-xs border border-[#3E453D] transition-colors">
-            <AegisMonogram size={22} color="#F8F5EF" accentColor="#D3C9B8" />
+          <div className="w-10 h-10 rounded-[4px] bg-[#1A1C1B] group-hover:bg-[#526442] text-[#FAF9F7] flex items-center justify-center shadow-xs border border-[#3E453D] transition-colors">
+            <AegisMonogram size={22} color="#FAF9F7" accentColor="#D3C9B8" />
           </div>
           <div className="flex flex-col text-left">
-            <span className="font-bold tracking-[0.24em] text-xl text-[#20231F] group-hover:text-[#4B5848] transition-colors leading-none font-serif-editorial">
-              AEGIS
+            <span className="font-bold tracking-[0.2em] text-xl text-[#1A1C1B] group-hover:text-[#526442] transition-colors leading-none font-serif-editorial">
+              AEGIS MEN
             </span>
-            <span className="text-[8.5px] font-mono-spec tracking-[0.3em] text-[#5C625B] uppercase pt-1 font-semibold">
-              CLINICAL MEN'S FORMULAS
+            <span className="text-[8.5px] font-mono-spec tracking-[0.3em] text-[#5E645F] uppercase pt-1 font-semibold">
+              SCIENCE × SIMPLICITY
             </span>
           </div>
         </motion.div>
@@ -104,22 +102,22 @@ export const Header: React.FC<HeaderProps> = ({
             const isActive = currentView === link.id;
             return (
               <motion.button
-                key={link.id}
-                id={`nav-${link.id}`}
+                key={link.label}
+                id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                 whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={() => handleNavClick(link.id)}
                 className={`py-1 transition-all relative cursor-pointer ${
                   isActive
-                    ? 'text-[#20231F] font-semibold'
-                    : 'text-[#5C625B] hover:text-[#20231F]'
+                    ? 'text-[#1A1C1B] font-semibold'
+                    : 'text-[#5E645F] hover:text-[#1A1C1B]'
                 }`}
               >
                 {link.label}
                 {isActive && (
                   <motion.span
                     layoutId="activeNavIndicator"
-                    className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#4B5848]"
+                    className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#526442]"
                   />
                 )}
               </motion.button>
@@ -134,7 +132,7 @@ export const Header: React.FC<HeaderProps> = ({
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.92 }}
             onClick={onOpenSearch}
-            className="p-2 text-[#20231F] hover:text-[#4B5848] transition-colors rounded-sm focus:outline-hidden cursor-pointer"
+            className="p-2 text-[#1A1C1B] hover:text-[#526442] transition-colors rounded-sm focus:outline-hidden cursor-pointer"
             aria-label="Search Formulations"
             title="Search"
           >
@@ -146,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.92 }}
             onClick={onOpenWishlist}
-            className="relative p-2 text-[#20231F] hover:text-[#4B5848] transition-colors rounded-sm focus:outline-hidden cursor-pointer"
+            className="relative p-2 text-[#1A1C1B] hover:text-[#526442] transition-colors rounded-sm focus:outline-hidden cursor-pointer"
             aria-label="Saved Products"
             title="Wishlist"
           >
@@ -155,7 +153,7 @@ export const Header: React.FC<HeaderProps> = ({
               <motion.span
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="absolute top-1 right-1 w-3.5 h-3.5 bg-[#4B5848] text-[#F8F5EF] rounded-full text-[8px] font-mono-spec flex items-center justify-center font-semibold"
+                className="absolute top-1 right-1 w-3.5 h-3.5 bg-[#526442] text-[#FAF9F7] rounded-full text-[8px] font-mono-spec flex items-center justify-center font-semibold"
               >
                 {wishlistCount}
               </motion.span>
@@ -170,7 +168,7 @@ export const Header: React.FC<HeaderProps> = ({
               isPopping
                 ? {
                     scale: [1, 1.28, 0.92, 1.08, 1],
-                    backgroundColor: ['#4B5848', '#20231F', '#4B5848'],
+                    backgroundColor: ['#526442', '#1A1C1B', '#526442'],
                     boxShadow: [
                       '0 0 0 0 rgba(75, 88, 72, 0)',
                       '0 0 0 8px rgba(75, 88, 72, 0.25)',
@@ -182,7 +180,7 @@ export const Header: React.FC<HeaderProps> = ({
             transition={{ duration: 0.55, ease: 'easeOut' }}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.95 }}
-            className="relative flex items-center gap-2 px-3.5 py-2 rounded-[4px] bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] text-[11px] font-mono-spec tracking-wider transition-all shadow-xs cursor-pointer select-none"
+            className="relative flex items-center gap-2 px-3.5 py-2 rounded-[4px] bg-[#526442] hover:bg-[#394536] text-[#FAF9F7] text-[11px] font-mono-spec tracking-wider transition-all shadow-xs cursor-pointer select-none"
             aria-label="Shopping Bag"
           >
             <motion.div
@@ -198,7 +196,7 @@ export const Header: React.FC<HeaderProps> = ({
                 animate={{ opacity: 1, y: -24, scale: 1 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.6 }}
-                className="absolute -top-1 right-2 bg-[#20231F] text-[#F8F5EF] border border-[#4B5848] text-[9px] font-mono-spec px-1.5 py-0.5 rounded shadow-md pointer-events-none whitespace-nowrap"
+                className="absolute -top-1 right-2 bg-[#1A1C1B] text-[#FAF9F7] border border-[#526442] text-[9px] font-mono-spec px-1.5 py-0.5 rounded shadow-md pointer-events-none whitespace-nowrap"
               >
                 +1 Added
               </motion.span>
@@ -209,7 +207,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             id="header-mobile-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-[#20231F] hover:text-[#4B5848] focus:outline-hidden cursor-pointer"
+            className="lg:hidden p-2 text-[#1A1C1B] hover:text-[#526442] focus:outline-hidden cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -224,18 +222,18 @@ export const Header: React.FC<HeaderProps> = ({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-[#F2EEE7] border-b border-[#CFC8BC] px-6 py-6 space-y-4 overflow-hidden"
+            className="lg:hidden bg-[#F2EFE9] border-b border-[#E2DDD5] px-6 py-6 space-y-4 overflow-hidden"
           >
             <nav className="flex flex-col space-y-3 text-xs tracking-widest font-mono-spec">
               {navLinks.map((link) => (
                 <button
-                  key={link.id}
+                  key={link.label}
                   onClick={() => {
                     handleNavClick(link.id);
                     setMobileMenuOpen(false);
                   }}
-                  className={`text-left py-2 border-b border-[#CFC8BC]/50 cursor-pointer ${
-                    currentView === link.id ? 'text-[#4B5848] font-bold' : 'text-[#20231F]'
+                  className={`text-left py-2 border-b border-[#E2DDD5]/50 cursor-pointer ${
+                    currentView === link.id ? 'text-[#526442] font-bold' : 'text-[#1A1C1B]'
                   }`}
                 >
                   {link.label}

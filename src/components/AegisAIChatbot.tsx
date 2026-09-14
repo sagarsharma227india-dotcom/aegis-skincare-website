@@ -154,14 +154,14 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
           <button
             id="aegis-ai-open-btn"
             onClick={() => setIsOpen(true)}
-            className="group flex items-center gap-3 px-4 py-3 bg-[#20231F] hover:bg-[#2B3029] text-[#F8F5EF] rounded-full shadow-lg border border-[#343A33] transition-all hover:scale-105 active:scale-95 focus:outline-hidden"
+            className="group flex items-center gap-3 px-4 py-3 bg-[#1A1C1B] hover:bg-[#2B3029] text-[#FAF9F7] rounded-full shadow-lg border border-[#343A33] transition-all hover:scale-105 active:scale-95 focus:outline-hidden"
             aria-label="Open AEGIS AI Skincare Guide"
           >
-            <div className="w-6 h-6 rounded-full bg-[#4B5848] flex items-center justify-center text-[#F8F5EF]">
+            <div className="w-6 h-6 rounded-full bg-[#526442] flex items-center justify-center text-[#FAF9F7]">
               <Sparkles className="w-3.5 h-3.5" />
             </div>
             <div className="text-left">
-              <span className="block text-xs font-mono-spec tracking-wider font-semibold uppercase text-[#F8F5EF]">
+              <span className="block text-xs font-mono-spec tracking-wider font-semibold uppercase text-[#FAF9F7]">
                 AEGIS AI
               </span>
               <span className="block text-[9px] text-[#A9B7B7] font-mono-spec">
@@ -178,17 +178,17 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
           id="aegis-ai-chat-modal"
           role="dialog"
           aria-label="AEGIS AI Chat Window"
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[calc(100vw-32px)] sm:w-[420px] h-[580px] max-h-[85vh] bg-[#F8F5EF] border border-[#CFC8BC] rounded-lg shadow-2xl flex flex-col overflow-hidden text-left"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[calc(100vw-32px)] sm:w-[420px] h-[580px] max-h-[85vh] bg-[#FAF9F7] border border-[#E2DDD5] rounded-lg shadow-2xl flex flex-col overflow-hidden text-left"
         >
           {/* Header */}
-          <div className="px-4 py-3.5 bg-[#20231F] text-[#F8F5EF] flex items-center justify-between border-b border-[#343A33]">
+          <div className="px-4 py-3.5 bg-[#1A1C1B] text-[#FAF9F7] flex items-center justify-between border-b border-[#343A33]">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#4B5848] flex items-center justify-center text-[#F8F5EF] shadow-xs">
-                <AegisMonogram size={16} color="#F8F5EF" />
+              <div className="w-8 h-8 rounded-full bg-[#526442] flex items-center justify-center text-[#FAF9F7] shadow-xs">
+                <AegisMonogram size={16} color="#FAF9F7" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="font-serif-editorial text-sm font-semibold tracking-wide text-[#F8F5EF]">
+                  <span className="font-serif-editorial text-sm font-semibold tracking-wide text-[#FAF9F7]">
                     AEGIS AI
                   </span>
                   <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" title="Online" />
@@ -202,7 +202,7 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
             <div className="flex items-center gap-1">
               <button
                 onClick={handleClearChat}
-                className="p-1.5 text-[#A9B7B7] hover:text-[#F8F5EF] rounded transition-colors"
+                className="p-1.5 text-[#A9B7B7] hover:text-[#FAF9F7] rounded transition-colors"
                 title="Reset conversation"
                 aria-label="Clear chat"
               >
@@ -211,7 +211,7 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
               <button
                 id="aegis-ai-close-btn"
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 text-[#A9B7B7] hover:text-[#F8F5EF] rounded transition-colors"
+                className="p-1.5 text-[#A9B7B7] hover:text-[#FAF9F7] rounded transition-colors"
                 title="Close chat"
                 aria-label="Close chat window"
               >
@@ -221,10 +221,10 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
           </div>
 
           {/* Messages Scroll Area */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-[#F8F5EF] text-xs leading-relaxed">
+          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-[#FAF9F7] text-xs leading-relaxed">
             {/* Clinical Notice Tag */}
-            <div className="p-2.5 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[4px] text-[10px] font-mono-spec text-[#5C625B] flex items-start gap-2">
-              <ShieldAlert className="w-3.5 h-3.5 text-[#4B5848] shrink-0 mt-0.5" />
+            <div className="p-2.5 bg-[#F2EFE9] border border-[#E2DDD5] rounded-[4px] text-[10px] font-mono-spec text-[#5E645F] flex items-start gap-2">
+              <ShieldAlert className="w-3.5 h-3.5 text-[#526442] shrink-0 mt-0.5" />
               <span>
                 Educational guide based on AEGIS formulas. Not medical advice. For clinical skin conditions, consult a certified dermatologist.
               </span>
@@ -236,7 +236,7 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
                 className={`flex gap-2.5 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {msg.sender === 'assistant' && (
-                  <div className="w-6 h-6 rounded-full bg-[#4B5848] text-[#F8F5EF] flex items-center justify-center shrink-0 mt-1">
+                  <div className="w-6 h-6 rounded-full bg-[#526442] text-[#FAF9F7] flex items-center justify-center shrink-0 mt-1">
                     <Bot className="w-3.5 h-3.5" />
                   </div>
                 )}
@@ -244,8 +244,8 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
                 <div
                   className={`max-w-[85%] rounded-[6px] p-3 space-y-2.5 ${
                     msg.sender === 'user'
-                      ? 'bg-[#20231F] text-[#F8F5EF] rounded-br-none'
-                      : 'bg-[#F2EEE7] text-[#20231F] border border-[#CFC8BC] rounded-bl-none shadow-2xs'
+                      ? 'bg-[#1A1C1B] text-[#FAF9F7] rounded-br-none'
+                      : 'bg-[#F2EFE9] text-[#1A1C1B] border border-[#E2DDD5] rounded-bl-none shadow-2xs'
                   }`}
                 >
                   <div className="whitespace-pre-line text-xs font-normal leading-relaxed">
@@ -254,28 +254,28 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
 
                   {/* Recommended Products Card Grid */}
                   {msg.recommendedProducts && msg.recommendedProducts.length > 0 && (
-                    <div className="pt-2 border-t border-[#CFC8BC]/60 space-y-2">
-                      <span className="text-[9px] font-mono-spec font-bold uppercase tracking-wider text-[#4B5848] block">
+                    <div className="pt-2 border-t border-[#E2DDD5]/60 space-y-2">
+                      <span className="text-[9px] font-mono-spec font-bold uppercase tracking-wider text-[#526442] block">
                         RECOMMENDED FORMULATIONS
                       </span>
                       <div className="space-y-2">
                         {msg.recommendedProducts.map((product) => (
                           <div
                             key={product.id}
-                            className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-2.5 flex items-center gap-3 text-left"
+                            className="bg-[#FAF9F7] border border-[#E2DDD5] rounded-[4px] p-2.5 flex items-center gap-3 text-left"
                           >
                             <div className="w-12 h-12 shrink-0 rounded-[2px] overflow-hidden">
                               <ProductPackagingView product={product} size="xs" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <span className="text-[9px] font-mono-spec text-[#5C625B] block">
+                              <span className="text-[9px] font-mono-spec text-[#5E645F] block">
                                 {product.stepNumber}
                               </span>
-                              <h4 className="font-semibold text-xs text-[#20231F] truncate">
+                              <h4 className="font-semibold text-xs text-[#1A1C1B] truncate">
                                 {product.name}
                               </h4>
-                              <span className="text-[11px] font-mono-spec font-medium text-[#4B5848]">
-                                ₹{product.price}
+                              <span className="text-[11px] font-mono-spec font-medium text-[#526442]">
+                                ₹{product.price.toLocaleString('en-IN')}
                               </span>
                             </div>
 
@@ -285,7 +285,7 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
                                   onSelectProduct(product.id);
                                   setIsOpen(false);
                                 }}
-                                className="px-2 py-1 bg-transparent hover:bg-[#E8E1D6] text-[#20231F] border border-[#CFC8BC] text-[9px] font-mono-spec rounded uppercase tracking-wider flex items-center gap-1"
+                                className="px-2 py-1 bg-transparent hover:bg-[#F2EFE9] text-[#1A1C1B] border border-[#E2DDD5] text-[9px] font-mono-spec rounded uppercase tracking-wider flex items-center gap-1"
                                 title="Inspect formula"
                               >
                                 <span>Inspect</span>
@@ -293,7 +293,7 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
                               </button>
                               <button
                                 onClick={() => onAddToCart(product, 1)}
-                                className="px-2 py-1 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] text-[9px] font-mono-spec rounded uppercase tracking-wider flex items-center gap-1"
+                                className="px-2 py-1 bg-[#526442] hover:bg-[#394536] text-[#FAF9F7] text-[9px] font-mono-spec rounded uppercase tracking-wider flex items-center gap-1"
                                 title="Add to Bag"
                               >
                                 <ShoppingBag className="w-2.5 h-2.5" />
@@ -308,7 +308,7 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
 
                   {/* Quick Action Suggestion Chips */}
                   {msg.quickActions && msg.quickActions.length > 0 && (
-                    <div className="pt-2 border-t border-[#CFC8BC]/50 flex flex-wrap gap-1.5">
+                    <div className="pt-2 border-t border-[#E2DDD5]/50 flex flex-wrap gap-1.5">
                       {msg.quickActions.map((action, idx) => (
                         <button
                           key={idx}
@@ -320,7 +320,7 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
                               handleSend(action);
                             }
                           }}
-                          className="px-2 py-1 bg-[#F8F5EF] hover:bg-[#E8E1D6] text-[#4B5848] border border-[#CFC8BC] rounded-full text-[10px] font-mono-spec tracking-tight transition-colors text-left"
+                          className="px-2 py-1 bg-[#FAF9F7] hover:bg-[#F2EFE9] text-[#526442] border border-[#E2DDD5] rounded-full text-[10px] font-mono-spec tracking-tight transition-colors text-left"
                         >
                           {action}
                         </button>
@@ -334,7 +334,7 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
                 </div>
 
                 {msg.sender === 'user' && (
-                  <div className="w-6 h-6 rounded-full bg-[#20231F] text-[#F8F5EF] flex items-center justify-center shrink-0 mt-1">
+                  <div className="w-6 h-6 rounded-full bg-[#1A1C1B] text-[#FAF9F7] flex items-center justify-center shrink-0 mt-1">
                     <User className="w-3.5 h-3.5" />
                   </div>
                 )}
@@ -343,14 +343,14 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
 
             {/* Typing Indicator */}
             {isTyping && (
-              <div className="flex items-center gap-2 text-[#5C625B] text-xs font-mono-spec">
-                <div className="w-6 h-6 rounded-full bg-[#4B5848] text-[#F8F5EF] flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 text-[#5E645F] text-xs font-mono-spec">
+                <div className="w-6 h-6 rounded-full bg-[#526442] text-[#FAF9F7] flex items-center justify-center shrink-0">
                   <Bot className="w-3.5 h-3.5" />
                 </div>
-                <div className="bg-[#F2EEE7] border border-[#CFC8BC] rounded-full px-3 py-1.5 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-[#4B5848] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                  <span className="w-1.5 h-1.5 bg-[#4B5848] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                  <span className="w-1.5 h-1.5 bg-[#4B5848] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                <div className="bg-[#F2EFE9] border border-[#E2DDD5] rounded-full px-3 py-1.5 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-[#526442] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <span className="w-1.5 h-1.5 bg-[#526442] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                  <span className="w-1.5 h-1.5 bg-[#526442] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                 </div>
               </div>
             )}
@@ -359,36 +359,36 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
           </div>
 
           {/* Quick Starter Chips (Above Input) */}
-          <div className="px-3 py-2 bg-[#F2EEE7] border-t border-[#CFC8BC] flex items-center gap-1.5 overflow-x-auto whitespace-nowrap text-[10px] font-mono-spec">
+          <div className="px-3 py-2 bg-[#F2EFE9] border-t border-[#E2DDD5] flex items-center gap-1.5 overflow-x-auto whitespace-nowrap text-[10px] font-mono-spec">
             <span className="text-[#8F948C] text-[9px] uppercase tracking-wider shrink-0">Ask:</span>
             <button
               onClick={() => handleSend('Build my routine')}
-              className="px-2 py-0.5 bg-[#F8F5EF] hover:bg-[#E8E1D6] border border-[#CFC8BC] rounded text-[#20231F] shrink-0"
+              className="px-2 py-0.5 bg-[#FAF9F7] hover:bg-[#F2EFE9] border border-[#E2DDD5] rounded text-[#1A1C1B] shrink-0"
             >
               Build Routine
             </button>
             <button
               onClick={() => handleSend('I have acne & oily skin')}
-              className="px-2 py-0.5 bg-[#F8F5EF] hover:bg-[#E8E1D6] border border-[#CFC8BC] rounded text-[#20231F] shrink-0"
+              className="px-2 py-0.5 bg-[#FAF9F7] hover:bg-[#F2EFE9] border border-[#E2DDD5] rounded text-[#1A1C1B] shrink-0"
             >
               Acne / Oil
             </button>
             <button
               onClick={() => handleSend('My skin is dry after shaving')}
-              className="px-2 py-0.5 bg-[#F8F5EF] hover:bg-[#E8E1D6] border border-[#CFC8BC] rounded text-[#20231F] shrink-0"
+              className="px-2 py-0.5 bg-[#FAF9F7] hover:bg-[#F2EFE9] border border-[#E2DDD5] rounded text-[#1A1C1B] shrink-0"
             >
               Razor Burn
             </button>
             <button
               onClick={() => handleSend('Tell me about sunscreen')}
-              className="px-2 py-0.5 bg-[#F8F5EF] hover:bg-[#E8E1D6] border border-[#CFC8BC] rounded text-[#20231F] shrink-0"
+              className="px-2 py-0.5 bg-[#FAF9F7] hover:bg-[#F2EFE9] border border-[#E2DDD5] rounded text-[#1A1C1B] shrink-0"
             >
               SPF 50
             </button>
           </div>
 
           {/* Message Input Box */}
-          <div className="p-3 bg-[#F8F5EF] border-t border-[#CFC8BC] flex items-end gap-2">
+          <div className="p-3 bg-[#FAF9F7] border-t border-[#E2DDD5] flex items-end gap-2">
             <textarea
               ref={inputRef}
               id="aegis-ai-input"
@@ -397,13 +397,13 @@ export const AegisAIChatbot: React.FC<AegisAIChatbotProps> = ({
               onChange={(e) => setInputText(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask about skin concerns, ingredients, or routine..."
-              className="flex-1 resize-none bg-white border border-[#CFC8BC] rounded-[4px] px-3 py-2 text-xs text-[#20231F] placeholder:text-[#8F948C] focus:outline-hidden focus:border-[#4B5848] max-h-24"
+              className="flex-1 resize-none bg-white border border-[#E2DDD5] rounded-[4px] px-3 py-2 text-xs text-[#1A1C1B] placeholder:text-[#8F948C] focus:outline-hidden focus:border-[#526442] max-h-24"
             />
             <button
               id="aegis-ai-send-btn"
               onClick={() => handleSend()}
               disabled={!inputText.trim() || isTyping}
-              className="p-2.5 bg-[#4B5848] hover:bg-[#394536] disabled:opacity-40 disabled:hover:bg-[#4B5848] text-[#F8F5EF] rounded-[4px] transition-colors shrink-0"
+              className="p-2.5 bg-[#526442] hover:bg-[#394536] disabled:opacity-40 disabled:hover:bg-[#526442] text-[#FAF9F7] rounded-[4px] transition-colors shrink-0"
               aria-label="Send message"
             >
               <Send className="w-3.5 h-3.5" />

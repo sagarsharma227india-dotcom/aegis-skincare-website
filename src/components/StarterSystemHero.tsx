@@ -43,7 +43,7 @@ const SynchronizedStepCard: React.FC<{
   return (
     <div
       onClick={onClick}
-      className="group/card cursor-pointer bg-[#E8E1D6]/50 hover:bg-[#E8E1D6] border border-[#CFC8BC] hover:border-[#4B5848] rounded-[3px] p-3 transition-all duration-300 flex flex-col justify-between text-left"
+      className="group/card cursor-pointer bg-[#F2EFE9]/50 hover:bg-[#F2EFE9] border border-[#E2DDD5] hover:border-[#526442] rounded-[3px] p-3 transition-all duration-300 flex flex-col justify-between text-left"
     >
       <div className="aspect-square bg-[#151714] rounded-[2px] overflow-hidden relative mb-2.5">
         <img
@@ -52,19 +52,19 @@ const SynchronizedStepCard: React.FC<{
           className="w-full h-full object-cover grayscale-[0.1] group-hover/card:scale-105 transition-transform duration-500"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 bg-[#20231F]/90 text-[#F8F5EF] text-[9px] font-mono-spec rounded-[2px]">
+        <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 bg-[#1A1C1B]/90 text-[#FAF9F7] text-[9px] font-mono-spec rounded-[2px]">
           {item.step}
         </div>
       </div>
       <div className="space-y-1">
-        <div className="flex items-center justify-between text-[10px] font-mono-spec text-[#4B5848] font-bold">
+        <div className="flex items-center justify-between text-[10px] font-mono-spec text-[#526442] font-bold">
           <span>{item.role}</span>
           <span className="text-[#7A8279]">{item.time}</span>
         </div>
-        <h4 className="text-xs sm:text-sm font-serif-editorial text-[#20231F] font-medium leading-tight">
+        <h4 className="text-xs sm:text-sm font-serif-editorial text-[#1A1C1B] font-medium leading-tight">
           {item.product.name}
         </h4>
-        <p className="text-[10px] text-[#5C625B] line-clamp-2">
+        <p className="text-[10px] text-[#5E645F] line-clamp-2">
           {item.benefit}
         </p>
       </div>
@@ -82,7 +82,7 @@ const SynchronizedSingleStepImage: React.FC<{
   return (
     <div
       onClick={() => onSelectProduct(product.id)}
-      className="aspect-square sm:aspect-4/5 bg-[#151714] rounded-[3px] overflow-hidden relative cursor-pointer group/spotlight border border-[#CFC8BC]"
+      className="aspect-square sm:aspect-4/5 bg-[#151714] rounded-[3px] overflow-hidden relative cursor-pointer group/spotlight border border-[#E2DDD5]"
     >
       <img
         src={image}
@@ -92,10 +92,10 @@ const SynchronizedSingleStepImage: React.FC<{
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
       <div className="absolute bottom-3 left-3 right-3 text-left">
-        <span className="text-[10px] font-mono-spec text-[#CFC8BC] uppercase tracking-widest block">
+        <span className="text-[10px] font-mono-spec text-[#E2DDD5] uppercase tracking-widest block">
           CLICK TO VIEW FORMULA
         </span>
-        <span className="text-sm font-serif-editorial text-[#F8F5EF]">
+        <span className="text-sm font-serif-editorial text-[#FAF9F7]">
           {product.name}
         </span>
       </div>
@@ -167,7 +167,7 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
   return (
     <section
       id="hero-starter-system-section"
-      className="relative py-20 lg:py-28 bg-[#F4EFE6] border-b border-[#CFC8BC] overflow-hidden text-left"
+      className="relative py-20 lg:py-28 bg-[#F4EFE6] border-b border-[#E2DDD5] overflow-hidden text-left"
     >
       {/* Background architectural grid pattern */}
       <div
@@ -181,16 +181,16 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Editorial Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-[#CFC8BC]">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-[#E2DDD5]">
           <div className="space-y-4 max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-3 py-1.5 bg-[#E8E1D6] border border-[#CFC8BC] rounded-[3px] text-[#4B5848] text-[10px] font-mono-spec tracking-[0.2em] uppercase font-bold"
+              className="inline-flex items-center gap-2.5 px-3 py-1.5 bg-[#F2EFE9] border border-[#E2DDD5] rounded-[3px] text-[#526442] text-[10px] font-mono-spec tracking-[0.2em] uppercase font-bold"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#4B5848]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#526442]" />
               <span>THE HERO KIT · FOUNDATIONAL PROTOCOL</span>
             </motion.div>
 
@@ -199,7 +199,7 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-serif-editorial font-normal text-[#20231F] leading-[1.1] tracking-tight"
+              className="text-3xl sm:text-5xl lg:text-6xl font-serif-editorial font-normal text-[#1A1C1B] leading-[1.1] tracking-tight"
             >
               The Starter System.
             </motion.h2>
@@ -209,7 +209,7 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm sm:text-base text-[#5C625B] leading-relaxed max-w-2xl"
+              className="text-sm sm:text-base text-[#5E645F] leading-relaxed max-w-2xl"
             >
               Three synergistic formulations. Under 3 minutes daily. Zero confusion. Engineered as the
               definitive hero kit for men’s skin — balancing sebum, accelerating post-shave barrier
@@ -225,8 +225,8 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-wrap lg:flex-col items-start lg:items-end gap-3 text-[11px] font-mono-spec"
           >
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[3px] text-[#20231F]">
-              <div className="flex text-[#4B5848]">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-[#FAF9F7] border border-[#E2DDD5] rounded-[3px] text-[#1A1C1B]">
+              <div className="flex text-[#526442]">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3 h-3 fill-current" />
                 ))}
@@ -234,8 +234,8 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
               <span className="font-semibold">5.0 / 5.0</span>
               <span className="text-[#7A8279]">(528 reviews)</span>
             </div>
-            <div className="flex items-center gap-2 text-[#4B5848] font-bold uppercase tracking-wider">
-              <span className="w-2 h-2 rounded-full bg-[#4B5848] animate-pulse" />
+            <div className="flex items-center gap-2 text-[#526442] font-bold uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#526442] animate-pulse" />
               <span>IN STOCK · 60-DAY SUPPLY · SAVE ₹298</span>
             </div>
           </motion.div>
@@ -252,8 +252,8 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                 onClick={() => setActiveTab('all')}
                 className={`px-3.5 py-2 rounded-[3px] text-xs font-mono-spec uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 border ${
                   activeTab === 'all'
-                    ? 'bg-[#20231F] text-[#F8F5EF] border-[#20231F] shadow-xs'
-                    : 'bg-[#F8F5EF] text-[#5C625B] border-[#CFC8BC] hover:border-[#20231F] hover:text-[#20231F]'
+                    ? 'bg-[#1A1C1B] text-[#FAF9F7] border-[#1A1C1B] shadow-xs'
+                    : 'bg-[#FAF9F7] text-[#5E645F] border-[#E2DDD5] hover:border-[#1A1C1B] hover:text-[#1A1C1B]'
                 }`}
               >
                 <Layers className="w-3.5 h-3.5" />
@@ -267,8 +267,8 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                   onClick={() => setActiveTab(item.step as any)}
                   className={`px-3.5 py-2 rounded-[3px] text-xs font-mono-spec uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5 border ${
                     activeTab === item.step
-                      ? 'bg-[#4B5848] text-[#F8F5EF] border-[#4B5848] shadow-xs'
-                      : 'bg-[#F8F5EF] text-[#5C625B] border-[#CFC8BC] hover:border-[#4B5848] hover:text-[#20231F]'
+                      ? 'bg-[#526442] text-[#FAF9F7] border-[#526442] shadow-xs'
+                      : 'bg-[#FAF9F7] text-[#5E645F] border-[#E2DDD5] hover:border-[#526442] hover:text-[#1A1C1B]'
                   }`}
                 >
                   <span className="font-bold">{item.step}</span>
@@ -278,11 +278,11 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
             </div>
 
             {/* Dynamic Stage Display with Animation */}
-            <div className="relative bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 sm:p-8 shadow-xs overflow-hidden">
+            <div className="relative bg-[#FAF9F7] border border-[#E2DDD5] rounded-[4px] p-6 sm:p-8 shadow-xs overflow-hidden">
               {/* Floating badges */}
-              <div className="flex items-center justify-between pb-4 border-b border-[#CFC8BC] text-[11px] font-mono-spec">
-                <div className="flex items-center gap-2 text-[#4B5848] font-bold uppercase tracking-wider">
-                  <ShieldCheck className="w-4 h-4 text-[#4B5848]" />
+              <div className="flex items-center justify-between pb-4 border-b border-[#E2DDD5] text-[11px] font-mono-spec">
+                <div className="flex items-center gap-2 text-[#526442] font-bold uppercase tracking-wider">
+                  <ShieldCheck className="w-4 h-4 text-[#526442]" />
                   <span>
                     {activeTab === 'all'
                       ? 'UNIFIED 3-PIECE CLINICAL SUITE'
@@ -308,7 +308,7 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                     {/* Primary Showcase: The Starter System Product Image Shared with Shop Section */}
                     <div
                       onClick={() => onSelectProduct('aegis-starter-bundle')}
-                      className="relative aspect-16/9 sm:aspect-21/9 bg-[#151714] rounded-[3px] overflow-hidden border border-[#CFC8BC] group/bundle cursor-pointer"
+                      className="relative aspect-16/9 sm:aspect-21/9 bg-[#151714] rounded-[3px] overflow-hidden border border-[#E2DDD5] group/bundle cursor-pointer"
                     >
                       <img
                         src={bundleImg}
@@ -322,10 +322,10 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                         className="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-black/85 via-black/45 to-transparent pointer-events-none flex items-end justify-between"
                       >
                         <div>
-                          <span className="text-[10px] font-mono-spec font-bold tracking-[0.15em] text-[#CFC8BC] uppercase block">
+                          <span className="text-[10px] font-mono-spec font-bold tracking-[0.15em] text-[#E2DDD5] uppercase block">
                             THE HERO KIT
                           </span>
-                          <span className="text-sm font-serif-editorial text-[#F8F5EF]">
+                          <span className="text-sm font-serif-editorial text-[#FAF9F7]">
                             {starterBundle.name}
                           </span>
                         </div>
@@ -353,19 +353,19 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                     </div>
 
                     {/* Architectural Trio Highlight Strip */}
-                    <div className="p-4 bg-[#F2EEE7] rounded-[3px] border border-[#CFC8BC] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
+                    <div className="p-4 bg-[#F2EFE9] rounded-[3px] border border-[#E2DDD5] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
                       <div className="space-y-1">
-                        <strong className="text-[#20231F] font-mono-spec text-[11px] uppercase tracking-wider block">
+                        <strong className="text-[#1A1C1B] font-mono-spec text-[11px] uppercase tracking-wider block">
                           THE COMPLETE 3-STEP TRIAD
                         </strong>
-                        <p className="text-[#5C625B]">
+                        <p className="text-[#5E645F]">
                           WASH (150ml) + REPAIR (50ml) + SHIELD SPF 50 (50ml). All 3 full-size formulas.
                         </p>
                       </div>
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => onSelectProduct('aegis-starter-bundle')}
-                          className="text-xs font-mono-spec text-[#4B5848] font-bold uppercase tracking-wider hover:underline inline-flex items-center gap-1 whitespace-nowrap cursor-pointer"
+                          className="text-xs font-mono-spec text-[#526442] font-bold uppercase tracking-wider hover:underline inline-flex items-center gap-1 whitespace-nowrap cursor-pointer"
                         >
                           <span>View Full Suite Dossier</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -391,10 +391,10 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
 
                     <div className="sm:col-span-7 space-y-4 text-left">
                       <div className="space-y-1">
-                        <span className="text-[11px] font-mono-spec font-bold text-[#4B5848] uppercase tracking-wider">
+                        <span className="text-[11px] font-mono-spec font-bold text-[#526442] uppercase tracking-wider">
                           STEP {selectedItemData!.step} / {selectedItemData!.role} · {selectedItemData!.time}
                         </span>
-                        <h3 className="text-2xl font-serif-editorial font-normal text-[#20231F]">
+                        <h3 className="text-2xl font-serif-editorial font-normal text-[#1A1C1B]">
                           {selectedItemData!.product.name}
                         </h3>
                         <p className="text-xs font-mono-spec text-[#7A8279]">
@@ -402,25 +402,25 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                         </p>
                       </div>
 
-                      <div className="space-y-2.5 text-xs text-[#5C625B]">
-                        <div className="p-3 bg-[#F2EEE7] rounded-[2px] border border-[#CFC8BC]/60 space-y-1">
-                          <strong className="text-[#20231F] font-mono-spec text-[10px] uppercase tracking-wider block">
+                      <div className="space-y-2.5 text-xs text-[#5E645F]">
+                        <div className="p-3 bg-[#F2EFE9] rounded-[2px] border border-[#E2DDD5]/60 space-y-1">
+                          <strong className="text-[#1A1C1B] font-mono-spec text-[10px] uppercase tracking-wider block">
                             KEY CLINICAL ACTIVE
                           </strong>
-                          <p className="text-[#20231F] font-medium">{selectedItemData!.highlight}</p>
-                          <p className="text-[#5C625B]">{selectedItemData!.benefit}</p>
+                          <p className="text-[#1A1C1B] font-medium">{selectedItemData!.highlight}</p>
+                          <p className="text-[#5E645F]">{selectedItemData!.benefit}</p>
                         </div>
 
                         <div className="grid grid-cols-2 gap-2 text-[11px] font-mono-spec">
-                          <div className="p-2.5 bg-[#E8E1D6]/60 rounded-[2px]">
+                          <div className="p-2.5 bg-[#F2EFE9]/60 rounded-[2px]">
                             <span className="block text-[#7A8279] text-[9px] uppercase">TEXTURE & FINISH</span>
-                            <span className="text-[#20231F] font-medium truncate block">
+                            <span className="text-[#1A1C1B] font-medium truncate block">
                               {selectedItemData!.finish}
                             </span>
                           </div>
-                          <div className="p-2.5 bg-[#E8E1D6]/60 rounded-[2px]">
+                          <div className="p-2.5 bg-[#F2EFE9]/60 rounded-[2px]">
                             <span className="block text-[#7A8279] text-[9px] uppercase">RITUAL TIMING</span>
-                            <span className="text-[#20231F] font-medium block">
+                            <span className="text-[#1A1C1B] font-medium block">
                               {selectedItemData!.time} Commitment
                             </span>
                           </div>
@@ -429,7 +429,7 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
 
                       <button
                         onClick={() => onSelectProduct(selectedItemData!.product.id)}
-                        className="w-full py-2.5 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] font-mono-spec text-xs font-semibold uppercase tracking-wider rounded-[3px] transition-colors inline-flex items-center justify-center gap-2 cursor-pointer"
+                        className="w-full py-2.5 bg-[#526442] hover:bg-[#394536] text-[#FAF9F7] font-mono-spec text-xs font-semibold uppercase tracking-wider rounded-[3px] transition-colors inline-flex items-center justify-center gap-2 cursor-pointer"
                       >
                         <span>Examine Single Product Specs</span>
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -442,35 +442,35 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
 
             {/* 4 Clinical Pillars Micro-Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
-              <div className="p-3 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[3px] space-y-1">
-                <span className="text-[18px] sm:text-[22px] font-mono-spec font-bold text-[#20231F] block leading-none">
+              <div className="p-3 bg-[#FAF9F7] border border-[#E2DDD5] rounded-[3px] space-y-1">
+                <span className="text-[18px] sm:text-[22px] font-mono-spec font-bold text-[#1A1C1B] block leading-none">
                   +94%
                 </span>
-                <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase block">
+                <span className="text-[10px] font-mono-spec text-[#5E645F] uppercase block">
                   Moisture Retention
                 </span>
               </div>
-              <div className="p-3 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[3px] space-y-1">
-                <span className="text-[18px] sm:text-[22px] font-mono-spec font-bold text-[#20231F] block leading-none">
+              <div className="p-3 bg-[#FAF9F7] border border-[#E2DDD5] rounded-[3px] space-y-1">
+                <span className="text-[18px] sm:text-[22px] font-mono-spec font-bold text-[#1A1C1B] block leading-none">
                   100%
                 </span>
-                <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase block">
+                <span className="text-[10px] font-mono-spec text-[#5E645F] uppercase block">
                   Zero Cast in Stubble
                 </span>
               </div>
-              <div className="p-3 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[3px] space-y-1">
-                <span className="text-[18px] sm:text-[22px] font-mono-spec font-bold text-[#20231F] block leading-none">
+              <div className="p-3 bg-[#FAF9F7] border border-[#E2DDD5] rounded-[3px] space-y-1">
+                <span className="text-[18px] sm:text-[22px] font-mono-spec font-bold text-[#1A1C1B] block leading-none">
                   pH 5.5
                 </span>
-                <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase block">
+                <span className="text-[10px] font-mono-spec text-[#5E645F] uppercase block">
                   Acid Mantle Matched
                 </span>
               </div>
-              <div className="p-3 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[3px] space-y-1">
-                <span className="text-[18px] sm:text-[22px] font-mono-spec font-bold text-[#20231F] block leading-none">
+              <div className="p-3 bg-[#FAF9F7] border border-[#E2DDD5] rounded-[3px] space-y-1">
+                <span className="text-[18px] sm:text-[22px] font-mono-spec font-bold text-[#1A1C1B] block leading-none">
                   &lt; 3 Min
                 </span>
-                <span className="text-[10px] font-mono-spec text-[#5C625B] uppercase block">
+                <span className="text-[10px] font-mono-spec text-[#5E645F] uppercase block">
                   Daily Time Needed
                 </span>
               </div>
@@ -480,24 +480,24 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
           {/* Right Column: Routine Timeline + Value Calculator + Direct Purchase (5 cols) */}
           <div className="lg:col-span-5 space-y-6 text-left">
             {/* AM / PM Interactive Protocol Preview */}
-            <div className="bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 sm:p-7 space-y-6 shadow-xs">
-              <div className="flex items-center justify-between pb-3 border-b border-[#CFC8BC]">
+            <div className="bg-[#FAF9F7] border border-[#E2DDD5] rounded-[4px] p-6 sm:p-7 space-y-6 shadow-xs">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E2DDD5]">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#4B5848]" />
-                  <h3 className="font-serif-editorial text-lg text-[#20231F]">
+                  <Clock className="w-4 h-4 text-[#526442]" />
+                  <h3 className="font-serif-editorial text-lg text-[#1A1C1B]">
                     How The System Operates
                   </h3>
                 </div>
 
                 {/* Day / Night Toggle */}
-                <div className="flex items-center gap-1 bg-[#E8E1D6] p-1 rounded-[3px]">
+                <div className="flex items-center gap-1 bg-[#F2EFE9] p-1 rounded-[3px]">
                   <button
                     id="hero-routine-am-btn"
                     onClick={() => setActiveRoutine('am')}
                     className={`px-2.5 py-1 text-[10px] font-mono-spec uppercase rounded-[2px] transition-all flex items-center gap-1.5 cursor-pointer ${
                       activeRoutine === 'am'
-                        ? 'bg-[#F8F5EF] text-[#4B5848] font-bold shadow-xs'
-                        : 'text-[#5C625B] hover:text-[#20231F]'
+                        ? 'bg-[#FAF9F7] text-[#526442] font-bold shadow-xs'
+                        : 'text-[#5E645F] hover:text-[#1A1C1B]'
                     }`}
                   >
                     <Sun className="w-3 h-3" />
@@ -508,8 +508,8 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                     onClick={() => setActiveRoutine('pm')}
                     className={`px-2.5 py-1 text-[10px] font-mono-spec uppercase rounded-[2px] transition-all flex items-center gap-1.5 cursor-pointer ${
                       activeRoutine === 'pm'
-                        ? 'bg-[#20231F] text-[#F8F5EF] font-bold shadow-xs'
-                        : 'text-[#5C625B] hover:text-[#20231F]'
+                        ? 'bg-[#1A1C1B] text-[#FAF9F7] font-bold shadow-xs'
+                        : 'text-[#5E645F] hover:text-[#1A1C1B]'
                     }`}
                   >
                     <Moon className="w-3 h-3" />
@@ -529,38 +529,38 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                     transition={{ duration: 0.3 }}
                     className="space-y-3 text-xs"
                   >
-                    <div className="p-3 bg-[#F2EEE7] rounded-[2px] border-l-2 border-[#4B5848] space-y-0.5">
+                    <div className="p-3 bg-[#F2EFE9] rounded-[2px] border-l-2 border-[#526442] space-y-0.5">
                       <div className="flex items-center justify-between text-[10px] font-mono-spec">
-                        <strong className="text-[#20231F] uppercase font-bold">
+                        <strong className="text-[#1A1C1B] uppercase font-bold">
                           01 / CLEANSE (30s) · AEGIS WASH
                         </strong>
-                        <span className="text-[#4B5848]">pH 5.5</span>
+                        <span className="text-[#526442]">pH 5.5</span>
                       </div>
-                      <p className="text-[#5C625B]">
+                      <p className="text-[#5E645F]">
                         Lather 1 pump with warm water to dissolve overnight oil without drying the skin.
                       </p>
                     </div>
 
-                    <div className="p-3 bg-[#F2EEE7] rounded-[2px] border-l-2 border-[#4B5848] space-y-0.5">
+                    <div className="p-3 bg-[#F2EFE9] rounded-[2px] border-l-2 border-[#526442] space-y-0.5">
                       <div className="flex items-center justify-between text-[10px] font-mono-spec">
-                        <strong className="text-[#20231F] uppercase font-bold">
+                        <strong className="text-[#1A1C1B] uppercase font-bold">
                           02 / REPAIR (30s) · AEGIS HYDRA
                         </strong>
-                        <span className="text-[#4B5848]">Oil-Free Gel</span>
+                        <span className="text-[#526442]">Oil-Free Gel</span>
                       </div>
-                      <p className="text-[#5C625B]">
+                      <p className="text-[#5E645F]">
                         Smooth 1 pump over face & neck to rebuild moisture barrier and balance mid-day shine.
                       </p>
                     </div>
 
-                    <div className="p-3 bg-[#F2EEE7] rounded-[2px] border-l-2 border-[#4B5848] space-y-0.5">
+                    <div className="p-3 bg-[#F2EFE9] rounded-[2px] border-l-2 border-[#526442] space-y-0.5">
                       <div className="flex items-center justify-between text-[10px] font-mono-spec">
-                        <strong className="text-[#20231F] uppercase font-bold">
+                        <strong className="text-[#1A1C1B] uppercase font-bold">
                           03 / DEFEND (30s) · AEGIS SHIELD SPF 50
                         </strong>
-                        <span className="text-[#4B5848]">Invisible SPF</span>
+                        <span className="text-[#526442]">Invisible SPF</span>
                       </div>
-                      <p className="text-[#5C625B]">
+                      <p className="text-[#5E645F]">
                         Apply 2 fingers over face and stubble. Zero chalky cast, zero beard residue.
                       </p>
                     </div>
@@ -574,32 +574,32 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                     transition={{ duration: 0.3 }}
                     className="space-y-3 text-xs"
                   >
-                    <div className="p-3 bg-[#F2EEE7] rounded-[2px] border-l-2 border-[#20231F] space-y-0.5">
+                    <div className="p-3 bg-[#F2EFE9] rounded-[2px] border-l-2 border-[#1A1C1B] space-y-0.5">
                       <div className="flex items-center justify-between text-[10px] font-mono-spec">
-                        <strong className="text-[#20231F] uppercase font-bold">
+                        <strong className="text-[#1A1C1B] uppercase font-bold">
                           01 / PURIFY (30s) · AEGIS WASH
                         </strong>
-                        <span className="text-[#20231F]">Evening Reset</span>
+                        <span className="text-[#1A1C1B]">Evening Reset</span>
                       </div>
-                      <p className="text-[#5C625B]">
+                      <p className="text-[#5E645F]">
                         Dissolves city grime, sweat, and daytime sunscreen completely clean.
                       </p>
                     </div>
 
-                    <div className="p-3 bg-[#F2EEE7] rounded-[2px] border-l-2 border-[#20231F] space-y-0.5">
+                    <div className="p-3 bg-[#F2EFE9] rounded-[2px] border-l-2 border-[#1A1C1B] space-y-0.5">
                       <div className="flex items-center justify-between text-[10px] font-mono-spec">
-                        <strong className="text-[#20231F] uppercase font-bold">
+                        <strong className="text-[#1A1C1B] uppercase font-bold">
                           02 / REPAIR (30s) · AEGIS HYDRA
                         </strong>
-                        <span className="text-[#20231F]">Overnight Moisture</span>
+                        <span className="text-[#1A1C1B]">Overnight Moisture</span>
                       </div>
-                      <p className="text-[#5C625B]">
+                      <p className="text-[#5E645F]">
                         Apply 1-2 pumps to calm shave friction, rehydrate stratum corneum, and rebuild barrier.
                       </p>
                     </div>
 
-                    <div className="p-3 bg-[#E8E1D6]/60 rounded-[2px] border border-dashed border-[#CFC8BC] text-[#5C625B] text-[11px] font-mono-spec flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#4B5848] shrink-0" />
+                    <div className="p-3 bg-[#F2EFE9]/60 rounded-[2px] border border-dashed border-[#E2DDD5] text-[#5E645F] text-[11px] font-mono-spec flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#526442] shrink-0" />
                       <span>NO NIGHTTIME SUNSCREEN NEEDED · SYSTEM COMPLETE</span>
                     </div>
                   </motion.div>
@@ -607,14 +607,14 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
               </AnimatePresence>
 
               {/* Price & Savings Breakdown */}
-              <div className="pt-4 border-t border-[#CFC8BC] space-y-3">
+              <div className="pt-4 border-t border-[#E2DDD5] space-y-3">
                 <div className="space-y-1">
                   <div className="flex items-baseline justify-between">
                     <div>
                       <span className="text-[10px] font-mono-spec uppercase text-[#7A8279] block">
                         COMPLETE 3-PIECE SYSTEM
                       </span>
-                      <span className="font-serif-editorial text-2xl font-medium text-[#20231F]">
+                      <span className="font-serif-editorial text-2xl font-medium text-[#1A1C1B]">
                         ₹1,899
                       </span>
                     </div>
@@ -622,12 +622,12 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                       <span className="text-xs line-through text-[#7A8279] font-mono-spec mr-2">
                         ₹2,197
                       </span>
-                      <span className="px-2 py-0.5 bg-[#4B5848] text-[#F8F5EF] text-[10px] font-mono-spec font-bold rounded-[2px]">
+                      <span className="px-2 py-0.5 bg-[#526442] text-[#FAF9F7] text-[10px] font-mono-spec font-bold rounded-[2px]">
                         SAVE ₹298
                       </span>
                     </div>
                   </div>
-                  <p className="text-[11px] text-[#5C625B]">
+                  <p className="text-[11px] text-[#5E645F]">
                     Includes full-size WASH (150ml), HYDRA (50ml), and SHIELD (50ml).
                   </p>
                 </div>
@@ -640,8 +640,8 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                     onClick={handleAddBundle}
                     className={`w-full py-4 rounded-[3px] font-mono-spec text-xs uppercase tracking-widest font-bold transition-all shadow-sm flex items-center justify-center gap-2.5 cursor-pointer ${
                       isAdded
-                        ? 'bg-[#20231F] text-[#F8F5EF]'
-                        : 'bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF]'
+                        ? 'bg-[#1A1C1B] text-[#FAF9F7]'
+                        : 'bg-[#526442] hover:bg-[#394536] text-[#FAF9F7]'
                     }`}
                   >
                     {isAdded ? (
@@ -651,7 +651,7 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                       </>
                     ) : (
                       <>
-                        <ShoppingBag className="w-4 h-4 text-[#E8E1D6]" />
+                        <ShoppingBag className="w-4 h-4 text-[#F2EFE9]" />
                         <span>ADD STARTER SYSTEM TO BAG — ₹1,899</span>
                       </>
                     )}
@@ -660,24 +660,24 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
                   <button
                     id="hero-starter-system-dossier-btn"
                     onClick={() => onSelectProduct('aegis-starter-bundle')}
-                    className="w-full py-2.5 rounded-[3px] bg-transparent hover:bg-[#F2EEE7] text-[#20231F] border border-[#CFC8BC] hover:border-[#20231F] font-mono-spec text-[11px] uppercase tracking-wider font-semibold transition-all text-center block"
+                    className="w-full py-2.5 rounded-[3px] bg-transparent hover:bg-[#F2EFE9] text-[#1A1C1B] border border-[#E2DDD5] hover:border-[#1A1C1B] font-mono-spec text-[11px] uppercase tracking-wider font-semibold transition-all text-center block"
                   >
                     VIEW INGREDIENT &amp; CLINICAL DOSSIER
                   </button>
                 </div>
 
                 {/* Assurance Guarantee */}
-                <div className="pt-2 flex flex-col gap-1.5 text-[10px] font-mono-spec text-[#5C625B]">
+                <div className="pt-2 flex flex-col gap-1.5 text-[10px] font-mono-spec text-[#5E645F]">
                   <div className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#4B5848]" />
+                    <Check className="w-3.5 h-3.5 text-[#526442]" />
                     <span>Free express delivery on all Starter Systems</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#4B5848]" />
+                    <Check className="w-3.5 h-3.5 text-[#526442]" />
                     <span>60-Day Empty-Bottle Skin Health Guarantee</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#4B5848]" />
+                    <Check className="w-3.5 h-3.5 text-[#526442]" />
                     <span>100% Fragrance-Free · Hypoallergenic Tested</span>
                   </div>
                 </div>

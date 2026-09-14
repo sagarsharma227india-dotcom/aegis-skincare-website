@@ -2,21 +2,21 @@
 
 @layer base {
   :root {
-    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    --font-serif: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
     --font-mono: 'JetBrains Mono', monospace;
 
     /* Warm Mineral Palette */
-    --color-bg-primary: #E8E1D6;       /* Warm Mineral */
-    --color-bg-secondary: #F2EEE7;     /* Soft Limestone */
-    --color-surface: #F8F5EF;          /* Warm Ivory Card */
-    --color-text-primary: #20231F;     /* Deep Charcoal */
-    --color-text-muted: #5C625B;       /* Muted Charcoal */
-    --color-accent-olive: #4B5848;     /* Deep Olive */
+    --color-bg-primary: #F2EFE9;       /* Warm Mineral */
+    --color-bg-secondary: #F2EFE9;     /* Soft Limestone */
+    --color-surface: #FAF9F7;          /* Warm Ivory Card */
+    --color-text-primary: #1A1C1B;     /* Deep Charcoal */
+    --color-text-muted: #5E645F;       /* Muted Charcoal */
+    --color-accent-olive: #526442;     /* Deep Olive */
     --color-accent-clay: #9A806C;      /* Muted Clay */
     --color-accent-mineral: #A9B7B7;   /* Mineral Blue Grey */
-    --color-border: #CFC8BC;           /* Soft Stone Border */
-    --color-dark-section: #20231F;     /* Contrast Charcoal */
+    --color-border: #E2DDD5;           /* Soft Stone Border */
+    --color-dark-section: #1A1C1B;     /* Contrast Charcoal */
   }
 
   body {
@@ -40,31 +40,31 @@
 
 /* Subtle Mineral Surface Styles */
 .bg-mineral {
-  background-color: #E8E1D6;
+  background-color: #F2EFE9;
 }
 
 .bg-limestone {
-  background-color: #F2EEE7;
+  background-color: #F2EFE9;
 }
 
 .bg-ivory {
-  background-color: #F8F5EF;
+  background-color: #FAF9F7;
 }
 
 .bg-charcoal {
-  background-color: #20231F;
+  background-color: #1A1C1B;
 }
 
 .bg-olive {
-  background-color: #4B5848;
+  background-color: #526442;
 }
 
 .text-charcoal {
-  color: #20231F;
+  color: #1A1C1B;
 }
 
 .text-olive {
-  color: #4B5848;
+  color: #526442;
 }
 
 .text-clay {
@@ -72,13 +72,13 @@
 }
 
 .border-stone-custom {
-  border-color: #CFC8BC;
+  border-color: #E2DDD5;
 }
 
 /* Luxury button styling */
 .btn-primary-olive {
-  background-color: #4B5848;
-  color: #F8F5EF;
+  background-color: #526442;
+  color: #FAF9F7;
   transition: all 0.2s ease-in-out;
 }
 .btn-primary-olive:hover {
@@ -87,13 +87,13 @@
 
 .btn-secondary-stone {
   background-color: transparent;
-  border: 1px solid #CFC8BC;
-  color: #20231F;
+  border: 1px solid #E2DDD5;
+  color: #1A1C1B;
   transition: all 0.2s ease-in-out;
 }
 .btn-secondary-stone:hover {
   background-color: rgba(207, 200, 188, 0.25);
-  border-color: #20231F;
+  border-color: #1A1C1B;
 }
 
 /* Custom subtle scrollbar */
@@ -102,10 +102,10 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #E8E1D6;
+  background: #F2EFE9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CFC8BC;
+  background: #E2DDD5;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {

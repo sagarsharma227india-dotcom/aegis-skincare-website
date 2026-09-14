@@ -5,6 +5,8 @@ import { AnnouncementBar } from './components/AnnouncementBar';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { BrandPhilosophy } from './components/BrandPhilosophy';
+import { ShopByConcern } from './components/ShopByConcern';
+import { Bestsellers } from './components/Bestsellers';
 import { StarterSystemHero } from './components/StarterSystemHero';
 import { ProductCard } from './components/ProductCard';
 import { ClinicalComparison } from './components/ClinicalComparison';
@@ -284,7 +286,7 @@ export function App() {
   const totalCartCount = cartItems.reduce((acc, i) => acc + i.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-[#E8E1D6] text-[#20231F] font-sans antialiased flex flex-col justify-between selection:bg-[#4B5848] selection:text-[#F8F5EF]">
+    <div className="min-h-screen bg-[#F2EFE9] text-[#1A1C1B] font-sans antialiased flex flex-col justify-between selection:bg-[#526442] selection:text-[#FAF9F7]">
       {/* Top Announcement Bar */}
       <AnnouncementBar />
 
@@ -312,70 +314,72 @@ export function App() {
 
             {/* Deep Charcoal Brand Philosophy */}
             <BrandPhilosophy />
+            <ShopByConcern setCurrentView={changeView} />
+            <Bestsellers onSelectProduct={handleSelectProduct} onAddToCart={handleAddToCart} onToggleWishlist={handleToggleWishlist} wishlistIds={wishlistIds} />
 
             {/* 3-Minute Routine Guide Section */}
-            <section className="py-20 lg:py-24 border-b border-[#CFC8BC] bg-[#E8E1D6] text-left">
+            <section className="py-20 lg:py-24 border-b border-[#E2DDD5] bg-[#F2EFE9] text-left">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
                 <div className="max-w-3xl space-y-3">
-                  <div className="inline-flex items-center gap-2 text-[10px] font-mono-spec tracking-[0.2em] uppercase text-[#4B5848] font-bold">
+                  <div className="inline-flex items-center gap-2 text-[10px] font-mono-spec tracking-[0.2em] uppercase text-[#526442] font-bold">
                     <Clock className="w-3.5 h-3.5" />
                     <span>THE 3-MINUTE COMMITMENT</span>
                   </div>
-                  <h2 className="text-3xl sm:text-4xl font-serif-editorial font-normal text-[#20231F]">
+                  <h2 className="text-3xl sm:text-4xl font-serif-editorial font-normal text-[#1A1C1B]">
                     Your routine, simplified.
                   </h2>
-                  <p className="text-xs sm:text-sm text-[#5C625B] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#5E645F] leading-relaxed">
                     Designed around biological necessity rather than cosmetic excess. Complete both morning and evening steps in under 3 minutes total.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* AM */}
-                  <div className="p-6 sm:p-8 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-4 shadow-xs">
-                    <div className="flex items-center justify-between pb-3 border-b border-[#CFC8BC]">
+                  <div className="p-6 sm:p-8 bg-[#FAF9F7] border border-[#E2DDD5] rounded-[4px] space-y-4 shadow-xs">
+                    <div className="flex items-center justify-between pb-3 border-b border-[#E2DDD5]">
                       <div className="flex items-center gap-2">
-                        <Sun className="w-4 h-4 text-[#4B5848]" />
-                        <h3 className="font-serif-editorial text-lg text-[#20231F]">
+                        <Sun className="w-4 h-4 text-[#526442]" />
+                        <h3 className="font-serif-editorial text-lg text-[#1A1C1B]">
                           Morning Protocol (AM)
                         </h3>
                       </div>
-                      <span className="text-[11px] font-mono-spec text-[#5C625B]">~90s</span>
+                      <span className="text-[11px] font-mono-spec text-[#5E645F]">~90s</span>
                     </div>
                     <div className="space-y-3 text-xs">
-                      <div className="p-3 bg-[#F2EEE7] rounded-[2px] space-y-0.5">
-                        <strong className="text-[#20231F] block font-mono-spec text-[11px]">01 / CLEANSE (30s)</strong>
-                        <p className="text-[#5C625B]">AEGIS WASH with Apple Amino Acids lifts overnight oils at pH 5.5.</p>
+                      <div className="p-3 bg-[#F2EFE9] rounded-[2px] space-y-0.5">
+                        <strong className="text-[#1A1C1B] block font-mono-spec text-[11px]">01 / CLEANSE (30s)</strong>
+                        <p className="text-[#5E645F]">AEGIS WASH with Apple Amino Acids lifts overnight oils at pH 5.5.</p>
                       </div>
-                      <div className="p-3 bg-[#F2EEE7] rounded-[2px] space-y-0.5">
-                        <strong className="text-[#20231F] block font-mono-spec text-[11px]">02 / CORRECT (30s)</strong>
-                        <p className="text-[#5C625B]">AEGIS CLEAR 2% BHA + 5% Niacinamide unclogs pores and balances shine.</p>
+                      <div className="p-3 bg-[#F2EFE9] rounded-[2px] space-y-0.5">
+                        <strong className="text-[#1A1C1B] block font-mono-spec text-[11px]">02 / CORRECT (30s)</strong>
+                        <p className="text-[#5E645F]">AEGIS CLEAR 2% BHA + 5% Niacinamide unclogs pores and balances shine.</p>
                       </div>
-                      <div className="p-3 bg-[#F2EEE7] rounded-[2px] space-y-0.5">
-                        <strong className="text-[#20231F] block font-mono-spec text-[11px]">03 / DEFEND (30s)</strong>
-                        <p className="text-[#5C625B]">AEGIS SHIELD SPF 50 provides 100% invisible photoprotection in stubble.</p>
+                      <div className="p-3 bg-[#F2EFE9] rounded-[2px] space-y-0.5">
+                        <strong className="text-[#1A1C1B] block font-mono-spec text-[11px]">03 / DEFEND (30s)</strong>
+                        <p className="text-[#5E645F]">AEGIS SHIELD SPF 50 provides 100% invisible photoprotection in stubble.</p>
                       </div>
                     </div>
                   </div>
 
                   {/* PM */}
-                  <div className="p-6 sm:p-8 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] space-y-4 shadow-xs">
-                    <div className="flex items-center justify-between pb-3 border-b border-[#CFC8BC]">
+                  <div className="p-6 sm:p-8 bg-[#FAF9F7] border border-[#E2DDD5] rounded-[4px] space-y-4 shadow-xs">
+                    <div className="flex items-center justify-between pb-3 border-b border-[#E2DDD5]">
                       <div className="flex items-center gap-2">
-                        <Moon className="w-4 h-4 text-[#20231F]" />
-                        <h3 className="font-serif-editorial text-lg text-[#20231F]">
+                        <Moon className="w-4 h-4 text-[#1A1C1B]" />
+                        <h3 className="font-serif-editorial text-lg text-[#1A1C1B]">
                           Evening Protocol (PM)
                         </h3>
                       </div>
-                      <span className="text-[11px] font-mono-spec text-[#5C625B]">~60s</span>
+                      <span className="text-[11px] font-mono-spec text-[#5E645F]">~60s</span>
                     </div>
                     <div className="space-y-3 text-xs">
-                      <div className="p-3 bg-[#F2EEE7] rounded-[2px] space-y-0.5">
-                        <strong className="text-[#20231F] block font-mono-spec text-[11px]">01 / PURIFY (30s)</strong>
-                        <p className="text-[#5C625B]">Wash away daytime city pollution, sunscreen, and oxidized sebum.</p>
+                      <div className="p-3 bg-[#F2EFE9] rounded-[2px] space-y-0.5">
+                        <strong className="text-[#1A1C1B] block font-mono-spec text-[11px]">01 / PURIFY (30s)</strong>
+                        <p className="text-[#5E645F]">Wash away daytime city pollution, sunscreen, and oxidized sebum.</p>
                       </div>
-                      <div className="p-3 bg-[#F2EEE7] rounded-[2px] space-y-0.5">
-                        <strong className="text-[#20231F] block font-mono-spec text-[11px]">02 / REPAIR (30s)</strong>
-                        <p className="text-[#5C625B]">AEGIS RECOVER or HYDRA accelerates post-shave overnight recovery.</p>
+                      <div className="p-3 bg-[#F2EFE9] rounded-[2px] space-y-0.5">
+                        <strong className="text-[#1A1C1B] block font-mono-spec text-[11px]">02 / REPAIR (30s)</strong>
+                        <p className="text-[#5E645F]">AEGIS RECOVER or HYDRA accelerates post-shave overnight recovery.</p>
                       </div>
                     </div>
                   </div>
@@ -384,7 +388,7 @@ export function App() {
                 <div className="flex justify-start">
                   <button
                     onClick={() => changeView('routines')}
-                    className="inline-flex items-center gap-2 text-xs font-mono-spec text-[#4B5848] font-bold uppercase tracking-wider hover:text-[#20231F]"
+                    className="inline-flex items-center gap-2 text-xs font-mono-spec text-[#526442] font-bold uppercase tracking-wider hover:text-[#1A1C1B]"
                   >
                     <span>Explore Full Interactive Routine Guide</span>
                     <ArrowRight className="w-4 h-4" />

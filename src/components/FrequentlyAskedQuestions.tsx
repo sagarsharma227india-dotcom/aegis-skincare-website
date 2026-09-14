@@ -175,20 +175,20 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
   return (
     <section
       id="aegis-home-faq"
-      className="py-20 lg:py-24 border-b border-[#CFC8BC] bg-[#F8F5EF] text-left relative overflow-hidden"
+      className="py-20 lg:py-24 border-b border-[#E2DDD5] bg-[#FAF9F7] text-left relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-[10px] font-mono-spec tracking-[0.2em] uppercase text-[#4B5848] font-bold">
+            <div className="inline-flex items-center gap-2 text-[10px] font-mono-spec tracking-[0.2em] uppercase text-[#526442] font-bold">
               <HelpCircle className="w-3.5 h-3.5" />
               <span>FAQ · CLINICAL ANSWERS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif-editorial font-normal text-[#20231F] leading-[1.15] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif-editorial font-normal text-[#1A1C1B] leading-[1.15] tracking-tight">
               FAQ
             </h2>
-            <p className="text-sm sm:text-base text-[#5C625B] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#5E645F] leading-relaxed">
               Straightforward, dermatologically grounded clarifications on male dermal architecture, ingredient concentrations, layering mechanics, and shave recovery.
             </p>
           </div>
@@ -199,9 +199,9 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
               <button
                 id="faq-action-journal"
                 onClick={() => setCurrentView('journal')}
-                className="px-4 py-2.5 bg-[#F2EEE7] hover:bg-[#E8E1D6] border border-[#CFC8BC] rounded-[3px] text-[#20231F] font-medium inline-flex items-center gap-2 transition-colors"
+                className="px-4 py-2.5 bg-[#F2EFE9] hover:bg-[#F2EFE9] border border-[#E2DDD5] rounded-[3px] text-[#1A1C1B] font-medium inline-flex items-center gap-2 transition-colors"
               >
-                <BookOpen className="w-3.5 h-3.5 text-[#4B5848]" />
+                <BookOpen className="w-3.5 h-3.5 text-[#526442]" />
                 <span>Read The Journal</span>
               </button>
             )}
@@ -209,9 +209,9 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
               <button
                 id="faq-action-quiz"
                 onClick={() => setCurrentView('quiz')}
-                className="px-4 py-2.5 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] rounded-[3px] font-semibold inline-flex items-center gap-2 transition-colors shadow-xs"
+                className="px-4 py-2.5 bg-[#526442] hover:bg-[#394536] text-[#FAF9F7] rounded-[3px] font-semibold inline-flex items-center gap-2 transition-colors shadow-xs"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#E8E1D6]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#F2EFE9]" />
                 <span>Diagnostic Quiz</span>
               </button>
             )}
@@ -219,7 +219,7 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
         </div>
 
         {/* Filter and Search Bar */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-[#CFC8BC]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-[#E2DDD5]">
           {/* Category Tabs */}
           <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
             {categories.map((cat) => (
@@ -229,8 +229,8 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-3.5 py-1.5 rounded-[3px] text-xs font-mono-spec uppercase tracking-wider transition-all whitespace-nowrap ${
                   selectedCategory === cat.id
-                    ? 'bg-[#20231F] text-[#F8F5EF] font-semibold'
-                    : 'bg-[#F2EEE7] hover:bg-[#E8E1D6] text-[#5C625B] border border-[#CFC8BC]'
+                    ? 'bg-[#1A1C1B] text-[#FAF9F7] font-semibold'
+                    : 'bg-[#F2EFE9] hover:bg-[#F2EFE9] text-[#5E645F] border border-[#E2DDD5]'
                 }`}
               >
                 {cat.label}
@@ -247,12 +247,12 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search active, routine, or step..."
-              className="w-full pl-9 pr-3 py-2 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[3px] text-xs text-[#20231F] placeholder-[#7A8279] focus:outline-none focus:border-[#4B5848] transition-colors"
+              className="w-full pl-9 pr-3 py-2 bg-[#F2EFE9] border border-[#E2DDD5] rounded-[3px] text-xs text-[#1A1C1B] placeholder-[#7A8279] focus:outline-none focus:border-[#526442] transition-colors"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-[#7A8279] hover:text-[#20231F]"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-[#7A8279] hover:text-[#1A1C1B]"
               >
                 Clear
               </button>
@@ -263,12 +263,12 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
         {/* FAQ Accordion List */}
         <div className="space-y-4">
           {filteredFaqs.length === 0 ? (
-            <div className="py-12 px-6 text-center border border-dashed border-[#CFC8BC] rounded-[4px] bg-[#F2EEE7] space-y-3">
+            <div className="py-12 px-6 text-center border border-dashed border-[#E2DDD5] rounded-[4px] bg-[#F2EFE9] space-y-3">
               <HelpCircle className="w-8 h-8 text-[#7A8279] mx-auto opacity-75" />
-              <p className="text-sm font-serif-editorial text-[#20231F]">
+              <p className="text-sm font-serif-editorial text-[#1A1C1B]">
                 No matching inquiries found for "{searchQuery}".
               </p>
-              <p className="text-xs text-[#5C625B]">
+              <p className="text-xs text-[#5E645F]">
                 Try adjusting your search terms or select "ALL QUESTIONS".
               </p>
               <button
@@ -276,7 +276,7 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
                   setSearchQuery('');
                   setSelectedCategory('all');
                 }}
-                className="text-xs font-mono-spec text-[#4B5848] font-bold uppercase underline underline-offset-4 hover:text-[#20231F]"
+                className="text-xs font-mono-spec text-[#526442] font-bold uppercase underline underline-offset-4 hover:text-[#1A1C1B]"
               >
                 Reset Filters
               </button>
@@ -291,8 +291,8 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
                   id={`faq-item-${faq.id}`}
                   className={`border transition-all duration-200 rounded-[3px] overflow-hidden ${
                     isOpen
-                      ? 'border-[#4B5848] bg-[#FAF8F3] shadow-xs'
-                      : 'border-[#CFC8BC] bg-[#F2EEE7] hover:border-[#A9A090]'
+                      ? 'border-[#526442] bg-[#FAF8F3] shadow-xs'
+                      : 'border-[#E2DDD5] bg-[#F2EFE9] hover:border-[#A9A090]'
                   }`}
                 >
                   <button
@@ -302,16 +302,16 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
                     className="w-full px-5 sm:px-6 py-5 flex items-start justify-between gap-4 text-left cursor-pointer"
                   >
                     <div className="space-y-1.5 flex-1 pr-2">
-                      <div className="flex items-center gap-2 text-[10px] font-mono-spec uppercase text-[#4B5848] font-bold tracking-wider">
+                      <div className="flex items-center gap-2 text-[10px] font-mono-spec uppercase text-[#526442] font-bold tracking-wider">
                         <span>{faq.categoryLabel}</span>
-                        <span className="text-[#CFC8BC]">·</span>
+                        <span className="text-[#E2DDD5]">·</span>
                         <span className="text-[#7A8279]">Q{String(index + 1).padStart(2, '0')}</span>
                       </div>
-                      <h3 className="text-base sm:text-lg font-serif-editorial text-[#20231F] font-normal leading-snug">
+                      <h3 className="text-base sm:text-lg font-serif-editorial text-[#1A1C1B] font-normal leading-snug">
                         {faq.question}
                       </h3>
                       {!isOpen && (
-                        <p className="text-xs text-[#5C625B] pt-0.5 leading-relaxed">
+                        <p className="text-xs text-[#5E645F] pt-0.5 leading-relaxed">
                           {faq.shortAnswer}
                         </p>
                       )}
@@ -319,8 +319,8 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
                     <div
                       className={`p-1.5 rounded-[2px] transition-transform duration-200 mt-1 shrink-0 ${
                         isOpen
-                          ? 'rotate-180 bg-[#4B5848] text-[#F8F5EF]'
-                          : 'bg-[#E8E1D6] text-[#5C625B]'
+                          ? 'rotate-180 bg-[#526442] text-[#FAF9F7]'
+                          : 'bg-[#F2EFE9] text-[#5E645F]'
                       }`}
                     >
                       <ChevronDown className="w-4 h-4" />
@@ -328,26 +328,26 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-[#E8E1D6] space-y-4">
+                    <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-[#F2EFE9] space-y-4">
                       {/* Short Takeaway Banner */}
-                      <div className="p-3 bg-[#ECE7DC] border-l-2 border-[#4B5848] text-xs text-[#20231F] font-medium leading-relaxed">
-                        <strong className="font-mono-spec uppercase text-[10px] text-[#4B5848] block mb-0.5">
+                      <div className="p-3 bg-[#ECE7DC] border-l-2 border-[#526442] text-xs text-[#1A1C1B] font-medium leading-relaxed">
+                        <strong className="font-mono-spec uppercase text-[10px] text-[#526442] block mb-0.5">
                           Clinical Key Takeaway
                         </strong>
                         {faq.shortAnswer}
                       </div>
 
                       {/* Detailed Clinical Explanation */}
-                      <div className="space-y-3 text-xs sm:text-sm text-[#5C625B] leading-relaxed">
+                      <div className="space-y-3 text-xs sm:text-sm text-[#5E645F] leading-relaxed">
                         {faq.detailedAnswer.map((para, pIdx) => (
                           <p key={pIdx}>{para}</p>
                         ))}
                       </div>
 
                       {/* Protocol Tip & Relevant Actives */}
-                      <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-[#E8E1D6] text-xs font-mono-spec">
+                      <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-[#F2EFE9] text-xs font-mono-spec">
                         {faq.protocolTip && (
-                          <div className="text-[#4B5848] flex items-start gap-1.5">
+                          <div className="text-[#526442] flex items-start gap-1.5">
                             <ShieldCheck className="w-3.5 h-3.5 shrink-0 mt-0.5" />
                             <span className="text-[11px] leading-tight">
                               <strong>Clinical Protocol:</strong> {faq.protocolTip}
@@ -361,7 +361,7 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
                             {faq.keyActives.map((active) => (
                               <span
                                 key={active}
-                                className="px-2 py-0.5 bg-[#E8E1D6] text-[#20231F] rounded-[2px] text-[10px]"
+                                className="px-2 py-0.5 bg-[#F2EFE9] text-[#1A1C1B] rounded-[2px] text-[10px]"
                               >
                                 {active}
                               </span>
@@ -378,15 +378,15 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
         </div>
 
         {/* Bottom Consultation Assistance Strip */}
-        <div className="p-6 sm:p-8 bg-[#F2EEE7] border border-[#CFC8BC] rounded-[3px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 bg-[#F2EFE9] border border-[#E2DDD5] rounded-[3px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-1 max-w-xl">
-            <span className="text-[10px] font-mono-spec uppercase tracking-widest text-[#4B5848] font-bold block">
+            <span className="text-[10px] font-mono-spec uppercase tracking-widest text-[#526442] font-bold block">
               HAVE A SPECIFIC SKIN CONCERN OR QUESTION?
             </span>
-            <h4 className="text-lg sm:text-xl font-serif-editorial text-[#20231F]">
+            <h4 className="text-lg sm:text-xl font-serif-editorial text-[#1A1C1B]">
               Need tailored advice for your skin type or shaving routine?
             </h4>
-            <p className="text-xs text-[#5C625B] leading-relaxed">
+            <p className="text-xs text-[#5E645F] leading-relaxed">
               Explore our full clinical treatises in the Journal, complete our 2-minute diagnostic skin quiz, or consult the interactive AEGIS Assistant.
             </p>
           </div>
@@ -396,7 +396,7 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
               <button
                 id="faq-bottom-cta-quiz"
                 onClick={() => setCurrentView('quiz')}
-                className="px-5 py-2.5 bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF] rounded-[3px] text-xs font-mono-spec font-semibold uppercase tracking-wider inline-flex items-center gap-2 transition-colors shadow-xs"
+                className="px-5 py-2.5 bg-[#526442] hover:bg-[#394536] text-[#FAF9F7] rounded-[3px] text-xs font-mono-spec font-semibold uppercase tracking-wider inline-flex items-center gap-2 transition-colors shadow-xs"
               >
                 <span>Diagnostic Quiz</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -406,9 +406,9 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
               <button
                 id="faq-bottom-cta-journal"
                 onClick={() => setCurrentView('journal')}
-                className="px-4 py-2.5 bg-[#F8F5EF] hover:bg-[#E8E1D6] border border-[#CFC8BC] text-[#20231F] rounded-[3px] text-xs font-mono-spec font-medium uppercase tracking-wider inline-flex items-center gap-2 transition-colors"
+                className="px-4 py-2.5 bg-[#FAF9F7] hover:bg-[#F2EFE9] border border-[#E2DDD5] text-[#1A1C1B] rounded-[3px] text-xs font-mono-spec font-medium uppercase tracking-wider inline-flex items-center gap-2 transition-colors"
               >
-                <BookOpen className="w-3.5 h-3.5 text-[#4B5848]" />
+                <BookOpen className="w-3.5 h-3.5 text-[#526442]" />
                 <span>The Journal</span>
               </button>
             )}

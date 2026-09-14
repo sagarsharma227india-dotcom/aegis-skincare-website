@@ -20,4 +20,6 @@ export const PRODUCTS: Product[] = [
   ...TREATMENTS,
   ...BODY,
   ...BUNDLES,
+  ...EXFOLIATION,
+  ...MASKS,
 ];

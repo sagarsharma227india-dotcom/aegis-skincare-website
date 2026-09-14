@@ -32,7 +32,7 @@ export const ProductPackagingView: React.FC<ProductPackagingViewProps> = ({
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-x-0 bottom-0 p-1.5 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end">
-          <span className="text-[6px] font-mono-spec font-bold text-[#F8F5EF] uppercase truncate">
+          <span className="text-[6px] font-mono-spec font-bold text-[#FAF9F7] uppercase truncate">
             {cleanProductName}
           </span>
         </div>
@@ -50,7 +50,7 @@ export const ProductPackagingView: React.FC<ProductPackagingViewProps> = ({
 
   return (
     <div
-      className={`relative w-full ${containerHeight} bg-[#151714] rounded-[3px] overflow-hidden flex flex-col justify-end select-none border border-[#4B5848]/40 shadow-inner group ${className}`}
+      className={`relative w-full ${containerHeight} bg-[#151714] rounded-[3px] overflow-hidden flex flex-col justify-end select-none border border-[#526442]/40 shadow-inner group ${className}`}
     >
       {/* Actual Photographic Image */}
       <img

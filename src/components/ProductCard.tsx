@@ -47,13 +47,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       whileHover={{ y: -3 }}
       transition={{ duration: 0.2 }}
       onClick={() => onSelectProduct(product.id)}
-      className="group h-full flex-1 bg-[#F8F5EF] border border-[#CFC8BC] rounded-[4px] p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#4B5848] hover:shadow-md cursor-pointer select-none"
+      className="group h-full flex-1 bg-[#FAF9F7] border border-[#E2DDD5] rounded-[4px] p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#526442] hover:shadow-md cursor-pointer select-none"
     >
       {/* Top Meta, Inventory Badge & Wishlist */}
       <div className="space-y-4">
         <div className="flex items-center justify-between text-[10px] font-mono-spec">
           <div className="flex items-center gap-2">
-            <span className="text-[#4B5848] font-bold tracking-widest uppercase">
+            <span className="text-[#526442] font-bold tracking-widest uppercase">
               {product.stepNumber}
             </span>
             {/* Subtle Inventory Context Badge */}
@@ -76,8 +76,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               }}
               className={`p-1.5 rounded-[3px] border transition-colors cursor-pointer ${
                 isWishlisted
-                  ? "bg-[#4B5848] border-[#4B5848] text-[#F8F5EF]"
-                  : "bg-[#F2EEE7] border-[#CFC8BC] text-[#5C625B] hover:text-[#20231F] hover:border-[#20231F]"
+                  ? "bg-[#526442] border-[#526442] text-[#FAF9F7]"
+                  : "bg-[#F2EFE9] border-[#E2DDD5] text-[#5E645F] hover:text-[#1A1C1B] hover:border-[#1A1C1B]"
               }`}
               title={
                 isWishlisted ? "Remove from wishlist" : "Add to wishlist"
@@ -93,12 +93,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Product Imagery - Authentic Real Photography */}
         <div
           id={`product-card-img-${product.id}`}
-          className="relative aspect-square bg-[#151714] rounded-[2px] overflow-hidden flex items-center justify-center border border-[#CFC8BC]/40 group/img"
+          className="relative aspect-square bg-[#151714] rounded-[2px] overflow-hidden flex items-center justify-center border border-[#E2DDD5]/40 group/img"
         >
           <img
             src={image}
             alt={product.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             referrerPolicy="no-referrer"
             onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/placeholder-product.jpg'; }}
           />
@@ -117,49 +117,44 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div className="space-y-1.5 text-left">
           {/* Skin Type / Category Badges */}
           <div className="flex flex-wrap items-center gap-1.5 pb-0.5">
-            {product.skinTypes && product.skinTypes[0] && (
-              <span className="text-[9px] font-mono-spec uppercase px-1.5 py-0.5 bg-[#E8E1D6] text-[#4B5848] rounded-[2px] font-semibold">
-                {product.skinTypes[0]}
-              </span>
-            )}
-            <span className="text-[#4B5848] text-[9px] font-mono-spec font-medium tracking-wider uppercase">
-              {product.formulaSpec}
+            <span className="text-[10px] font-mono-spec font-bold tracking-wider uppercase text-[#526442]">
+              {product.concerns.slice(0, 2).join(' · ')}
             </span>
           </div>
 
           <h3
             id={`product-title-${product.id}`}
-            className="font-serif-editorial text-lg font-medium text-[#20231F] group-hover:text-[#4B5848] transition-colors leading-snug"
+            className="font-serif-editorial text-lg font-medium text-[#1A1C1B] group-hover:text-[#526442] transition-colors leading-snug"
           >
             {product.name}
           </h3>
 
-          <p className="text-xs text-[#5C625B] font-normal">
+          <p className="text-xs text-[#5E645F] font-normal">
             {product.subtitle}
           </p>
 
-          <p className="text-xs text-[#5C625B] pt-1 leading-relaxed">
+          <p className="text-xs text-[#5E645F] pt-1 leading-relaxed">
             {product.shortDescription}
           </p>
         </div>
       </div>
 
       {/* Bottom Price, Rating & Add to Bag Action */}
-      <div className="pt-5 mt-4 border-t border-[#CFC8BC]/60 flex items-center justify-between gap-3">
+      <div className="pt-5 mt-4 border-t border-[#E2DDD5]/60 flex items-center justify-between gap-3">
         <div className="text-left">
           <div className="flex items-baseline gap-2 font-mono-spec">
-            <span className="font-bold text-[#20231F] text-base">
-              ₹{product.price}
+            <span className="font-bold text-[#1A1C1B] text-base">
+              ₹{product.price.toLocaleString('en-IN')}
             </span>
             {product.originalPrice && (
-              <span className="text-xs text-[#5C625B] line-through">
-                ₹{product.originalPrice}
+              <span className="text-xs text-[#5E645F] line-through">
+                ₹{product.originalPrice.toLocaleString('en-IN')}
               </span>
             )}
           </div>
-          <div className="flex items-center gap-1 text-[11px] text-[#5C625B]">
-            <Star className="w-3 h-3 fill-[#4B5848] text-[#4B5848]" />
-            <span className="font-semibold text-[#20231F]">
+          <div className="flex items-center gap-1 text-[11px] text-[#5E645F]">
+            <Star className="w-3 h-3 fill-[#526442] text-[#526442]" />
+            <span className="font-semibold text-[#1A1C1B]">
               {product.rating}
             </span>
             <span>({product.reviewCount})</span>
@@ -174,8 +169,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             onClick={handleQuickAdd}
             className={`px-3.5 sm:px-4 py-2 rounded-[3px] font-mono-spec text-[11px] uppercase tracking-wider font-semibold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs ${
               isJustAdded
-                ? "bg-[#20231F] text-[#F8F5EF]"
-                : "bg-[#4B5848] hover:bg-[#394536] text-[#F8F5EF]"
+                ? "bg-[#1A1C1B] text-[#FAF9F7]"
+                : "bg-[#526442] hover:bg-[#394536] text-[#FAF9F7]"
             }`}
           >
             {isJustAdded ? (

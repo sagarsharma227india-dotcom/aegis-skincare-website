@@ -1,4 +1,6 @@
+const fs = require('fs');
 
+const code = `
 import React from 'react';
 import { NavView } from '../types';
 
@@ -111,3 +113,6 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentView }) => {
     </footer>
   );
 };
+`;
+
+fs.writeFileSync('src/components/Footer.tsx', code);
