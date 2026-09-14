@@ -100,12 +100,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             alt={product.name}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             referrerPolicy="no-referrer"
-            onError={(e) => {
-              // Fallback to base product image if custom fails to load
-              if (image !== product.image) {
-                (e.target as HTMLImageElement).src = product.image;
-              }
-            }}
+            onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/placeholder-product.jpg'; }}
           />
 
           {/* Overlay actual product label in HTML to maintain brand consistency over real photography */}

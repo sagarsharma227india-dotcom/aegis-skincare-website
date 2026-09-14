@@ -170,11 +170,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     alt={product.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-[1.02]"
                     referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      if (image !== product.image) {
-                        (e.target as HTMLImageElement).src = product.image;
-                      }
-                    }}
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/placeholder-product.jpg'; }}
                   />
                 </div>
               </div>

@@ -164,11 +164,7 @@ export const Hero: React.FC<HeroProps> = ({ setCurrentView, onSelectProduct, onA
                         alt={displayedProduct.name} 
                         className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"
-                        onError={(e) => {
-                          if (heroImage !== displayedProduct.image) {
-                            (e.target as HTMLImageElement).src = displayedProduct.image;
-                          }
-                        }}
+                        onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/images/placeholder-product.jpg'; }}
                       />
                     </motion.div>
                   </AnimatePresence>
