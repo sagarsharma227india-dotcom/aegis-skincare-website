@@ -17,10 +17,11 @@ export const Bestsellers: React.FC<BestsellersProps> = ({
   onToggleWishlist,
   wishlistIds,
 }) => {
-  // Select top 4 essential products
-  const bestsellers = PRODUCTS.filter(p => 
-    ['aegis-wash', 'aegis-clear', 'aegis-hydra', 'aegis-shield'].includes(p.id)
-  ).slice(0, 4);
+  // Select exact 3 essential products
+  const essentialIds = ['aegis-wash', 'aegis-clear', 'aegis-shield'];
+  const bestsellers = essentialIds
+    .map(id => PRODUCTS.find(p => p.id === id))
+    .filter((p): p is (typeof PRODUCTS)[number] => Boolean(p));
 
   return (
     <section className="py-20 sm:py-24 bg-[#FAF9F7] border-b border-[#E2DDD5]">
@@ -36,7 +37,7 @@ export const Bestsellers: React.FC<BestsellersProps> = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {bestsellers.map((product, index) => (
             <motion.div
               key={product.id}

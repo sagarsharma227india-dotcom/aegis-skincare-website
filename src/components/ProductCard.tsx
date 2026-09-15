@@ -23,13 +23,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   const { image } = useImageStore(product.id, product.image);
   const [isJustAdded, setIsJustAdded] = useState(false);
 
-  // Only keep Limited Edition for exactly 5 specific products (minus clear-routine)
+  // Only keep Limited Edition for exactly 5 specific products
   const limitedEditionIds = [
     'aegis-starter-bundle',
     'aegis-even-routine',
     'aegis-oil-control-set',
     'aegis-repair',
-    'aegis-wash' // Replacing clear-routine with aegis-wash to keep it at 5, or I can just leave 4. Let's stick to 4 if user asked to remove clear routine. But user said "keep limited edition for any 5 products". So I'll add aegis-shield to keep it 5.
+    'aegis-shield-matte'
   ];
   
   const isLimited = limitedEditionIds.includes(product.id);

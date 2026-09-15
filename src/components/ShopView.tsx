@@ -38,8 +38,6 @@ export const ShopView: React.FC<ShopViewProps> = ({
     { id: 'moisturizers', label: 'MOISTURIZERS' },
     { id: 'spf', label: 'SUNSCREEN' },
     { id: 'treatments', label: 'TARGETED CARE' },
-    { id: 'exfoliation', label: 'EXFOLIATION' },
-    { id: 'masks', label: 'MASKS' },
     { id: 'body', label: 'BODY SKINCARE' },
     { id: 'bundles', label: 'BUNDLES' }
   ];

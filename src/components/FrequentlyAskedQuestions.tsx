@@ -23,11 +23,11 @@ const FAQ_ITEMS: FAQItem[] = [
     shortAnswer: 'By following a physiological sequence: non-stripping cleanse, weightless hydration, and broad-spectrum photoprotection.',
     detailedAnswer: [
       'Male facial skin faces three primary daily stressors: excess sebum flux, urban particulate accumulation, and uninterrupted UVA radiation that penetrates both cloud cover and architectural glass.',
-      'Our 3-minute protocol focuses strictly on non-negotiable dermal physiology: Step 01 (WASH) clears overnight oxidized lipids without disrupting the acid mantle (pH 5.5); Step 02 (HYDRA) delivers multi-molecular humectants that bind water into the stratum corneum; Step 03 (SHIELD SPF 50) forms an invisible, weightless broad-spectrum barrier that absorbs excess oil with porous silica spheres.',
+      'Our 3-minute protocol focuses strictly on non-negotiable dermal physiology: Step 01 (WASH) clears overnight oxidized lipids without disrupting the acid mantle (pH 5.5); Step 02 (REPAIR) delivers multi-molecular humectants and lipids that bind water into the stratum corneum; Step 03 (SHIELD SPF 50) forms an invisible, weightless broad-spectrum barrier that absorbs excess oil with porous silica spheres.',
       'Clinical studies show that 100% daily compliance with a streamlined 3-step regimen achieves superior barrier recovery compared to elaborate 8-step routines that suffer from 80% abandonment.'
     ],
     keyActives: ['Apple Amino Acids', 'Multi-Weight Hyaluronic Acid', 'Tinosorb S', 'Uvinul A Plus'],
-    protocolTip: 'AM Sequence: 30s Cleanse → 15s Hydra Gel → 30s Shield SPF 50. Total time: under 90 seconds.'
+    protocolTip: 'AM Sequence: 30s Cleanse → 15s Moisturizer → 30s Shield SPF 50. Total time: under 90 seconds.'
   },
   {
     id: 'faq-layering-clear-repair',

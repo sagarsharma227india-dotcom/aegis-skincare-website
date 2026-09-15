@@ -28,8 +28,17 @@ import { Footer } from './components/Footer';
 import { Toast } from './components/Toast';
 import { AegisAIChatbot } from './components/AegisAIChatbot';
 import { Sparkles, ArrowRight, Sun, Moon, Clock } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'motion/react';
 
 export function App() {
+  // Scroll progress for home page
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   // Sync memory images to github (runs once on load)
   useEffect(() => {
     const syncImages = async () => {
@@ -287,6 +296,21 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-[#F2EFE9] text-[#1A1C1B] font-sans antialiased flex flex-col justify-between selection:bg-[#526442] selection:text-[#FAF9F7]">
+      {/* Thin, Subtle Home Page Scroll Progress Bar */}
+      {currentView === 'home' && (
+        <div
+          id="home-scroll-progress-container"
+          className="fixed top-0 left-0 right-0 h-[2.5px] z-50 pointer-events-none bg-[#E2DDD5]/20"
+          aria-hidden="true"
+        >
+          <motion.div
+            id="home-scroll-progress-bar"
+            style={{ scaleX }}
+            className="h-full bg-[#526442] origin-left shadow-[0_0_8px_rgba(82,100,66,0.35)]"
+          />
+        </div>
+      )}
+
       {/* Top Announcement Bar */}
       <AnnouncementBar />
 
@@ -379,7 +403,7 @@ export function App() {
                       </div>
                       <div className="p-3 bg-[#F2EFE9] rounded-[2px] space-y-0.5">
                         <strong className="text-[#1A1C1B] block font-mono-spec text-[11px]">02 / REPAIR (30s)</strong>
-                        <p className="text-[#5E645F]">AEGIS RECOVER or HYDRA accelerates post-shave overnight recovery.</p>
+                        <p className="text-[#5E645F]">Restores skin barrier lipids and accelerates post-shave overnight recovery.</p>
                       </div>
                     </div>
                   </div>
