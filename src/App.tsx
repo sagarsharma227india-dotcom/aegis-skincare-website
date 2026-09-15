@@ -5,8 +5,6 @@ import { AnnouncementBar } from './components/AnnouncementBar';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { BrandPhilosophy } from './components/BrandPhilosophy';
-import { ShopByConcern } from './components/ShopByConcern';
-import { Bestsellers } from './components/Bestsellers';
 import { StarterSystemHero } from './components/StarterSystemHero';
 import { ProductCard } from './components/ProductCard';
 import { ClinicalComparison } from './components/ClinicalComparison';
@@ -27,7 +25,7 @@ import { CheckoutModal } from './components/CheckoutModal';
 import { Footer } from './components/Footer';
 import { Toast } from './components/Toast';
 import { AegisAIChatbot } from './components/AegisAIChatbot';
-import { Sparkles, ArrowRight, Sun, Moon, Clock } from 'lucide-react';
+import { Sparkles, ArrowRight, Sun, Moon, Clock, Copy, Check } from 'lucide-react';
 import { motion, useScroll, useSpring } from 'motion/react';
 
 export function App() {
@@ -38,6 +36,28 @@ export function App() {
     damping: 30,
     restDelta: 0.001
   });
+
+  const [copiedRoutine, setCopiedRoutine] = useState<'am' | 'pm' | null>(null);
+
+  const copyRoutine = (type: 'am' | 'pm') => {
+    let text = '';
+    if (type === 'am') {
+      text = `AEGIS MEN — MORNING PROTOCOL (AM) [~90 SECONDS]
+01 / CLEANSE (30s): AEGIS WASH — Apple Amino Acids lift overnight oils at pH 5.5 without stripping.
+02 / CORRECT (30s): AEGIS CLEAR — 2% BHA + 5% Niacinamide unclogs pores and balances midday shine.
+03 / DEFEND (30s): AEGIS SHIELD SPF 50 — 100% invisible photoprotection even in stubble. Zero white cast.`;
+    } else {
+      text = `AEGIS MEN — EVENING PROTOCOL (PM) [~60 SECONDS]
+01 / PURIFY (30s): AEGIS WASH — Wash away daytime city pollution, sunscreen, and oxidized sebum.
+02 / REPAIR (30s): AEGIS REPAIR / MOISTURIZER — Restores skin barrier lipids and accelerates post-shave overnight recovery.`;
+    }
+
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedRoutine(type);
+      showToast(`${type === 'am' ? 'Morning' : 'Evening'} protocol copied to clipboard!`);
+      setTimeout(() => setCopiedRoutine(null), 2500);
+    });
+  };
 
   // Sync memory images to github (runs once on load)
   useEffect(() => {
@@ -338,8 +358,13 @@ export function App() {
 
             {/* Deep Charcoal Brand Philosophy */}
             <BrandPhilosophy />
-            <ShopByConcern setCurrentView={changeView} />
-            <Bestsellers onSelectProduct={handleSelectProduct} onAddToCart={handleAddToCart} onToggleWishlist={handleToggleWishlist} wishlistIds={wishlistIds} />
+            
+            {/* The Essentials: Starter System */}
+            <StarterSystemHero
+              onSelectProduct={handleSelectProduct}
+              onAddToCart={handleAddToCart}
+              setCurrentView={changeView}
+            />
 
             {/* 3-Minute Routine Guide Section */}
             <section className="py-20 lg:py-24 border-b border-[#E2DDD5] bg-[#F2EFE9] text-left">
@@ -367,7 +392,27 @@ export function App() {
                           Morning Protocol (AM)
                         </h3>
                       </div>
-                      <span className="text-[11px] font-mono-spec text-[#5E645F]">~90s</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[11px] font-mono-spec text-[#5E645F]">~90s</span>
+                        <button
+                          id="home-copy-am-routine-btn"
+                          onClick={() => copyRoutine('am')}
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono-spec rounded-[3px] border border-[#E2DDD5] bg-[#F2EFE9] hover:bg-[#FAF9F7] text-[#1A1C1B] hover:border-[#526442] hover:text-[#526442] transition-all cursor-pointer select-none"
+                          title="Copy Morning Protocol to clipboard"
+                        >
+                          {copiedRoutine === 'am' ? (
+                            <>
+                              <Check className="w-3 h-3 text-[#526442]" />
+                              <span className="text-[#526442] font-bold">COPIED</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="w-3 h-3 text-[#5E645F]" />
+                              <span>COPY ROUTINE</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
                     </div>
                     <div className="space-y-3 text-xs">
                       <div className="p-3 bg-[#F2EFE9] rounded-[2px] space-y-0.5">
@@ -394,7 +439,27 @@ export function App() {
                           Evening Protocol (PM)
                         </h3>
                       </div>
-                      <span className="text-[11px] font-mono-spec text-[#5E645F]">~60s</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[11px] font-mono-spec text-[#5E645F]">~60s</span>
+                        <button
+                          id="home-copy-pm-routine-btn"
+                          onClick={() => copyRoutine('pm')}
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono-spec rounded-[3px] border border-[#E2DDD5] bg-[#F2EFE9] hover:bg-[#FAF9F7] text-[#1A1C1B] hover:border-[#526442] hover:text-[#526442] transition-all cursor-pointer select-none"
+                          title="Copy Evening Protocol to clipboard"
+                        >
+                          {copiedRoutine === 'pm' ? (
+                            <>
+                              <Check className="w-3 h-3 text-[#526442]" />
+                              <span className="text-[#526442] font-bold">COPIED</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="w-3 h-3 text-[#5E645F]" />
+                              <span>COPY ROUTINE</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
                     </div>
                     <div className="space-y-3 text-xs">
                       <div className="p-3 bg-[#F2EFE9] rounded-[2px] space-y-0.5">
@@ -408,18 +473,17 @@ export function App() {
                     </div>
                   </div>
                 </div>
-
-                <div className="flex justify-start">
-                  <button
-                    onClick={() => changeView('routines')}
-                    className="inline-flex items-center gap-2 text-xs font-mono-spec text-[#526442] font-bold uppercase tracking-wider hover:text-[#1A1C1B]"
-                  >
-                    <span>Explore Full Interactive Routine Guide</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
               </div>
             </section>
+
+            {/* Diagnostic Skin Quiz Section placed just below 3-minute commitment */}
+            <RoutineQuiz
+              onAddToCart={handleAddToCart}
+              onAddMultipleToCart={handleAddMultipleToCart}
+              onSelectProduct={handleSelectProduct}
+              onShowToast={showToast}
+              isEmbedded={true}
+            />
 
             {/* High-Contrast Deep Charcoal Clinical Contrast Section */}
             <ClinicalComparison />

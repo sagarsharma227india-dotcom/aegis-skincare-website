@@ -191,7 +191,7 @@ export const StarterSystemHero: React.FC<StarterSystemHeroProps> = ({
               className="inline-flex items-center gap-2.5 px-3 py-1.5 bg-[#F2EFE9] border border-[#E2DDD5] rounded-[3px] text-[#526442] text-[10px] font-mono-spec tracking-[0.2em] uppercase font-bold"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#526442]" />
-              <span>THE HERO KIT · FOUNDATIONAL PROTOCOL</span>
+              <span>THE ESSENTIALS · THE STARTER SYSTEM</span>
             </motion.div>
 
             <motion.h2

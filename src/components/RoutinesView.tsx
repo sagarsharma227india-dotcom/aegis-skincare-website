@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavView, Product } from '../types';
 import { PRODUCTS } from '../data/products';
 import { RoutineBuilder } from './RoutineBuilder';
-import { Clock, Sun, Moon, ArrowRight, CheckCircle2, Sparkles, Layers } from 'lucide-react';
+import { Clock, Sun, Moon, ArrowRight, CheckCircle2, Sparkles, Layers, Copy, Check } from 'lucide-react';
 import { AegisMonogram } from './AegisMonogram';
 import { motion } from 'motion/react';
 
@@ -20,7 +20,51 @@ export const RoutinesView: React.FC<RoutinesViewProps> = ({
   onAddMultipleToCart
 }) => {
   const [profileType, setProfileType] = useState<'oily' | 'sensitive' | 'balanced'>('oily');
+  const [copiedType, setCopiedType] = useState<'am' | 'pm' | 'all' | null>(null);
   const starterKit = PRODUCTS.find((p) => p.id === 'aegis-starter-bundle') || PRODUCTS[0];
+
+  const copyRoutineText = (type: 'am' | 'pm' | 'all') => {
+    let text = '';
+    const step2AM = profileType === 'sensitive' ? 'AEGIS REPAIR' : 'AEGIS CLEAR SERUM';
+    const step2AMDesc = profileType === 'sensitive' 
+      ? 'Apply 1 pump of AEGIS REPAIR barrier serum to calm shaving irritation and rebuild lost lipids.'
+      : 'Apply 2-3 drops of 2% BHA + 5% Niacinamide across forehead and nose to control shine and keep pores clear.';
+    
+    const step2PM = profileType === 'sensitive' ? 'AEGIS RECOVER CREAM' : 'AEGIS CLEAR + HYDRA';
+    const step2PMDesc = profileType === 'sensitive'
+      ? 'Dime-sized amount of overnight recovery cream to accelerate barrier recovery from daily razor passes.'
+      : 'Apply 3 drops of BHA serum to clear pore canals, followed by 1 pump of AEGIS HYDRA to replenish hydration.';
+
+    if (type === 'am') {
+      text = `AEGIS MEN — MORNING PROTOCOL (AM) [~90 SECONDS]
+Skin Profile: ${profileType.toUpperCase()}
+• 01 / CLEANSE (30s): AEGIS WASH — Lather 1 pump with water. Maintains pH 5.5 barrier.
+• 02 / CORRECT (30s): ${step2AM} — ${step2AMDesc}
+• 03 / DEFEND (30s): AEGIS SHIELD SPF 50 — Apply 2 finger lengths. 100% invisible photoprotection.`;
+    } else if (type === 'pm') {
+      text = `AEGIS MEN — EVENING PROTOCOL (PM) [~60 SECONDS]
+Skin Profile: ${profileType.toUpperCase()}
+• 01 / PURIFY (30s): AEGIS WASH — Dissolves daytime particulate pollution, sunscreen, and oxidized oils.
+• 02 / TREAT & REBUILD (30s): ${step2PM} — ${step2PMDesc}`;
+    } else {
+      text = `AEGIS MEN — COMPLETE 3-MINUTE DAILY PROTOCOL
+Skin Profile: ${profileType.toUpperCase()}
+
+MORNING PROTOCOL (AM) [~90s]:
+• 01 / CLEANSE (30s): AEGIS WASH
+• 02 / CORRECT (30s): ${step2AM}
+• 03 / DEFEND (30s): AEGIS SHIELD SPF 50
+
+EVENING PROTOCOL (PM) [~60s]:
+• 01 / PURIFY (30s): AEGIS WASH
+• 02 / TREAT & REBUILD (30s): ${step2PM}`;
+    }
+
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedType(type);
+      setTimeout(() => setCopiedType(null), 2500);
+    });
+  };
 
   return (
     <div className="bg-[#F2EFE9] min-h-screen py-12 lg:py-20 text-left">
@@ -100,7 +144,27 @@ export const RoutinesView: React.FC<RoutinesViewProps> = ({
                   Morning Protocol (AM)
                 </h3>
               </div>
-              <span className="text-[11px] font-mono-spec text-[#5E645F]">~90 SECONDS</span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-[11px] font-mono-spec text-[#5E645F] hidden sm:inline">~90 SECONDS</span>
+                <button
+                  id="copy-am-routine-btn"
+                  onClick={() => copyRoutineText('am')}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono-spec rounded-[3px] border border-[#E2DDD5] bg-[#F2EFE9] hover:bg-[#FAF9F7] text-[#1A1C1B] hover:border-[#526442] hover:text-[#526442] transition-all cursor-pointer select-none"
+                  title="Copy Morning Protocol to clipboard"
+                >
+                  {copiedType === 'am' ? (
+                    <>
+                      <Check className="w-3 h-3 text-[#526442]" />
+                      <span className="text-[#526442] font-bold">COPIED</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3 h-3 text-[#5E645F]" />
+                      <span>COPY ROUTINE</span>
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
 
             <div className="space-y-4">
@@ -152,7 +216,27 @@ export const RoutinesView: React.FC<RoutinesViewProps> = ({
                   Evening Protocol (PM)
                 </h3>
               </div>
-              <span className="text-[11px] font-mono-spec text-[#5E645F]">~60 SECONDS</span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-[11px] font-mono-spec text-[#5E645F] hidden sm:inline">~60 SECONDS</span>
+                <button
+                  id="copy-pm-routine-btn"
+                  onClick={() => copyRoutineText('pm')}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono-spec rounded-[3px] border border-[#E2DDD5] bg-[#F2EFE9] hover:bg-[#FAF9F7] text-[#1A1C1B] hover:border-[#526442] hover:text-[#526442] transition-all cursor-pointer select-none"
+                  title="Copy Evening Protocol to clipboard"
+                >
+                  {copiedType === 'pm' ? (
+                    <>
+                      <Check className="w-3 h-3 text-[#526442]" />
+                      <span className="text-[#526442] font-bold">COPIED</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3 h-3 text-[#5E645F]" />
+                      <span>COPY ROUTINE</span>
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
 
             <div className="space-y-4">

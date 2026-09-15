@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentView }) => {
             <ul className="space-y-3 font-sans text-xs text-[#E2DDD5] font-light">
               <li>
                 <button onClick={() => { setCurrentView('shop'); window.scrollTo(0,0); }} className="hover:text-[#FAF9F7] transition-colors">
-                  Skin Concerns
+                  Shop Skincare
                 </button>
               </li>
               <li>

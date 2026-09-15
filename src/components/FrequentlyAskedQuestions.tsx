@@ -376,44 +376,6 @@ export const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> =
             })
           )}
         </div>
-
-        {/* Bottom Consultation Assistance Strip */}
-        <div className="p-6 sm:p-8 bg-[#F2EFE9] border border-[#E2DDD5] rounded-[3px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div className="space-y-1 max-w-xl">
-            <span className="text-[10px] font-mono-spec uppercase tracking-widest text-[#526442] font-bold block">
-              HAVE A SPECIFIC SKIN CONCERN OR QUESTION?
-            </span>
-            <h4 className="text-lg sm:text-xl font-serif-editorial text-[#1A1C1B]">
-              Need tailored advice for your skin type or shaving routine?
-            </h4>
-            <p className="text-xs text-[#5E645F] leading-relaxed">
-              Explore our full clinical treatises in the Journal, complete our 2-minute diagnostic skin quiz, or consult the interactive AEGIS Assistant.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
-            {setCurrentView && (
-              <button
-                id="faq-bottom-cta-quiz"
-                onClick={() => setCurrentView('quiz')}
-                className="px-5 py-2.5 bg-[#526442] hover:bg-[#394536] text-[#FAF9F7] rounded-[3px] text-xs font-mono-spec font-semibold uppercase tracking-wider inline-flex items-center gap-2 transition-colors shadow-xs"
-              >
-                <span>Diagnostic Quiz</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            )}
-            {setCurrentView && (
-              <button
-                id="faq-bottom-cta-journal"
-                onClick={() => setCurrentView('journal')}
-                className="px-4 py-2.5 bg-[#FAF9F7] hover:bg-[#F2EFE9] border border-[#E2DDD5] text-[#1A1C1B] rounded-[3px] text-xs font-mono-spec font-medium uppercase tracking-wider inline-flex items-center gap-2 transition-colors"
-              >
-                <BookOpen className="w-3.5 h-3.5 text-[#526442]" />
-                <span>The Journal</span>
-              </button>
-            )}
-          </div>
-        </div>
       </div>
     </section>
   );

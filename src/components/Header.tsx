@@ -39,7 +39,6 @@ export const Header: React.FC<HeaderProps> = ({
 
     const navLinks: { id: NavView | 'faq'; label: string }[] = [
     { id: 'shop', label: 'SHOP' },
-    { id: 'shop', label: 'CONCERNS' },
     { id: 'routines', label: 'ROUTINES' },
     { id: 'science', label: 'SCIENCE' },
     { id: 'journal', label: 'JOURNAL' },

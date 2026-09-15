@@ -12,13 +12,15 @@ interface RoutineQuizProps {
   onAddMultipleToCart: (products: Product[]) => void;
   onSelectProduct: (productId: string) => void;
   onShowToast: (msg: string) => void;
+  isEmbedded?: boolean;
 }
 
 export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
   onAddToCart,
   onAddMultipleToCart,
   onSelectProduct,
-  onShowToast
+  onShowToast,
+  isEmbedded = false
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>(() => {
@@ -86,7 +88,14 @@ export const RoutineQuiz: React.FC<RoutineQuizProps> = ({
   const progressPercent = Math.round(((currentStep + 1) / QUIZ_QUESTIONS.length) * 100);
 
   return (
-    <div className="bg-[#F2EFE9] min-h-screen py-12 lg:py-20 text-left">
+    <div
+      id={isEmbedded ? 'home-diagnostic-quiz' : undefined}
+      className={`${
+        isEmbedded
+          ? 'bg-[#FAF9F7] py-16 sm:py-24 border-b border-[#E2DDD5]'
+          : 'bg-[#F2EFE9] min-h-screen py-12 lg:py-20'
+      } text-left`}
+    >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 space-y-8">
         {/* Header Title */}
         <div className="text-center space-y-3">
